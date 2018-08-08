@@ -1,0 +1,167 @@
+
+@import url('https://fonts.googleapis.com/css?family=Raleway|Roboto+Mono');
+
+
+
+* {
+ margin: 0;
+ padding: 0;
+}
+
+header {
+ display: flex;
+ justify-content: space-between;
+ padding: 30px ;
+ background: linear-gradient(180deg, #00000093 , #00000000);
+}
+
+header ul {
+ display: flex;
+ list-style: none;
+}
+
+header li {
+ padding: 0 20px;
+ cursor: pointer;
+ text-transform: uppercase;
+ font-family: 'Roboto Mono', monospace;
+ font-weight: 700;
+ font-size: 18px;
+ color: #DEB841;
+}
+header li:hover {
+ color: rgb(235, 191, 59);
+}
+
+
+#stars {
+ background-color: rgba(225, 23, 23, 0) !important;
+}
+
+#orb {
+ background: linear-gradient(90deg, rgba(24, 6, 46, 0.741),rgba(13, 44, 84, 0.638)),
+ /* linear-gradient(180deg, white,red); */
+ linear-gradient(90deg, #183152,rgb(9, 45, 92));
+}
+canvas {
+ position: absolute;
+ top: 0;
+ left: 0;
+ z-index: -100;
+ /* background-color: #18062E; */
+
+}
+
+
+nav {
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+}
+
+.welcome {
+ width: fit-content;
+ height: 86vh;
+ display: flex;
+ align-items: center;
+ margin: 0 auto;
+ color: white;
+ text-align: center;
+ letter-spacing: 2px;
+}
+
+.background {
+ background-color: red;
+ height: 600px;
+}
+
+.welcome-message {
+ width: 100%;
+ 
+}
+
+.welcome h1 {
+ font-family: 'Roboto Mono', monospace;
+ font-size: 48px;
+ padding-bottom: 15px;
+}
+
+.welcome h2 {
+ font-family: 'Raleway', sans-serif;
+font-size: 20px;
+font-weight: 300;
+color: #ffffffc7;
+letter-spacing: 2px;
+}
+
+.welcome button {
+ padding: 20px;
+ margin-top: 20px;
+ letter-spacing: 3px;
+ text-transform: uppercase;
+ border: 1px solid #DEB841;
+ color: white;
+ background-color: #DEB841;
+ transition: all .45s ease;
+ cursor: pointer;
+}
+
+.welcome button:hover {
+ transform: scale(1.2);
+ transform: skew(-10deg);
+ border: 1px solid #fff;
+}
+
+.welcome button span:hover {
+ transform: skew(10deg) ;
+}
+
+
+.const-btns {
+ position: absolute;
+ display: flex;
+ flex-direction: column;
+ color: white;
+ right: 0;
+ top: 35%;
+}
+
+.star-style   {
+ background-color: rgba(255, 255, 255, 0.25);
+ box-shadow: 0px 0px 11px 8px rgba(255, 255, 255, 0.25);
+ position: relative;
+ cursor: pointer;
+ transition: all .45s ease;
+ transform: rotate(-20deg);
+ height: 70px;
+ width: 70px;
+ border-radius: 50%;
+ border: none;
+}
+
+.star-position{
+ margin: 25px;
+ line-height: 70px;
+}
+
+#star-btn-big:hover , #star-btn-or:hover , #star-btn-draw:hover {
+ background-color: rgba(222, 183, 65, 0.8);
+ box-shadow: 0px 0px 2px 11px rgba(222, 183, 65, 0.8);
+ transition-duration: .4s;
+ transform: rotate(0deg);
+}
+
+/* #big-dip-btn{
+ padding-top: 10px;
+ position: absolute;
+ top: 15%;
+ left: 10%;
+} */
+ 
+/* #little-dip {
+ background-color: #DEB841;
+ height: 100%;
+ width: 100%;
+} */
+
+
