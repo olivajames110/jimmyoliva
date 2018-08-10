@@ -170,21 +170,21 @@ line-height: 1.6em;
  display: flex;
  flex-direction: column;
  color: white;
- right: 20px;
- bottom: 20px;
+ right: 12px;
+ bottom: 12px;
  transition: all .55s ease;
 }
 
-/* .const-btns-container:hover #add-btn {
+.const-btns-container:hover #add-btn {
  position: absolute;
  right: 20px;
  bottom: 20px;
  transition: all .6s ease;
 
 }
- */
 
-/* .const-btns-container:hover #star-btn-draw {
+
+.const-btns-container:hover #star-btn-draw {
  position: absolute;
  right: 100px;
  bottom: 100px;
@@ -194,22 +194,22 @@ line-height: 1.6em;
 
 .const-btns-container:hover #star-btn-big {
  position: absolute;
- /* right: 115px;
- bottom: 5px; */
- /* transition-delay: .55;
+ right: 115px;
+ bottom: 5px;
+ transition-delay: .55;
   transition: all 1s ease;
-} */ 
+}
 
 
 
-/* .const-btns-container:hover #star-btn-or {
+.const-btns-container:hover #star-btn-or {
  position: absolute;
  right: 10px;
  bottom: 135px;
  transition-delay: 7s;
  transition: all 1.5s ease;
 }
- */
+
 
 
 
