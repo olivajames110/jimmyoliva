@@ -190,8 +190,8 @@ line-height: 1.6em;
  bottom: 12px;
  /* right: 100px;
  bottom: 100px; */
- transition-delay: .4s;
-  transition: all 1s ease;
+ /* transition-delay: .4s;
+  transition: all 1s ease; */
 }
 
 .const-btns-container #star-btn-big {
