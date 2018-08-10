@@ -29,8 +29,10 @@ window.addEventListener('mousemove', function(e){
 window.addEventListener('resize', function() {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
+  if (window.innerWidth > 400) {
+    init();
+  } 
 
-  init();
   
 })
 
