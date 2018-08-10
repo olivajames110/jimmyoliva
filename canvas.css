@@ -58,7 +58,7 @@ nav {
 
 .welcome {
  width: fit-content;
- height: 100vh;
+ height: 81vh;
  display: flex;
  align-items: center;
  margin: 0 auto;
@@ -68,14 +68,13 @@ nav {
 }
 
 .background {
- background-color: red;
- height: 600px;
+
 }
 
 .welcome-message {
  width: 100%;
  padding: 0 15px;
- margin-top: -15px;
+ margin-top: -45px;
 
  
 }
@@ -132,8 +131,8 @@ line-height: 1.6em;
 
 /* STAR BUTTONS */
 .star-style   {
- background-color: rgba(255, 255, 255, 0.25);
- box-shadow: 0px 0px 11px 8px rgba(255, 255, 255, 0.25);
+ background-color: rgba(255, 255, 255, 0.5);
+ box-shadow: 0px 0px 11px 8px rgba(255, 255, 255, 0.5);
  position: relative;
  cursor: pointer;
  transition: all .45s ease;
@@ -225,5 +224,5 @@ line-height: 1.6em;
  background-color: rgba(222, 183, 65, 0.8);
  box-shadow: 0px 0px 2px 11px rgba(222, 183, 65, 0.8);
  transition-duration: .4s;
- transform: rotate(0deg);
+
 }
