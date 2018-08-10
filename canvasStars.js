@@ -74,6 +74,8 @@ var bigDipBtn = document.getElementById("star-btn-big");
 bigDipBtn.addEventListener('click', function() {
   var ranWidth = Math.floor(Math.random() * (innerWidth - 400) + 400)
   var ranHeight = Math.floor(Math.random() * (innerHeight - 400) + 300)
+
+
   var bigDipStars = {
    s1: {
     x:ranWidth - 50,
