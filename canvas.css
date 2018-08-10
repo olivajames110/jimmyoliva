@@ -75,6 +75,7 @@ nav {
 .welcome-message {
  width: 100%;
  padding: 0 15px;
+ margin-top: -15px;
 
  
 }
@@ -95,7 +96,7 @@ line-height: 1.6em;
 }
 
 .welcome button {
- padding: 30px;
+ padding: 20px;
  margin-top: 20px;
  letter-spacing: 3px;
  text-transform: uppercase;
@@ -204,8 +205,8 @@ line-height: 1.6em;
 
 .const-btns-container:hover #star-btn-or {
  position: absolute;
- right: 10px;
- bottom: 135px;
+ right: 2px;
+ bottom: 115px;
  transition-delay: 7s;
  transition: all 1.5s ease;
 }

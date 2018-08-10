@@ -12,14 +12,11 @@ mobileMenuBtn.addEventListener("click" , function(){
   navClass.style.display = "none";
   navClassIsClosed = true;
  }
-
 })
 
-
-
-var starBtn = document.getElementById("const-btns");
-starBtn.addEventListener("click" , function() {
- var bigDipBtn = document.querySelector("#star-btn-big");
- bigDipBtn.style.right = "115p;"
- bigDipBtn.style.bottom = "5px;"
-})
+// var starBtn = document.getElementById("const-btns");
+// starBtn.addEventListener("click" , function() {
+//  var bigDipBtn = document.querySelector("#star-btn-big");
+//  bigDipBtn.style.right = "115px;"
+//  bigDipBtn.style.bottom = "5px;"
+// })
