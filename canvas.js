@@ -1,33 +1,3 @@
-// for (var i = 0; i < 100; i++) {
-//  var x = Math.random() * window.innerWidth;
-//  var y = Math.random() * window.innerHeight;
-//  var width = Math.random() * 150;
-//  var height = Math.random() * 150;
-//  var color = "rgb(" + Math.random() * 255 + ", " + Math.random() * 255 + ", " + Math.random() * 255 + ")";  
-//  s.beginPath();
-//  s.strokeStyle = color;
-//  s.arc(x , y , 60 , 0, Math.PI * 2, false)
-//  s.stroke();
-// //  console.log(color)
-// if (x + radius > innerWidth || x - radius < 0 ) {
-//  dx = -dx;
-// }
-// x += dx;
-
-// if (y + radius > innerHeight || y - radius < 0) {
-//  dy = -dy;
-// }
-// y += dy
-
-// var x = Math.random() * innerWidth;
-// var y = Math.random() * innerHeight;
-// var dx = (Math.random() - 0.5) * 8;
-// var dy = (Math.random() - 0.5) * 8;
-// var radius = 30;
-
-console.log(window.innerWidth)
-
-
 var canvas = document.getElementById('orb')
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
@@ -46,10 +16,6 @@ var colorArray = [
   '#BFBDC1',
   "#DEB841"
 ];
-
-
-
-
 
 
 window.addEventListener('mousemove', function(e){
@@ -120,7 +86,7 @@ var circleArray= [];
 function init(){
 
     if (window.innerWidth < 400) {
-        numOfCircles = 10;
+        numOfCircles = 70;
       } else if (window.innerWidth < 600){
         numOfCircles = 100;
       }

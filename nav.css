@@ -7,9 +7,14 @@
   width: 100%;
   display: flex;
   flex-direction: column;
+  padding: 15px;
   /* max-height: 50px; */
  }
  
+ h1 {
+  font-size: 36px !important;
+ }
+
  nav {
   /* position: absolute;
     top: 85px;
@@ -33,16 +38,16 @@
  logo img {
   width: 100px;
  }
+ #mobile-menu {
+  position: absolute;
+  top: 15px;
+  right: 50px;
+  color: white;
+  display: inherit !important;
+ }
 }
 
 #mobile {
  position: relative;
 }
 
-#mobile-menu {
- width: 30px;
- height: 30px;
- position: absolute;
- top: 15px;
- right: 50px;
-}

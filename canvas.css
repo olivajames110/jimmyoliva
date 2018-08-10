@@ -58,7 +58,7 @@ nav {
 
 .welcome {
  width: fit-content;
- height: 86vh;
+ height: 100vh;
  display: flex;
  align-items: center;
  margin: 0 auto;
@@ -74,6 +74,8 @@ nav {
 
 .welcome-message {
  width: 100%;
+ padding: 0 15px;
+
  
 }
 
@@ -89,10 +91,11 @@ font-size: 20px;
 font-weight: 300;
 color: #ffffffc7;
 letter-spacing: 2px;
+line-height: 1.6em;
 }
 
 .welcome button {
- padding: 20px;
+ padding: 30px;
  margin-top: 20px;
  letter-spacing: 3px;
  text-transform: uppercase;
@@ -129,7 +132,7 @@ letter-spacing: 2px;
  position: relative;
  cursor: pointer;
  transition: all .45s ease;
- transform: rotate(-20deg);
+ /* transform: rotate(-20deg); */
  height: 70px;
  width: 70px;
  border-radius: 50%;
@@ -148,17 +151,6 @@ letter-spacing: 2px;
  transform: rotate(0deg);
 }
 
-/* #big-dip-btn{
- padding-top: 10px;
- position: absolute;
- top: 15%;
- left: 10%;
-} */
- 
-/* #little-dip {
- background-color: #DEB841;
- height: 100%;
- width: 100%;
-} */
-
-
+#mobile-menu  {
+ display: none;
+}
