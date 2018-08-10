@@ -178,35 +178,41 @@ line-height: 1.6em;
 
 .const-btns-container:hover #add-btn {
  position: absolute;
- right: 20px;
- bottom: 20px;
+ right: 12px;
+ bottom: 12px;
  transition: all .6s ease;
 
 }
 
 
-.const-btns-container:hover #star-btn-draw {
+.const-btns-container #star-btn-draw {
  position: absolute;
- right: 100px;
- bottom: 100px;
+ right: 12px;
+ bottom: 12px;
+ /* right: 100px;
+ bottom: 100px; */
  transition-delay: .4s;
   transition: all 1s ease;
 }
 
-.const-btns-container:hover #star-btn-big {
+.const-btns-container #star-btn-big {
  position: absolute;
- right: 115px;
- bottom: 5px;
+ right: 12px;
+ bottom: 12px;
+ /* right: 115px;
+ bottom: 5px; */
  transition-delay: .55;
   transition: all 1s ease;
 }
 
 
 
-.const-btns-container:hover #star-btn-or {
+.const-btns-container #star-btn-or {
  position: absolute;
- right: 2px;
- bottom: 115px;
+ right: 12px;
+ bottom: 12px;
+ /* right: 2px;
+ bottom: 115px; */
  transition-delay: 7s;
  transition: all 1.5s ease;
 }
