@@ -1,5 +1,5 @@
 var mobileMenuBtn = document.getElementById("mobile-menu");
-var navClassIsClosed = true;
+var navClassIsClosed = false;
 
 mobileMenuBtn.addEventListener("click" , function(){
  var navClass = document.querySelector("nav ul");
