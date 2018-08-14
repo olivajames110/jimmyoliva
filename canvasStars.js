@@ -3,17 +3,11 @@ var starCanvas = document.getElementById('stars')
 starCanvas.width = window.innerWidth;
 starCanvas.height = window.innerHeight;
 var sc = starCanvas.getContext('2d');
-
-
 var sx = 150;
 var sy = 200;
 var sr = 30;
 var screenWidth = window.innerWidth;
 var screenHeight = window.innerHeight;
-
-
-
-
 
 //DRAWS CUSTOM CONSTELLATION
 var starSize = 8;
@@ -72,7 +66,7 @@ button.addEventListener('click' , function(e){
 // DRAWS BIG DIPPER
 var bigDipBtn = document.getElementById("star-btn-big");
 bigDipBtn.addEventListener('click', function() {
-  var ranWidth = Math.floor(Math.random() * (innerWidth - 400) + 400)
+  var ranWidth = Math.floor(Math.random() * (innerWidth - 400))
   var ranHeight = Math.floor(Math.random() * (innerHeight - 400) + 300)
   vons
 
@@ -139,7 +133,7 @@ bigDipBtn.addEventListener('click', function() {
 var orianBtn = document.getElementById("star-btn-or");
 orianBtn.addEventListener('click', function() {
   var ranWidth = Math.floor(Math.random() * (innerWidth - 400) + 400)
-  var ranHeight = Math.floor(Math.random() * (innerHeight - 400) + 300)
+  var ranHeight = Math.floor(Math.random() * (innerHeight - 400) + 150)
   var orianStars = {
    s1: {
     x:ranWidth - 50,

@@ -6,6 +6,7 @@
  <meta http-equiv="X-UA-Compatible" content="ie=edge">
  <link rel="stylesheet" type="text/css" href="canvas.css" />
  <link rel="stylesheet" type="text/css" href="nav.css" />
+ <link rel="stylesheet" type="text/css" href="land.css" />
  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
  <title>Canvas</title>
 </head>
@@ -50,14 +51,23 @@
           </a>
         </div>
   </div>
-
+  <canvas id="orb"></canvas>
+  <canvas id="stars"></canvas>
  </div>
- <canvas id="orb"></canvas>
- <canvas id="stars"></canvas>
+ <div class="land">
+    <div id="night-btn">
+        <a id="sun-moon">Turn Off The Lights</a>
+      </div>
+    <canvas id="land">
+
+    </canvas>
+ </div>
+
  
 </body>
 <script src="nav.js"></script>
 <script src="canvas.js"></script>
 <script src="LittleDip.js"></script>
 <script src="canvasStars.js"></script>
+<script src="land.js"></script>
 </html>

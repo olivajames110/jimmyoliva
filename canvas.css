@@ -38,9 +38,7 @@ header li:hover {
 }
 
 #orb {
- background: linear-gradient(90deg, rgba(24, 6, 46, 0.741),rgba(13, 44, 84, 0.638)),
- /* linear-gradient(180deg, white,red); */
- linear-gradient(90deg, #183152,rgb(9, 45, 92));
+ background: linear-gradient(90deg, rgba(24, 6, 46, 0.741),rgba(13, 44, 84, 0.638)), linear-gradient(90deg, #183152,rgb(9, 45, 92));
 }
 canvas {
  position: absolute;
@@ -67,9 +65,7 @@ nav {
  letter-spacing: 2px;
 }
 
-.background {
 
-}
 
 .welcome-message {
  width: 100%;

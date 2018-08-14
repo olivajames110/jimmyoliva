@@ -31,6 +31,7 @@ window.addEventListener('resize', function() {
   canvas.height = window.innerHeight;
   if (window.innerWidth > 400) {
     init();
+    drawLand();
   } 
 
   

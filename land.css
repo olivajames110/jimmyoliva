@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway|Roboto+Mono');
+
+
+.land {
+ position: relative;
+ transition: all ease-in 1s;
+}
+
+#night-btn {
+ position: absolute;
+ right: 55px;
+ top: 62px;
+ width: 175px;
+ height: 175px;
+ border-radius: 50%;
+ color: white;
+ cursor: pointer;
+ text-align: center;
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ font-weight: 700;
+ font-family: 'Roboto Mono', monospace;
+ font-size: 13px;
+ box-shadow: 1px 1px 20px 10px #dea641;
+}
+
+/* #night-btn::after {
+ content: '';
+ position: absolute;
+ background-color: brown;
+ width: 200px;
+ height: 200px;
+ border-radius: 50%;
+ z-index: -1;
+} */
+
+
+
