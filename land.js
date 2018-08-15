@@ -27,12 +27,40 @@ var headerEl = document.querySelector("header");
 var headerHeight = headerEl.offsetHeight;
 var welcomeCanvas = document.getElementById("welcome");
 var canvasHeight =  headerHeight + screenHeight;
+var landClass = document.getElementById("land-container");
 
 if (screenWidth > 600) {
  welcomeCanvas.style.marginTop = -headerHeight + "px";
 }
 welcomeCanvas.style.height = screenHeight + "px";
 
+
+landClass.style.height = screenHeight + "px";
+
+
+var upBtn = document.getElementById("up-btn");
+var downBtn = document.getElementById("down-btn")
+upBtn.addEventListener("click" , function(){
+ mobileNum += .05;
+ lc.clearRect(0,0, innerWidth,innerHeight);
+ drawLand();
+})
+
+downBtn.addEventListener("click" , function(){
+ mobileNum -= .05;
+ lc.clearRect(0,0, innerWidth,innerHeight);
+ drawLand();
+})
+
+
+
+function makeNight() {
+ landCanvas.style.background = nightColor;
+}
+
+function makeDay() {
+ landCanvas.style.background = skyColor;
+}
 
 
 var nightBtn = document.getElementById("night-btn");
@@ -55,15 +83,7 @@ nightBtn.addEventListener("click" , function() {
  }
 } )
 
-function makeNight() {
- landCanvas.style.background = nightColor;
-}
 
-function makeDay() {
- landCanvas.style.background = skyColor;
-}
-
-// SUN
 function drawSun() {
  if (screenWidth > 600) {
   lc.beginPath();
@@ -117,8 +137,7 @@ function drawMoon() {
  lc.fill();
 }
 
-
-// COLORS
+// Draws the entire landscape
 function drawLand() {
 var screenWidth = window.innerWidth;
 var screenHeight = window.innerHeight; 
@@ -134,6 +153,10 @@ var mountainLocation = screenHeight + grassLocation + grassHieght;
 
 
 
+
+
+drawSun();
+drawMoon();
 
 // CLOUDS
 lc.beginPath();
@@ -168,9 +191,10 @@ lc.bezierCurveTo(320,80,330,100,350,100);
 lc.fill();
 
 
-// MOUTAINS
 
-// var mobileNum = .6;
+
+
+// MOUTAINS
 // LEFT MOUTNAIN
 lc.beginPath();
 lc.moveTo((15 * mobileNum),mountainLocation )
@@ -180,21 +204,7 @@ lc.fillStyle = moutainColor ;
 lc.strokeStyle = moutainStrokeColor;
 lc.stroke();
 lc.fill();
-// lc.beginPath();
-// lc.moveTo((15 * mobileNum),mountainLocation )
-// lc.lineTo((150 * mobileNum) , (250 * mobileNum));
-// lc.lineTo((300 * mobileNum) , mountainLocation)
-// lc.fillStyle = moutainColor ;
-// lc.strokeStyle = moutainStrokeColor;
-// lc.stroke();
-// lc.fill();
 
-
-// var LeftMountain = {
-//  leftPoint = ,
-//  height = ,
-//  rightPoint 
-// }
 // LEFT MOUTAIN CAP
 lc.beginPath();
 lc.moveTo((150 * mobileNum) , (mountainLocation - 270 * mobileNum));
@@ -263,9 +273,8 @@ lc.beginPath();
 lc.fillStyle = dirtColor;
 lc.fillRect( 0 ,screenHeight, screenWidth, dirtHeight);
  
+drawSun();
 }
 
 
-
 drawLand();
-drawSun();
