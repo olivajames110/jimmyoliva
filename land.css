@@ -23,6 +23,7 @@
  font-family: 'Roboto Mono', monospace;
  font-size: 13px;
  box-shadow: 1px 1px 20px 10px #dea641;
+ transition-duration: .7s;
 }
 
 /* #night-btn::after {

@@ -10,8 +10,8 @@ var craterOutlineColor = "#656565";
 var moonOutlineColor = "1px 1px 20px 10px rgba(255,255,255.4)"
 var sunColor = "#DEB841";
 var sunOutlineColor = "1px 1px 20px 10px #dea641";
-
-
+ 
+var mobileNum = .5;
 
 // landCanvas.style.backgroundColor = "#48BAFF";
 landCanvas.style.background = skyColor;
@@ -22,6 +22,18 @@ window.addEventListener("resize", function() {
  landCanvas.height = window.innerHeight;
  drawLand();
 })
+
+var headerEl = document.querySelector("header");
+var headerHeight = headerEl.offsetHeight;
+var welcomeCanvas = document.getElementById("welcome");
+var canvasHeight =  headerHeight + screenHeight;
+
+if (screenWidth > 600) {
+ welcomeCanvas.style.marginTop = -headerHeight + "px";
+}
+welcomeCanvas.style.height = screenHeight + "px";
+
+
 
 var nightBtn = document.getElementById("night-btn");
 nightBtn.addEventListener("click" , function() {
@@ -53,10 +65,19 @@ function makeDay() {
 
 // SUN
 function drawSun() {
- lc.beginPath();
- lc.arc(screenWidth - 150, 150, 90, 0, Math.PI * 2, false);
- lc.fillStyle = "#DEB841";
- lc.fill();
+ if (screenWidth > 600) {
+  lc.beginPath();
+  lc.arc(screenWidth - 150, 150, 90, 0, Math.PI * 2, false);
+  lc.fillStyle = "#DEB841";
+  lc.fill();
+ } else {
+  lc.beginPath();
+  lc.arc(screenWidth - (150 * mobileNum), (150 * mobileNum), (90 * mobileNum), 0, Math.PI * 2, false);
+  lc.fillStyle = "#DEB841";
+  lc.fill();
+ }
+
+
 }
 
 // MOON
@@ -100,7 +121,8 @@ function drawMoon() {
 // COLORS
 function drawLand() {
 var screenWidth = window.innerWidth;
-var screenHeight = window.innerHeight; var grassGreenColor = "#78B52A";
+var screenHeight = window.innerHeight; 
+var grassGreenColor = "#78B52A";
 var sandColor = "#E2CBA2" ;
 var dirtColor = "#926429"; 
 var moutainColor = "#B8C1C8";
@@ -120,23 +142,59 @@ lc.arc(200, 130, 25, 0, Math.PI * 2, false);
 lc.arc(210, 150, 25, 0, Math.PI * 2, false);
 lc.arc(175, 140, 25, 0, Math.PI * 2, false);
 lc.arc(190, 150, 25, 0, Math.PI * 2, false);
-
 lc.fillStyle = "white";
+lc.fill();
+
+lc.beginPath();
+lc.fillStyle = "white";
+lc.moveTo(350 , 100);
+lc.quadraticCurveTo(375 ,150 , 400 , 100 );
+lc.moveTo(390 , 100);
+lc.quadraticCurveTo(400 ,150 , 450 , 100 );
+lc.moveTo(420 , 100);
+lc.quadraticCurveTo(450 ,160 , 500 , 100 );
+lc.moveTo(470 , 100);
+lc.quadraticCurveTo(500,165 , 535 , 100 );
+lc.moveTo(490 , 120);
+lc.quadraticCurveTo(575,120 , 535 , 70 );
+lc.quadraticCurveTo(500,50 , 500 , 70 );
+lc.quadraticCurveTo(470,30 , 450 , 70 );
+
+lc.quadraticCurveTo(420,35 , 400 , 70 );
+lc.quadraticCurveTo(365,20 , 350 , 70 );
+lc.bezierCurveTo(320,80,330,100,350,100);
+
+// lc.quadraticCurveTo(300, 90 , 350 , 100 );
 lc.fill();
 
 
 // MOUTAINS
-var mobileNum = 1;
+
+// var mobileNum = .6;
 // LEFT MOUTNAIN
 lc.beginPath();
 lc.moveTo((15 * mobileNum),mountainLocation )
-lc.lineTo((150 * mobileNum) , (250 * mobileNum));
+lc.lineTo((150 * mobileNum) , (mountainLocation) - (270 * mobileNum));
 lc.lineTo((300 * mobileNum) , mountainLocation)
 lc.fillStyle = moutainColor ;
 lc.strokeStyle = moutainStrokeColor;
 lc.stroke();
 lc.fill();
+// lc.beginPath();
+// lc.moveTo((15 * mobileNum),mountainLocation )
+// lc.lineTo((150 * mobileNum) , (250 * mobileNum));
+// lc.lineTo((300 * mobileNum) , mountainLocation)
+// lc.fillStyle = moutainColor ;
+// lc.strokeStyle = moutainStrokeColor;
+// lc.stroke();
+// lc.fill();
 
+
+// var LeftMountain = {
+//  leftPoint = ,
+//  height = ,
+//  rightPoint 
+// }
 // LEFT MOUTAIN CAP
 lc.beginPath();
 lc.moveTo((150 * mobileNum) , (mountainLocation - 270 * mobileNum));
@@ -153,7 +211,7 @@ lc.fill();
 // MIDDLE MOUTAIN
 lc.beginPath();
 lc.moveTo((400 * mobileNum), mountainLocation )
-lc.lineTo((650 * mobileNum) , (150 * mobileNum));
+lc.lineTo((650 * mobileNum) , (mountainLocation) - (370 * mobileNum));
 lc.lineTo((900 * mobileNum) , mountainLocation)
 lc.fillStyle = moutainColor ;
 lc.strokeStyle = moutainStrokeColor;

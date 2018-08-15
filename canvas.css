@@ -54,9 +54,9 @@ nav {
  justify-content: center;
 }
 
-.welcome {
+#welcome {
  width: fit-content;
- height: 81vh;
+ /* height: 81vh; */
  display: flex;
  align-items: center;
  margin: 0 auto;
@@ -67,7 +67,7 @@ nav {
 
 
 
-.welcome-message {
+#welcome-message {
  width: 100%;
  padding: 0 15px;
  margin-top: -45px;
@@ -75,13 +75,13 @@ nav {
  
 }
 
-.welcome h1 {
+#welcome h1 {
  font-family: 'Roboto Mono', monospace;
  font-size: 48px;
  padding-bottom: 15px;
 }
 
-.welcome h2 {
+#welcome h2 {
  font-family: 'Raleway', sans-serif;
 font-size: 20px;
 font-weight: 300;
@@ -90,7 +90,7 @@ letter-spacing: 2px;
 line-height: 1.6em;
 }
 
-.welcome button {
+#welcome button {
  padding: 20px;
  margin-top: 20px;
  letter-spacing: 3px;
@@ -102,13 +102,13 @@ line-height: 1.6em;
  cursor: pointer;
 }
 
-.welcome button:hover {
+#welcome button:hover {
  transform: scale(1.2);
  transform: skew(-10deg);
  border: 1px solid #fff;
 }
 
-.welcome button span:hover {
+#welcome button span:hover {
  transform: skew(10deg) ;
 }
 
