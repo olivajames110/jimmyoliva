@@ -7,6 +7,8 @@
  <link rel="stylesheet" type="text/css" href="canvas.css" />
  <link rel="stylesheet" type="text/css" href="nav.css" />
  <link rel="stylesheet" type="text/css" href="land.css" />
+ <link rel="stylesheet" type="text/css" href="sea.css" />
+
  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
  <title>Canvas</title>
 </head>
@@ -56,15 +58,16 @@
  </div>
  <div id="land-container" class="land">
     <div id="up-down-btns">
-        <a  id="up-btn" class="up-down-btn-style"><span>+</span>Mountains</a>
-        <a  id="down-btn" class="up-down-btn-style"><span>-</span>Mountains</a>
+      <a  id="down-btn" class="up-down-btn-style"><span>-</span>Mountains</a>
+      <a  id="up-btn" class="up-down-btn-style"><span>+</span>Mountains</a>
       </div>
     <div id="night-btn">
-        <a id="sun-moon">Turn Off The Lights</a>
-      </div>
-    <canvas id="land" class="land-day">
-
-    </canvas>
+      <a id="sun-moon">Turn Off The Lights</a>
+    </div>
+    <canvas id="land" class="land-day"></canvas>
+ </div>
+ <div id="sea-container">
+   <canvas id="sea-canvas"></canvas>
  </div>
 
  
@@ -74,4 +77,5 @@
 <script src="LittleDip.js"></script>
 <script src="canvasStars.js"></script>
 <script src="land.js"></script>
+<script src="sea.js"></script>
 </html>

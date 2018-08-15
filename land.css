@@ -40,10 +40,10 @@
 
 #up-down-btns {
  position: absolute;
- bottom: 40px;
- right: 100px;
+ top: 260px;
+ right: 50px;
  display: flex;
- flex-direction: column;
+ flex-direction: row;
 
 }
 
@@ -61,7 +61,7 @@
  display: flex;
  flex-direction: column;
  justify-content: center;
- margin: 5px 0;
+ margin: 0 5px;
 }
 
 .up-down-btn-style:hover {

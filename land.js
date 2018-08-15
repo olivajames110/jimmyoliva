@@ -114,6 +114,10 @@ function drawSun() {
  }
 }
 
+
+
+
+
 // Draws the moon
 function drawMoon() {
  lc.beginPath();
@@ -157,7 +161,7 @@ var screenWidth = window.innerWidth;
 var screenHeight = window.innerHeight; 
 var grassGreenColor = "#78B52A";
 var sandColor = "#E2CBA2" ;
-var dirtColor = "#926429"; 
+var dirtColor = "#DDC5A3"; 
 var moutainColor = "#B8C1C8";
 var moutainStrokeColor = "rgba(255,255,255, .9)";
 var dirtHeight = -30;
@@ -257,24 +261,66 @@ var mountainLocation = screenHeight + grassLocation + grassHieght;
  lc.fillRect( 0 ,screenHeight + grassLocation, screenWidth, grassHieght);
 
 
- // Draws river
- lc.beginPath();
- lc.fillStyle = "#0F5E9C";
- lc.moveTo(330 , mountainLocation);
- lc.lineTo(350 , mountainLocation);
- lc.quadraticCurveTo(370 , mountainLocation + 70 , 315 , mountainLocation + 100 );
- lc.quadraticCurveTo(270 , mountainLocation + 120 , 250 , screenHeight);
- lc.lineTo(150 , screenHeight);
- lc.quadraticCurveTo(180 , mountainLocation + 120 , 270 , mountainLocation + 80);
- lc.quadraticCurveTo(320 , mountainLocation + 50 , 330 , mountainLocation);
- lc.fill();
+ 
+ // lc.fill();
+
+ // lc.lineTo(350 , mountainLocation);
+ // lc.quadraticCurveTo(330 , mountainLocation + 20 , 315 , mountainLocation + 80 );
+ // lc.quadraticCurveTo(200 , mountainLocation + 150 , 250 , screenHeight);
+ // lc.lineTo(150 , screenHeight);
+ // lc.quadraticCurveTo(180 , mountainLocation + 120 , 270 , mountainLocation + 80);
+ // lc.quadraticCurveTo(300 , mountainLocation + 50 , 330 , mountainLocation);
+ // lc.fill();
 
 
  // draws dirt
  lc.beginPath();
  lc.fillStyle = dirtColor;
  lc.fillRect( 0 ,screenHeight, screenWidth, dirtHeight);
+
+ // Draws river
+ lc.beginPath();
+ lc.fillStyle = "#0F5E9C";
+ lc.moveTo(330 , mountainLocation);
+ lc.lineTo(350 , mountainLocation);
+ lc.quadraticCurveTo(380 , mountainLocation + 20 , 300 , mountainLocation + 80 );
+ lc.quadraticCurveTo(230 , mountainLocation + 120 , 300 , screenHeight );
+ lc.lineTo(235 , screenHeight );
+ lc.quadraticCurveTo(230 , mountainLocation + 120 , 280 , screenHeight - 140 );
+ lc.quadraticCurveTo(360 , mountainLocation + 20 , 330 , mountainLocation );
+ lc.stroke();
+ lc.fill();
   
+// Draws Sand
+ lc.beginPath();
+ lc.fillStyle = "#DDC5A3";
+ lc.moveTo(screenWidth - 300 , screenHeight)
+ lc.quadraticCurveTo(screenWidth - 200  , mountainLocation + 150 , screenWidth - 300 , screenHeight - 95);
+ lc.quadraticCurveTo(screenWidth - 420 , mountainLocation + 65 , screenWidth - 158 , screenHeight - 155);
+ lc.quadraticCurveTo(screenWidth - 10 , mountainLocation + 60 , screenWidth - 60 , screenHeight - 95);
+ lc.quadraticCurveTo(screenWidth - 105 , mountainLocation + 170 , screenWidth - 15 , screenHeight);
+
+ lc.fill();
+
+ // Draws bay
+ lc.beginPath();
+ lc.fillStyle = "#48b9fe";
+ lc.moveTo(screenWidth - 300 , screenHeight)
+ lc.quadraticCurveTo(screenWidth - 140  , mountainLocation + 150 , screenWidth - 300 , screenHeight - 100);
+ lc.quadraticCurveTo(screenWidth - 400 , mountainLocation + 70 , screenWidth - 150 , screenHeight - 150);
+ lc.quadraticCurveTo(screenWidth - 10 , mountainLocation + 70 , screenWidth - 80 , screenHeight - 80);
+ lc.quadraticCurveTo(screenWidth - 110 , mountainLocation + 170 , screenWidth - 20 , screenHeight);
+ lc.stroke();
+ lc.fill();
+
+ // Draws building
+ lc.beginPath();
+ lc.fillStyle = "#A5A5A5";
+ lc.strokeStyle = "black"
+ lc.fillRect(screenWidth/2, mountainLocation + 80 , 100, -250)
+ lc.stroke();
+ lc.fill();
+
  drawSun();
 }
 
