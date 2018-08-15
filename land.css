@@ -1,14 +1,26 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway|Roboto+Mono');
 
 
+
+
 .land {
  position: relative;
 }
 
-#land {
- transition-duration: 4s !important;
+.land-day {
+	background-position: 100% 100%;
 }
 
+.land-night{
+	background-position: 0 0;
+}
+
+
+#land {
+	background-image:linear-gradient(to bottom,#16133a, #48BAFF);
+	background-size: 300% 300%;
+	transition: 2s ease;
+}
 
 #night-btn {
  position: absolute;
