@@ -3,7 +3,7 @@ landCanvas.width = window.innerWidth;
 landCanvas.height = window.innerHeight;
 var lc = landCanvas.getContext('2d');
 var skyColor = "#48BAFF";
-var nightColor = "linear-gradient(90deg, #16133a,#363D59";
+var nightColor = "linear-gradient(to right, #16133a,#363D59";
 var moonColor = "#D7D7D7";
 var craterColor = "#A3A3A3";
 var craterOutlineColor = "#656565";
@@ -13,8 +13,6 @@ var sunOutlineColor = "1px 1px 20px 10px #dea641";
  
 var mobileNum = .5;
 
-// landCanvas.style.backgroundColor = "#48BAFF";
-landCanvas.style.background = skyColor;
 var isDay = true;
 
 window.addEventListener("resize", function() {
@@ -55,11 +53,11 @@ downBtn.addEventListener("click" , function(){
 
 
 function makeNight() {
- landCanvas.style.background = nightColor;
+ landCanvas.className = "land-night";
 }
 
 function makeDay() {
- landCanvas.style.background = skyColor;
+  landCanvas.className = "land-day";
 }
 
 
