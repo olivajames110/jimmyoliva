@@ -1,4 +1,55 @@
 #sea-canvas {
  position: relative;
  background-image:linear-gradient(to top,#16133a, #48BAFF);
+ margin-top: -1px;
+}
+
+#boat-dock {
+ position: relative;
+ z-index: 100;
+}
+
+#sea-container  {
+ position: absolute;
+ z-index: 1000;
+}
+
+#pier {
+ position: absolute;
+ top: -40px;
+ left: 50px;
+}
+
+#boat {
+ position: absolute;
+ top: -25px;
+ left: 200px;
+ transition: 3.5s ease;
+}
+
+#boat-btn {
+ position: absolute;
+ top: -60px;
+ left: 50px;
+ font-family: 'Roboto Mono', monospace;
+ font-weight: 700;
+ font-size: 14px;
+ color: white;
+ cursor: pointer;
+}
+
+#fish {
+ position: absolute;
+ bottom: 10%;
+ left: 20%;
+}
+
+@media screen and (max-width: 600px) {
+ #boat {
+  position: absolute;
+  top: -6%;
+  left: 36%;
+  transition: 3.5s ease;
+ }
+ 
 }

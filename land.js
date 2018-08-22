@@ -13,6 +13,7 @@ var moonOutlineColor = "1px 1px 20px 10px rgba(255,255,255.4)"
 var sunColor = "#DEB841";
 var sunOutlineColor = "1px 1px 20px 10px #dea641";
 var mobileNum = .5;
+var mobileNumSun = mobileNum;
 var isDay = true;
 
 // Sets the default background color for the canvas
@@ -108,7 +109,7 @@ function drawSun() {
   lc.fill();
  } else {
   lc.beginPath();
-  lc.arc(screenWidth - (150 * mobileNum), (150 * mobileNum), (90 * mobileNum), 0, Math.PI * 2, false);
+  lc.arc(screenWidth - (150 * mobileNumSun), (150 * mobileNumSun), (90 * mobileNumSun), 0, Math.PI * 2, false);
   lc.fillStyle = "#DEB841";
   lc.fill();
  }
@@ -159,7 +160,7 @@ function drawMoon() {
 function drawLand() {
 var screenWidth = window.innerWidth;
 var screenHeight = window.innerHeight; 
-var grassGreenColor = "#78B52A";
+var grassGreenColor = "#88AE57";
 var sandColor = "#E2CBA2" ;
 var dirtColor = "#DDC5A3"; 
 var moutainColor = "#B8C1C8";
@@ -228,9 +229,10 @@ var mountainLocation = screenHeight + grassLocation + grassHieght;
 
 
  // Draws middle mountain
+ var peak = (370 * mobileNum)
  lc.beginPath();
  lc.moveTo((400 * mobileNum), mountainLocation )
- lc.lineTo((650 * mobileNum) , (mountainLocation) - (370 * mobileNum));
+ lc.lineTo((650 * mobileNum) , (mountainLocation) - peak);
  lc.lineTo((900 * mobileNum) , mountainLocation)
  lc.fillStyle = moutainColor ;
  lc.strokeStyle = moutainStrokeColor;
@@ -239,6 +241,7 @@ var mountainLocation = screenHeight + grassLocation + grassHieght;
 
 
  // Draws middle mountain cap
+
  lc.beginPath();
  lc.moveTo((650 * mobileNum) , (mountainLocation - 370 * mobileNum));
  lc.lineTo((730 * mobileNum) , (mountainLocation - 250 * mobileNum));
@@ -247,7 +250,7 @@ var mountainLocation = screenHeight + grassLocation + grassHieght;
  lc.lineTo((675 * mobileNum) , (mountainLocation - 220 * mobileNum));
  lc.lineTo((660 * mobileNum) , (mountainLocation - 215 * mobileNum));
  lc.lineTo((655 * mobileNum) , (mountainLocation - 215 * mobileNum));
- lc.lineTo((580 * mobileNum) , (mountainLocation - 250 * mobileNum));
+ lc.lineTo((565 * mobileNum) , (mountainLocation - 240 * mobileNum));
  lc.lineTo((590 * mobileNum) , (mountainLocation - 280 * mobileNum));
  lc.fillStyle = "white" ;
  lc.strokeStyle = moutainStrokeColor;
@@ -278,24 +281,13 @@ var mountainLocation = screenHeight + grassLocation + grassHieght;
  lc.fillStyle = dirtColor;
  lc.fillRect( 0 ,screenHeight, screenWidth, dirtHeight);
 
- // Draws river
- lc.beginPath();
- lc.fillStyle = "#0F5E9C";
- lc.moveTo(330 , mountainLocation);
- lc.lineTo(350 , mountainLocation);
- lc.quadraticCurveTo(380 , mountainLocation + 20 , 300 , mountainLocation + 80 );
- lc.quadraticCurveTo(230 , mountainLocation + 120 , 300 , screenHeight );
- lc.lineTo(235 , screenHeight );
- lc.quadraticCurveTo(230 , mountainLocation + 120 , 280 , screenHeight - 140 );
- lc.quadraticCurveTo(360 , mountainLocation + 20 , 330 , mountainLocation );
- lc.stroke();
- lc.fill();
+
   
 // Draws Sand
  lc.beginPath();
  lc.fillStyle = "#DDC5A3";
  lc.moveTo(screenWidth - 300 , screenHeight)
- lc.quadraticCurveTo(screenWidth - 200  , mountainLocation + 150 , screenWidth - 300 , screenHeight - 95);
+ lc.quadraticCurveTo(screenWidth - 210  , mountainLocation + 150 , screenWidth - 300 , screenHeight - 95);
  lc.quadraticCurveTo(screenWidth - 420 , mountainLocation + 65 , screenWidth - 158 , screenHeight - 155);
  lc.quadraticCurveTo(screenWidth - 10 , mountainLocation + 60 , screenWidth - 60 , screenHeight - 95);
  lc.quadraticCurveTo(screenWidth - 105 , mountainLocation + 170 , screenWidth - 15 , screenHeight);
@@ -306,21 +298,94 @@ var mountainLocation = screenHeight + grassLocation + grassHieght;
  lc.beginPath();
  lc.fillStyle = "#48b9fe";
  lc.moveTo(screenWidth - 300 , screenHeight)
- lc.quadraticCurveTo(screenWidth - 140  , mountainLocation + 150 , screenWidth - 300 , screenHeight - 100);
+ lc.quadraticCurveTo(screenWidth - 140  , mountainLocation + 200 , screenWidth - 300 , screenHeight - 100);
  lc.quadraticCurveTo(screenWidth - 400 , mountainLocation + 70 , screenWidth - 150 , screenHeight - 150);
  lc.quadraticCurveTo(screenWidth - 10 , mountainLocation + 70 , screenWidth - 80 , screenHeight - 80);
- lc.quadraticCurveTo(screenWidth - 110 , mountainLocation + 170 , screenWidth - 20 , screenHeight);
+ lc.quadraticCurveTo(screenWidth - 180 , mountainLocation + 170 , screenWidth - 20 , screenHeight);
  lc.stroke();
  lc.fill();
 
- // Draws building
+  // Draws river
+  lc.beginPath();
+  lc.fillStyle = "#48b9fe";
+  lc.moveTo(330 , mountainLocation);
+  lc.lineTo(350 , mountainLocation);
+  lc.quadraticCurveTo(380 , mountainLocation + 20 , 300 , mountainLocation + 80 );
+  lc.quadraticCurveTo(230 , mountainLocation + 120 , 300 , screenHeight );
+  lc.lineTo(235 , screenHeight );
+  lc.quadraticCurveTo(230 , mountainLocation + 120 , 280 , screenHeight - 140 );
+  lc.quadraticCurveTo(360 , mountainLocation + 20 , 330 , mountainLocation );
+  lc.fill();
+
+
+
+ function drawBuilding() {
+ var buildingX = screenWidth/2;
+ var buildingY = mountainLocation + 45;
  lc.beginPath();
  lc.fillStyle = "#A5A5A5";
- lc.strokeStyle = "black"
- lc.fillRect(screenWidth/2, mountainLocation + 80 , 100, -250)
+ lc.strokeStyle = "black";
+ lc.fillRect(buildingX, buildingY , 100, -260);
+ drawWindow(10, 230);
+ drawWindow(40, 230);
+ drawWindow(70, 230);
+ drawWindow(10, 200);
+ drawWindow(40, 200);
+ drawWindow(70, 200);
+ drawWindow(10, 170);
+ drawWindow(40, 170);
+ drawWindow(70, 170);
+ drawWindow(10, 140);
+ drawWindow(40, 140);
+ drawWindow(70, 140);
+ drawWindow(10, 110);
+ drawWindow(40, 110);
+ drawWindow(70, 110);
+ drawWindow(10, 80);
+ drawWindow(40, 80);
+ drawWindow(70, 80);
+ drawWindow(10, 50);
+ drawWindow(40, 50);
+ drawWindow(70, 50);
+ lc.beginPath();
+ lc.fillStyle = "black";
+ lc.strokeStyle = "black";
+ lc.fillRect(buildingX + 44, buildingY - 25, 12, 25)
  lc.stroke();
  lc.fill();
+ }
 
+ function drawWindow(x,y) {
+  this.x = x;
+  this.y = y;
+  var wx = screenWidth/2 + x;
+  var wy = (mountainLocation + 45) - y;
+  var windowColorDay = "#F5EDE2";
+  var windowColorNight = "#DEB841";;
+  var wSize = 20;
+  var wMid = wx + (wSize/2);
+  lc.beginPath();
+  if (isDay = true) {
+   lc.fillStyle = windowColorDay;
+  } else {
+   lc.fillStyle = windowColorNight;
+  }
+  lc.strokeStyle = "black";
+  lc.fillRect(wx,  wy, wSize, wSize)
+  lc.stroke();
+  lc.fill();
+  //Window frames
+  lc.beginPath();
+  lc.moveTo(wMid, wy);
+  lc.lineTo(wMid, wy + (wSize))
+  lc.moveTo(wMid + (wSize/2), wy + (wSize/2));
+  lc.lineTo(wMid - (wSize/2), wy + (wSize/2))
+  lc.stroke();
+  
+  
+ }
+
+ drawBuilding();
  drawSun();
 }
 

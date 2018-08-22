@@ -9,6 +9,7 @@
  <link rel="stylesheet" type="text/css" href="land.css" />
  <link rel="stylesheet" type="text/css" href="sea.css" />
 
+
  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
  <title>Canvas</title>
 </head>
@@ -23,14 +24,15 @@
     </a>
   </div>
   <nav>
-  <ul>
-    <li>Home</li>
-    <li>About</li>
-    <li>Work</li>
-    <li>Contact</li>
-  </ul>
+    <ul>
+      <li>Home</li>
+      <li>About</li>
+      <li>Work</li>
+      <li>Contact</li>
+    </ul>
   </nav>
  </header>
+ <canvas id="rocket-canvas"></canvas>
  <div id="welcome">
    <div class="welcome-message"> 
     <h1>Hello, My Name Is Jimmy</h1>
@@ -67,10 +69,18 @@
     <canvas id="land" class="land-day"></canvas>
  </div>
  <div id="sea-container">
+   <div>
+     <a id="boat-dock">
+       <a id="boat-btn">LET'S GO FISHING</a> 
+       <img id="pier" src = "https://i.imgur.com/kQ0OmWX.png" width="100px" />
+       <img id="boat" src = "https://carwad.net/sites/default/files/styles/225x120/public/cartoon-boat-104446-4372979.png?itok=CQNL9HUR" width="120px" />
+     </a>
+     <img  id="fish" src = "http://www.pngonly.com/wp-content/uploads/2017/06/Fish-Clipart-PNG-Image-03.png" width="50px"/>
+   </div>
    <canvas id="sea-canvas"></canvas>
  </div>
 
- 
+
 </body>
 <script src="nav.js"></script>
 <script src="canvas.js"></script>
@@ -78,4 +88,5 @@
 <script src="canvasStars.js"></script>
 <script src="land.js"></script>
 <script src="sea.js"></script>
+
 </html>
