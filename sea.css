@@ -76,7 +76,9 @@
  animation-fill-mode: forwards;
 }
 
-
+#display-none {
+  display: none !important;
+}
 
 
 @keyframes bounceMin {
