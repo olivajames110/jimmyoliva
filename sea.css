@@ -56,6 +56,7 @@
  position: absolute;
  bottom: 10%;
  left: 20%;
+ animation: fish 12.2s infinite ;
 }
 
 #boat-cont {
@@ -72,8 +73,7 @@
  font-weight: 700;
  font-size: 14px;
  color: white;
- animation: bounceMin 1.2s;
- animation-direction: alternate;
+ animation: bounceMin 1.2s infinite;
  animation-fill-mode: forwards;
 }
 
@@ -84,8 +84,20 @@
  65% {transform: translate(0 ,0px);}
  75% {transform: translate(0 ,-5px);}
  90% {transform: translate(0 ,0px);}
- 100% {   transform: rotate(-15deg);}
+ 100% {transform: rotate(-15deg);}
+}
 
+@keyframes fish {
+  0% {transform: translate(0 ,0);} 
+  10% {transform: translate(10px , 5px);} 
+  20% {transform: translate(20px , -5px);} 
+  30% {transform: translate(30px , 5px);} 
+  40% {transform: translate(40px , -5px);}
+  50% {transform: translate(40px , -5px);}
+  60% {transform: translate(30px , 5px);} 
+  70% {transform: translate(20px , -5px);} 
+  80% {transform: translate(10px , 5px);}
+  100% {transform: translate(0 ,0);} 
 }
 
 
