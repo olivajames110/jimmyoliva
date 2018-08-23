@@ -41,10 +41,51 @@
  animation-iteration-count: infinite;
 }
 
+#boat-btn {
+ position: absolute;
+ top: -60px;
+ left: 50px;
+ font-family: 'Roboto Mono', monospace;
+ font-weight: 700;
+ font-size: 14px;
+ color: white;
+
+}
+
 #fish {
  position: absolute;
  bottom: 10%;
  left: 20%;
+}
+
+#boat-cont {
+ position: relative;
+ 
+}
+
+.boat-caption {
+ position: absolute;
+ top: 185px;
+ left: 190px;
+
+ font-family: 'Roboto Mono', monospace;
+ font-weight: 700;
+ font-size: 14px;
+ color: white;
+ animation: bounceMin 1.2s;
+ animation-direction: alternate;
+ animation-fill-mode: forwards;
+}
+
+
+@keyframes bounceMin {
+ 0% {transform: translate(0 ,0);}
+ 50% {transform: translate(0 ,-5px);}
+ 65% {transform: translate(0 ,0px);}
+ 75% {transform: translate(0 ,-5px);}
+ 90% {transform: translate(0 ,0px);}
+ 100% {   transform: rotate(-15deg);}
+
 }
 
 

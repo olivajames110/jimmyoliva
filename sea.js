@@ -24,6 +24,14 @@ var bP = {
  y: -25,
 }
 
+// var boatCont = document.getElementById("boat-cont")
+// var captionText = document.createTextNode("sd");
+// var captionDiv = document.createElement('div');
+
+// var caption = captionDiv.appendChild(captionText);
+
+
+
 window.addEventListener("mousemove" , function() {
  console.log("x: " + event.clientX )
 })
@@ -42,6 +50,8 @@ boatBtn.addEventListener("click" , function() {
   bP.x = 220;
   bP.y = 250;
   inDock = false;
+  boatBtn.innerHTML = "RETURN FROM FISHING";
+
  } else {
   boat.style.top = "-25px";
   boat.style.left = "200px";
@@ -49,6 +59,7 @@ boatBtn.addEventListener("click" , function() {
   bP.y = -25;
   cc.clearRect(0,0,screenWidth, screenHeight)
   inDock = true;
+  boatBtn.innerHTML = "LET'S GO FISHING";
  }
 })
 
