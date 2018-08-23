@@ -24,11 +24,11 @@ var bP = {
  y: -25,
 }
 
-// var boatCont = document.getElementById("boat-cont")
-// var captionText = document.createTextNode("sd");
-// var captionDiv = document.createElement('div');
-
-// var caption = captionDiv.appendChild(captionText);
+var boatCont = document.getElementById("boat-cont")
+var captionText = document.createTextNode("Press boat to cast rod");
+var captionDiv = document.createElement('div');
+captionDiv.appendChild(captionText);
+captionDiv.className = "boat-caption";
 
 
 
@@ -50,6 +50,9 @@ boatBtn.addEventListener("click" , function() {
   bP.x = 220;
   bP.y = 250;
   inDock = false;
+  setTimeout(function() {
+   boatCont.appendChild(captionDiv);
+  } , 3500)
   boatBtn.innerHTML = "RETURN FROM FISHING";
 
  } else {
