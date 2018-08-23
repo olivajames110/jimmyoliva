@@ -36,6 +36,9 @@
  font-size: 14px;
  color: white;
  cursor: pointer;
+ animation: bounce .7s;
+ animation-direction: alternate;
+ animation-iteration-count: infinite;
 }
 
 #fish {
@@ -44,12 +47,21 @@
  left: 20%;
 }
 
+
+@keyframes bounce {
+ 0% {transform: translate(0 ,0);}
+ 42% {transform: translate(0 ,-3px);}
+ 38% {transform: translate(0 ,-5px);}
+ 100% {transform: translate(0 ,0px);}
+}
+
+/* 
 @media screen and (max-width: 600px) {
  #boat {
   position: absolute;
-  top: -6%;
-  left: 36%;
+  top: -60px;
+  left: 150px;
   transition: 3.5s ease;
  }
- 
+  */
 }

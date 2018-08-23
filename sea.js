@@ -11,13 +11,18 @@ var imgWidth = 120;
 
 let fishX = 0;
 let fishY = 0;
-let boatX = 200;
-let boatY = 250;
-
-// var fishLineX = (((boatX / 100) + .07) * (screenWidth)) + imgWidth;
-// var fishLineY = (((boatX / 100) - .07) * (screenWidth)) + imgWidth;
 
 
+
+var BoatObj = {
+ boatX: 200,
+ boatY: 250,
+}
+
+var bP = {
+ x: 200,
+ y: -25,
+}
 
 window.addEventListener("mousemove" , function() {
  console.log("x: " + event.clientX )
@@ -31,12 +36,17 @@ var lineIsOut = false;
 
 boatBtn.addEventListener("click" , function() {
  if (inDock === true) {
-  boat.style.top = boatX + "px";
-  boat.style.left = boatY + "px";
+  cc.clearRect(0,0,screenWidth, screenHeight)
+  boat.style.top = BoatObj.boatX + "px";
+  boat.style.left = BoatObj.boatY + "px";
+  bP.x = 220;
+  bP.y = 250;
   inDock = false;
  } else {
   boat.style.top = "-25px";
   boat.style.left = "200px";
+  bP.x = 200;
+  bP.y = -25;
   cc.clearRect(0,0,screenWidth, screenHeight)
   inDock = true;
  }
@@ -44,10 +54,17 @@ boatBtn.addEventListener("click" , function() {
 
 //Draws fish line
 boat.addEventListener("click" , function() {
- cc.beginPath();
- cc.moveTo(boatX, boatY);
- cc.fillStyle = "white";
- cc.fillRect(boatX + 100, boatY, 2, 500);
- cc.fill();
+ if (lineIsOut === false) {
+
+  cc.beginPath();
+  cc.moveTo(bP.x + 100, bP.y);
+  cc.fillStyle = "white";
+  cc.fillRect(bP.x + 70, bP.y , 2, 500);
+  cc.fill();
+  lineIsOut = true;
+ } else {
+  cc.clearRect(0,0,screenWidth, screenHeight)
+  lineIsOut = false;
+ }
 })
 

@@ -16,14 +16,13 @@
  }
 
  nav {
-  /* position: absolute;
-    top: 85px;
-    left: 50px; */
+  transition: 3.5s ease;
  }
 
  nav ul {
   display: none;
   flex-direction: column;
+  transition: 3.5s ease;
  }
 
  nav li {
