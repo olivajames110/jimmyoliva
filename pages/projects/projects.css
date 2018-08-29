@@ -8,6 +8,10 @@
  height: 100vh;
 }
 
+a {
+ text-decoration: none;
+}
+
 .gears {
  position: absolute;
  top: 20%;
@@ -69,10 +73,25 @@
  text-align: center;
  align-self: center;
  margin: 0 auto;
+ font-family: 'Roboto Mono', monospace;
+ font-size: 18px;
+ 
 }
 
  #drum {
  background: url("drums/Images/drum_bg.jpg");
+ background-position: right;
+ background-size: cover;
+ background-repeat: no-repeat; 
+}
+
+#drum:before:hover {
+ content: '';
+background-color: black;
+}
+
+#clock {
+ background: url("images/clock.jpg");
  background-position: right;
  background-size: cover;
  background-repeat: no-repeat; 
