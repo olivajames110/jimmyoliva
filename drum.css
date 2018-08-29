@@ -1,9 +1,0 @@
-#drum-machine-container {
- background-color: antiquewhite;
- height: 500px;
- position: relative;
-}
-
-header#drum {
- background-color: white !important;
-}
