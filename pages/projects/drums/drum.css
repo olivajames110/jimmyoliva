@@ -20,23 +20,6 @@
  position: relative;
 }
 
-.return-arrow {
- position: absolute;
- display: flex;
- flex-direction: column;
- top: 50%;
- left: 10px;
- color: white;
- text-align: center;
- cursor: pointer;
- text-decoration: none;
-}
-
-.return-arrow span {
- font-family: 'Raleway', monospace;
- margin-bottom: 15px;
- text-align: center;
-}
 
 .drum-body {
  background: url("Images/drum_bg.jpg");

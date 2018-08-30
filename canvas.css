@@ -228,5 +228,24 @@ line-height: 1.6em;
 
 }
 
+svg {
+  transform: scale(0.5);
+}
 
-
+.return-arrow {
+  position: absolute;
+  display: flex;
+  flex-direction: row-reverse;
+  top: 50%;
+  left: 10px;
+  color: white;
+  text-align: center;
+  cursor: pointer;
+  text-decoration: none;
+ }
+ 
+ .return-arrow span {
+  font-family: 'Raleway', monospace;
+  text-align: center;
+  margin-top: 5px;
+ }
