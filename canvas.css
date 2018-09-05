@@ -1,7 +1,9 @@
 
 @import url('https://fonts.googleapis.com/css?family=Raleway|Roboto+Mono');
 
-
+:root {
+  --font: 'Roboto Mono', monospace;
+}
 
 * {
  margin: 0;
@@ -232,20 +234,27 @@ svg {
   transform: scale(0.5);
 }
 
-.return-arrow {
-  position: absolute;
+.return-section {
+  background: linear-gradient(90deg, #404045e0,rgb(250, 250, 250));
+  
   display: flex;
-  flex-direction: row-reverse;
+  align-items: center;
+}
+
+.return-arrow {
+  display: flex;
+  flex-direction: column;
   top: 50%;
   left: 10px;
   color: white;
   text-align: center;
   cursor: pointer;
   text-decoration: none;
- }
- 
- .return-arrow span {
+}
+
+.return-section span {
   font-family: 'Raleway', monospace;
   text-align: center;
   margin-top: 5px;
+  transform: rotate(-90deg);
  }

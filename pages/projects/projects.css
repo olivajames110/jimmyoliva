@@ -3,10 +3,11 @@
  background-position: right;
  background-size: cover;
  background-repeat: no-repeat;  */
- background-color: #092d5c;
+ background-color: #fafafa;
  position: relative;
  height: 100vh;
 }
+
 
 a {
  text-decoration: none;
@@ -57,6 +58,8 @@ a {
  display: flex;
  flex-wrap: wrap;
  justify-content: center;
+ background-color: #fafafa;
+ padding: 50px 0;
 }
 
 .project {
@@ -92,6 +95,13 @@ background-color: black;
 
 #clock {
  background: url("images/clock.jpg");
+ background-position: right;
+ background-size: cover;
+ background-repeat: no-repeat; 
+}
+
+#slider {
+ background: url("images/tampa.jpg");
  background-position: right;
  background-size: cover;
  background-repeat: no-repeat; 

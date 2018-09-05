@@ -22,10 +22,10 @@ function setDate() {
   const now = new Date();
   const seconds = addZero(now.getSeconds());
   const min = addZero(now.getMinutes());
-  const hour =addZero( now.getHours());
+  const hour = addZero( now.getHours());
   const secondsDegrees = ((seconds/ 60) * 360 ) + 90;
   const minDegrees = ((min/ 60) * 360 ) + 90;
-  const hourDegrees = ((hour/ 60) * 360 ) + 290;
+  const hourDegrees = ((hour/ 60) * 360 ) + 90;
   secondHand.style.transform = `rotate(${secondsDegrees}deg)`;
   minHand.style.transform = `rotate(${minDegrees}deg)`;
   hourHand.style.transform = `rotate(${hourDegrees}deg)`;
@@ -38,12 +38,16 @@ function setDate() {
     amPm.style.color = dayColor
     amPmImage.src = "Images/sun yellow.png"
   } else {
-    digitalHour.innerHTML = Math.floor((hour / 2));
+    if (hour < 12) {
+      digitalHour.innerHTML = Math.floor((hour / 2));
+    } else if (hour === 12) {
+      digitalHour.innerHTML = 12;
+    } else {
+      digitalHour.innerHTML = addZero(hour - 12);
+    }
     amPm.innerHTML = "PM"
     amPmImage.src = "Images/sleep blue.png"
   }
-  
-
 }
 
 setInterval(setDate , 0)
