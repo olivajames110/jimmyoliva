@@ -235,9 +235,11 @@ svg {
 }
 
 .return-section {
-  background: linear-gradient(90deg, #404045e0,rgb(250, 250, 250));
-  
+  background: linear-gradient(90deg, #535353,rgba(250, 250, 250, 0));
   display: flex;
+  position: absolute;
+  left: 0;
+  height: calc(100vh - 134px);
   align-items: center;
 }
 

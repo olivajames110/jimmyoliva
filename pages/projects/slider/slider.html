@@ -1,90 +1,135 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
- <meta charset="UTF-8">
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <meta http-equiv="X-UA-Compatible" content="ie=edge">
- <link rel="stylesheet" type="text/css" href="../../../canvas.css" />
- <link rel="stylesheet" type="text/css" href="../../../nav.css" />
- <link rel="stylesheet" type="text/css" href="slider.css" />
- <title>Document</title>
-</head>
-<body>
-  <header id="interior-header" style="background-color: #092d5c">
-    <div id="mobile">
-      <logo>
-        <img src="https://i.imgur.com/MyXZAqe.png" width="180px"/>
-      </logo>
-      <a id="mobile-menu">
-        <i class="fads fa-bars"></i>
-      </a>
-    </div>
-    <nav>
-      <ul>
-        <li id="home" ><a href="../../../index.html">Home</a></li>
-        <li id="about" href="#">About</li>
-        <li id="projects"><a href="../../projects/projects.html">Projects</a></li>
-        <li id="contact" href="#">Contact</li>
-      </ul>
-    </nav>
-  </header  id="interior-header">
-  
-  <div id="slider-container">
-      
-        <div class="return-section">
-          <a href="../projects.html" class="return-arrow">
-            <svg height="50" width="50">
-              <polyline points="40,0 10,25 40,50" 
-              style="fill:none; stroke: white; stroke-width: 10" />
-            </svg>
-         </a>
-      </div>
-    <div class="image-section">
-      <img src="https://scontent-lga3-1.cdninstagram.com/vp/efa79009fe7ea34b9172e0e00fab52ad/5C2C539D/t51.2885-15/e35/40392473_1823813341068513_1281969887278792704_n.jpg" class="slider-image"/>
-    </div>
-    <div class="slider-section">
-      <h1 class="slider-adjustment-header">Image Adjustments</h1>
-      <div class="controls">
-        <div class="image-effects-controls">
-          <div class="slider-input-container">
-              <span>Spacing:</span>
-              <input type="range" name="spacing" min="1" max="20" value="10" class="slider" data-sizing="px">
-          </div>
-          <div class="slider-input-container">
-              <span>Blur:</span>
-              <input type="range" name="blur" min="1" max="80" value="40" class="slider" data-sizing="px">
-          </div>
-          <div class="slider-input-container">
-              <span>Opacity</span>
-              <input type="range" name="opacity" min="1" max="100" value="50" class="slider">
-          </div>
-        </div>
-        <div class="image-dimension-controls">
-          <div class="slider-input-container">
-              <span>Height</span>
-              <input type="range" name="height" min="1" max="800" value="400" class="slider" data-sizing="px">
-          </div>
-          <div class="slider-input-container">
-              <span> Width</span>
-              <input type="range" name="width" min="1" max="100" value="70" class="slider" data-sizing="%">
-          </div>
-        </div>
-      </div>
-          <div class="image-selector">
-            <h1 class="slider-adjustment-header">Select Image</h1>
-            <div class="gallery-thumbnails">
-                <img src="https://scontent-lga3-1.cdninstagram.com/vp/efa79009fe7ea34b9172e0e00fab52ad/5C2C539D/t51.2885-15/e35/40392473_1823813341068513_1281969887278792704_n.jpg"/>
-                <img src="https://img.grouponcdn.com/deal/4FkuNhedLREkKexMmEjyr5j4GcSB/4F-700x420/v1/c700x420.jpg" class="thumbnail-img"/>
-                <img src="https://scontent-lga3-1.xx.fbcdn.net/v/t1.0-9/39183698_513056639165441_1401131268120248320_o.jpg?_nc_cat=0&oh=9df2abe49d3961ecbaa922515f109e64&oe=5BF8E5EC" class="thumbnail-img"/>
-                <img src="file:///C:/Users/joliva/Desktop/Code/Practice/Canvas/pages/projects/images/tampa.jpg" class="thumbnail-img"/>
-                <img src="https://vintagekitchennotes.com/wp-content/uploads/2014/06/mac-and-cheese-061.jpg" class="thumbnail-img"/>
-                <img src="https://scontent-lga3-1.cdninstagram.com/vp/9087e982db87d05b1d41f800937abd18/5C29C237/t51.2885-15/e35/39929201_278278022788257_2279369926017810432_n.jpg" class="thumbnail-img"/>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" type="text/css" href="../../../canvas.css"/>
+        <link rel="stylesheet" type="text/css" href="../../../nav.css"/>
+        <link rel="stylesheet" type="text/css" href="slider.css"/>
+        <title>Document</title>
+    </head>
+    <body>
+        <header id="interior-header" style="background-color: #092d5c">
+            <div id="mobile">
+                <logo>
+                    <img src="https://i.imgur.com/MyXZAqe.png" width="180px"/>
+                </logo>
+                <a id="mobile-menu">
+                    <i class="fads fa-bars"></i>
+                </a>
             </div>
-          </div>
-    </div>
-  </div>
- 
-</body>
-<script src="slider.js"></script>
-</html>
+            <nav>
+                <ul>
+                    <li id="home">
+                        <a href="../../../index.html">Home</a>
+                    </li>
+                    <li id="about" href="#">About</li>
+                    <li id="projects">
+                        <a href="../../projects/projects.html">Projects</a>
+                    </li>
+                    <li id="contact" href="#">Contact</li>
+                </ul>
+            </nav>
+        </header id="interior-header">
 
+        <div id="slider-container">
+
+            <div class="return-section">
+                <a href="../projects.html" class="return-arrow">
+                    <svg height="50" width="50">
+                        <polyline
+                            points="40,0 10,25 40,50"
+                            style="fill:none; stroke: white; stroke-width: 10"/>
+                    </svg>
+                </a>
+            </div>
+            <div class="image-section">
+                <img
+                    src="https://scontent-lga3-1.cdninstagram.com/vp/efa79009fe7ea34b9172e0e00fab52ad/5C2C539D/t51.2885-15/e35/40392473_1823813341068513_1281969887278792704_n.jpg"
+                    class="slider-image"/>
+            </div>
+            <div class="slider-section">
+                <h1 class="slider-adjustment-header">Image Adjustments</h1>
+                <div class="controls">
+                    <div class="image-effects-controls">
+                        <div class="slider-input-container">
+                            <span>Spacing:</span>
+                            <input
+                                type="range"
+                                name="spacing"
+                                min="1"
+                                max="20"
+                                value="10"
+                                class="slider"
+                                data-sizing="px">
+                        </div>
+                        <div class="slider-input-container">
+                            <span>Blur:</span>
+                            <input
+                                type="range"
+                                name="blur"
+                                min="1"
+                                max="80"
+                                value="40"
+                                class="slider"
+                                data-sizing="px">
+                        </div>
+                        <div class="slider-input-container">
+                            <span>Opacity</span>
+                            <input type="range" name="opacity" min="1" max="100" value="50" class="slider">
+                        </div>
+                    </div>
+                    <div class="image-dimension-controls">
+                        <div class="slider-input-container">
+                            <span>Height</span>
+                            <input
+                                type="range"
+                                name="height"
+                                min="1"
+                                max="800"
+                                value="400"
+                                class="slider"
+                                data-sizing="px">
+                        </div>
+                        <div class="slider-input-container">
+                            <span>
+                                Width</span>
+                            <input
+                                type="range"
+                                name="width"
+                                min="1"
+                                max="100"
+                                value="70"
+                                class="slider"
+                                data-sizing="%">
+                        </div>
+                    </div>
+                </div>
+                <div class="image-selector">
+                    <h1 class="slider-adjustment-header">Select Image</h1>
+                    <div class="gallery-thumbnails">
+                        <img
+                            src="https://scontent-lga3-1.cdninstagram.com/vp/efa79009fe7ea34b9172e0e00fab52ad/5C2C539D/t51.2885-15/e35/40392473_1823813341068513_1281969887278792704_n.jpg"/>
+                        <img
+                            src="https://img.grouponcdn.com/deal/4FkuNhedLREkKexMmEjyr5j4GcSB/4F-700x420/v1/c700x420.jpg"
+                            class="thumbnail-img"/>
+                        <img
+                            src="https://scontent-lga3-1.xx.fbcdn.net/v/t1.0-9/39183698_513056639165441_1401131268120248320_o.jpg?_nc_cat=0&oh=9df2abe49d3961ecbaa922515f109e64&oe=5BF8E5EC"
+                            class="thumbnail-img"/>
+                        <img
+                            src="file:///C:/Users/joliva/Desktop/Code/Practice/Canvas/pages/projects/images/tampa.jpg"
+                            class="thumbnail-img"/>
+                        <img
+                            src="https://vintagekitchennotes.com/wp-content/uploads/2014/06/mac-and-cheese-061.jpg"
+                            class="thumbnail-img"/>
+                        <img
+                            src="https://scontent-lga3-1.cdninstagram.com/vp/9087e982db87d05b1d41f800937abd18/5C29C237/t51.2885-15/e35/39929201_278278022788257_2279369926017810432_n.jpg"
+                            class="thumbnail-img"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script src="slider.js"></script>
+</html>

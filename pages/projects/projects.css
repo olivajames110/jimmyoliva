@@ -1,11 +1,35 @@
 #projects-body {
- /* background: url("Images/drum_bg.jpg");
- background-position: right;
- background-size: cover;
- background-repeat: no-repeat;  */
  background-color: #fafafa;
  position: relative;
  height: 100vh;
+}
+.project-container {
+ display: flex;
+ flex-wrap: wrap;
+ background-color: #fafafa;
+ min-height: 100%;
+}
+
+.project-panel {
+background: url("../projects/images/bg.jpg");
+background-position: center;
+background-size: cover;
+width: 100%;
+height: 400px;
+font-family: 'Roboto Mono', monospace;
+color: white;
+background-repeat: no-repeat;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.all-projects {
+ display: flex;
+ flex-wrap: wrap;
+ justify-content: center;
+ background-color: #fafafa !important;
+ padding: 50px 0;
 }
 
 
@@ -23,6 +47,7 @@ a {
 #gear1  {
  animation: gearRotate 4s infinite linear;
 }
+
 
 #gear2 {
  animation: gearRotateOpp 3.5s infinite linear reverse;
@@ -54,56 +79,47 @@ a {
  to {transform: rotate(360deg);}
 }
 
-.project-container {
- display: flex;
- flex-wrap: wrap;
- justify-content: center;
- background-color: #fafafa;
- padding: 50px 0;
-}
-
 .project {
+ transition: ease all;
+ transition-duration: .5s;
  display: flex;
  height: 300px;
  width: 300px;
- background-color: white;
+ background-color: rgb(0, 0, 0);
  margin: 10px;
+ position: relative;
 }
 
-.project span {
- align-content: center;
+a.project:nth-child(4)::before {
+ position: absolute;
+ content: '';
+ top: 0;
+ left: 0;
+ width: 100%;
+ height: 100%;
+ background-color: rgba(63, 62, 62, 0.152);
+}
+
+.project-container img {
+ width: 100%;
+ object-fit: cover;
+}
+
+.img-caption {
+ position: absolute;
+ bottom: 4%;
+ left: 50%;
+ transform: translate(-50%, -4%);
  color: white;
- text-align: center;
- align-self: center;
- margin: 0 auto;
+ text-decoration: none;
  font-family: 'Roboto Mono', monospace;
  font-size: 18px;
  
 }
 
- #drum {
- background: url("drums/Images/drum_bg.jpg");
- background-position: right;
- background-size: cover;
- background-repeat: no-repeat; 
-}
 
-#drum:before:hover {
- content: '';
-background-color: black;
+.project-container a:hover {
+ background-color: rgba(0, 0, 0, 0.898);
+ opacity: .81;
+ box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.412);
 }
-
-#clock {
- background: url("images/clock.jpg");
- background-position: right;
- background-size: cover;
- background-repeat: no-repeat; 
-}
-
-#slider {
- background: url("images/tampa.jpg");
- background-position: right;
- background-size: cover;
- background-repeat: no-repeat; 
-}
-
