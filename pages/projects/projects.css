@@ -30,6 +30,8 @@ align-items: center;
  justify-content: center;
  background-color: #fafafa !important;
  padding: 50px 0;
+ max-width: 1300px;
+ margin: 0 auto;
 }
 
 
