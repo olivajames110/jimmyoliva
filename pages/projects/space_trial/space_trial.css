@@ -111,4 +111,130 @@ h1{
 }
 .control-buttons button:nth-child(2){
   background-color: rgb(157, 61, 61);
+}@import url('https://fonts.googleapis.com/css?family=Roboto+Mono:400,500,700i');
+
+body {
+  background: url("https://www.rug.nl/about-us/news-and-events/news/archief2017/nieuwsberichten/1127-stars.jpg");
+}
+
+h1{
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.stats-messages {
+  display: grid;
+  grid-template-columns: 4.5fr 7fr;
+}
+
+.stats , .messages , .controls {
+  background-color: rgba(255,255,255,.90);
+  color: black;
+  padding: 30px 20px;
+  margin: 30px;
+  box-shadow: inset 0px 0px 4px 4px #000000, inset 0px 0px 4px 4px #ffffff;
+  height: auto;
+  font-family: "Roboto Mono";
+}
+
+
+.message-box {
+  background-color: white;
+  border-radius: 8px;
+  padding: 30px;
+  box-shadow: inset 0 0 2px 1px #0000003d;
+  overflow-y: scroll;
+  position: relative;
+  height: 250px;
+}
+
+.stat-row {
+  font-size: 18px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 10px 20px;
+  /* border-bottom: 1px solid #00000037; */
+}
+
+.message-line {
+  color: rgb(77, 157, 61);
+}
+
+.day-num {
+  font-weight: bolder;
+}
+
+.controls-progress-bar {
+  display: grid;
+  grid-template-columns: 7fr 3fr;
+  text-align: center;
+}
+
+.progress-bar {
+  position: relative;
+  padding: 30px 20px;
+  margin: 30px;
+}
+
+.progress-bar svg {
+  color: rgb(118, 13, 13);
+  stroke: white;
+  position: absolute;
+  top: 60px;
+}
+
+#rocket-img {
+  position: absolute;
+  left: 280px;
+  top: 50px;
+  transition: cubic-bezier(0, 0, 0.88, 1.41) all 2s
+}
+
+.mars-img {
+  position: absolute;
+  left: 500px;
+  top: 40px;
+}
+
+.earth-img {
+  position: absolute;
+  left: 0;
+  top: 40px;
+}
+
+.jupiter-img {
+  position: absolute;
+  right: 100px;
+  top: 0px;
+}
+
+.control-buttons button{
+  background-color: rgb(77, 157, 61);
+  padding: 10px 15px;
+  color: white;
+  border: none;
+  text-transform: uppercase;
+  font-family: "Roboto Mono";
+  margin: 5px;
+  cursor: pointer;
+}
+
+.control-buttons button:nth-child(1){
+  background-color: rgb(77, 157, 61);
+}
+.control-buttons button:nth-child(2){
+  background-color: rgb(157, 61, 61);
+}
+
+.update-positive {
+  color: #669966;
+}
+ 
+.update-negative {
+  color: red;
+}
+ 
+.update-neutral {
+  color: #90908F;
 }

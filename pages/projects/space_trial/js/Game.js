@@ -5,7 +5,7 @@ OregonH.weightPerOx = 20;
 OregonH.weightPerPerson = 2;
 OregonH.foodWeight = 0.6;
 OregonH.firepowerWeight = 5;
-OregonH.gameSpeed = 800;
+OregonH.gameSpeed = 1000;
 OregonH.dayPerStep = 0.2;
 OregonH.foodPerPerson = 0.02;
 OregonH.fullSpeed = 5;
@@ -54,6 +54,15 @@ OregonH.Game.init = function() {
  this.startJourney();
 };
 
+//start the journey and time starts running
+OregonH.Game.startJourney = function() {
+ this.gameActive = true;
+ this.previousTime = null;
+ this.ui.notify('A great adventure begins', 'positive');
+
+ this.step();
+};
+
 // Game Loop
 OregonH.Game.step = function(timestamp) {
 
@@ -67,7 +76,7 @@ OregonH.Game.step = function(timestamp) {
   var progress = timestamp - this.previousTime;
  
   //game update
-  if(progress >= OregonH.GAME_SPEED) {
+  if(progress >= OregonH.gameSpeed) {
     this.previousTime = timestamp;
     this.updateGame();
   }
@@ -79,7 +88,7 @@ OregonH.Game.step = function(timestamp) {
 //update game stats
 OregonH.Game.updateGame = function() {
   //day update
-  this.caravan.day += OregonH.DAY_PER_STEP;
+  this.caravan.day += OregonH.dayPerStep;
  
   //food consumption
   this.caravan.consumeFood();
@@ -116,7 +125,10 @@ OregonH.Game.updateGame = function() {
   }
  
   //random events logic will go here..
-  
+  //random events
+if (Math.random() <= OregonH.eventProbability) {
+ this.eventManager.generateEvent();
+} 
 };
  
 //pause the journey

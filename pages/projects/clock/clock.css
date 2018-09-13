@@ -202,7 +202,7 @@
 }
 
 .clock-section {
-    background-color: #92c1f2;
+    background: linear-gradient(90deg, #3f24c4, #9c3ab6);
     padding-top: 20px ;
 }
 
