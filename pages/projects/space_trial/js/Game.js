@@ -5,7 +5,7 @@ OregonH.weightPerOx = 20;
 OregonH.weightPerPerson = 2;
 OregonH.foodWeight = 0.6;
 OregonH.firepowerWeight = 5;
-OregonH.gameSpeed = 1000;
+OregonH.gameSpeed = 800;
 OregonH.dayPerStep = 0.2;
 OregonH.foodPerPerson = 0.02;
 OregonH.fullSpeed = 5;
@@ -35,7 +35,7 @@ OregonH.Game.init = function() {
   food: 80,
   oxen: 2,
   money: 300,
-  firepower: 2
+  firepower: 10
  });
 
  // Pass reference

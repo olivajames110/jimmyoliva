@@ -25,14 +25,17 @@ h1{
 }
 
 
+
 .message-box {
+  overflow-y: auto;
+  max-height: 450px;
   background-color: white;
   border-radius: 8px;
   padding: 30px;
   box-shadow: inset 0 0 2px 1px #0000003d;
   overflow-y: scroll;
   position: relative;
-  height: 250px;
+  height: 300px;
 }
 
 .stat-row {
@@ -138,7 +141,7 @@ h1{
 }
 
 
-.message-box {
+/* .message-box {
   background-color: white;
   border-radius: 8px;
   padding: 30px;
@@ -146,7 +149,7 @@ h1{
   overflow-y: scroll;
   position: relative;
   height: 250px;
-}
+} */
 
 .stat-row {
   font-size: 18px;
@@ -238,3 +241,39 @@ h1{
 .update-neutral {
   color: #90908F;
 }
+
+.hidden {
+  display: none;
+}
+
+#shop {
+  float: left;
+  background-color: white;
+  margin: 10px;
+  padding: 10px;
+  height: 90px;
+  width: 350px;
+}
+ 
+.product {
+  float: left;
+  margin: 5px;
+  padding: 2px;
+  border: 1px solid black;
+  font-size: 12px;
+}
+ 
+#shop button {
+  clear: both;
+  float: left;
+  margin: 5px;
+}
+ 
+/* #attack {
+  float: left;
+  background-color: white;
+  margin: 10px;
+  padding: 10px;
+  height: 60px;
+  width: 150px;
+} */

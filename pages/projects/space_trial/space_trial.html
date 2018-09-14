@@ -54,8 +54,10 @@
 
             <div id="messages" class="messages">
                 <h1>Progress:</h1>
-               
-                    <div id="message-line"></div>
+               <div class="message-box">
+                   
+                   <div id="message-line"></div>
+               </div>
               
             </div>
         </div>
@@ -71,11 +73,16 @@
              
     
             </div>
-            <div class="controls">
+            <div id="shop" class="hidden">
+                 <div id="prods"> </div>
+                 <button>Leave shop</button>
+            </div>
+            <div id="attack" class="controls hidden">
                 <h1>Fight or Flight</h1>
+                <div id="attack-description"></div>
                 <div class="control-buttons">
-                    <button>Run Away</button>
-                    <button>Fight</button>
+                    <button id="fight">Fight</button>
+                    <button id="runaway">Run Away</button>
                 </div>
             </div>
         </div>

@@ -2,10 +2,6 @@ var OregonH = OregonH || {};
 
 OregonH.Event = {};
 
-
-
-
-
  
 OregonH.Event.eventTypes = [
  {
@@ -63,7 +59,55 @@ OregonH.Event.eventTypes = [
    stat: 'oxen',
    value: 1,
    text: 'Found wild oxen. New oxen: '
- }
+ },
+ {
+  type: 'SHOP',
+  notification: 'neutral',
+  text: 'You have found a shop',
+  products: [
+    {item: 'food', qty: 20, price: 50},
+    {item: 'oxen', qty: 1, price: 200},
+    {item: 'firepower', qty: 2, price: 50},
+    {item: 'crew', qty: 5, price: 80}
+  ]
+},
+{
+  type: 'SHOP',
+  notification: 'neutral',
+  text: 'You have found a shop',
+  products: [
+    {item: 'food', qty: 30, price: 50},
+    {item: 'oxen', qty: 1, price: 200},
+    {item: 'firepower', qty: 2, price: 20},
+    {item: 'crew', qty: 10, price: 80}
+  ]
+},
+{
+  type: 'SHOP',
+  notification: 'neutral',
+  text: 'Smugglers sell various goods',
+  products: [
+    {item: 'food', qty: 20, price: 60},
+    {item: 'oxen', qty: 1, price: 300},
+    {item: 'firepower', qty: 2, price: 80},
+    {item: 'crew', qty: 5, price: 60}
+  ]
+},
+ {
+  type: 'ATTACK',
+  notification: 'negative',
+  text: 'Bandits are attacking you'
+},
+{
+  type: 'ATTACK',
+  notification: 'negative',
+  text: 'Bandits are attacking you'
+},
+{
+  type: 'ATTACK',
+  notification: 'negative',
+  text: 'Bandits are attacking you'
+}
 
 ];
 
@@ -76,17 +120,29 @@ OregonH.Event.generateEvent = function() {
  if(eventData.type == 'STAT-CHANGE') {
   this.statChangeEvent(eventData);
  }
-   // //attacks
-   //  else if(eventData.type == 'ATTACK') {
-   //    //pause game
-   //    this.game.pauseJourney();
+     //shops
+  else if(eventData.type == 'SHOP') {
+   //pause game
+   this.game.pauseJourney();
+
+   //notify user
+   this.ui.notify(eventData.text, eventData.notification);
+
+   //prepare event
+   this.shopEvent(eventData);
+ }
+
+   //attacks
+    else if(eventData.type == 'ATTACK') {
+      //pause game
+      this.game.pauseJourney();
    
-   //    //notify user
-   //    this.ui.notify(eventData.text, eventData.notification);
+      //notify user
+      this.ui.notify(eventData.text, eventData.notification);
    
-   //    //prepare event
-   //    this.attackEvent(eventData);
-   // }
+      //prepare event
+      this.attackEvent(eventData);
+   }
 };
 
 OregonH.Event.statChangeEvent = function(eventData) {
@@ -96,6 +152,32 @@ OregonH.Event.statChangeEvent = function(eventData) {
     this.ui.notify(eventData.text + Math.abs(eventData.value), eventData.notification);
   }
 }
+
+
+OregonH.Event.shopEvent = function(eventData) {
+ //number of products for sale
+ var numProds = Math.ceil(Math.random() * 4);
+
+ //product list
+ var products = [];
+ var j, priceFactor;
+
+ for(var i = 0; i < numProds; i++) {
+   //random product
+   j = Math.floor(Math.random() * eventData.products.length);
+
+   //multiply price by random factor +-30%
+   priceFactor = 0.7 + 0.6 * Math.random();
+
+   products.push({
+     item: eventData.products[j].item,
+     qty: eventData.products[j].qty,
+     price: Math.round(eventData.products[j].price * priceFactor)
+   });
+ }
+
+ this.ui.showShop(products);
+};
 
 //prepare an attack event
 OregonH.Event.attackEvent = function(eventData){
