@@ -1,11 +1,17 @@
 var OregonH = OregonH || {};
 
 OregonH.UI = {};
-
 // Show notification in the message box
 OregonH.UI.notify = function(message , type) {
+  
+  var modal = document.getElementById("modal");
+  if (modal.className === "") {
+   document.getElementById("purchased-item-list").innerHTML = '<div class="purchased-item">' + message + +type + '</div>' ;
+  }
  document.getElementById("message-line").innerHTML = '<div class="update-' + type + '">Day '+ Math.ceil(this.caravan.day) + ': ' + message+'</div>' + document.getElementById('message-line').innerHTML;
-}
+  }
+
+
 
 
  // refresh visual caravan stats
@@ -14,13 +20,11 @@ OregonH.UI.notify = function(message , type) {
    document.getElementById('stat-day').innerHTML = Math.ceil(this.caravan.day);
    document.getElementById('stat-distance').innerHTML = Math.floor(this.caravan.distance);
    document.getElementById('stat-crew').innerHTML = this.caravan.crew;
-   document.getElementById('stat-oxen').innerHTML = this.caravan.oxen;
+   document.getElementById('stat-spaceShip').innerHTML = this.caravan.spaceShip;
    document.getElementById('stat-food').innerHTML = Math.ceil(this.caravan.food);
    document.getElementById('stat-money').innerHTML = this.caravan.money;
    document.getElementById('stat-firepower').innerHTML = this.caravan.firepower;
    document.getElementById('stat-weight').innerHTML = Math.ceil(this.caravan.weight) + '/' + this.caravan.capacity;
-  
-
    document.getElementById('rocket-img').style.left = (180 * this.caravan.distance / OregonH.finalDistance) + '%';
  };
 
@@ -106,7 +110,7 @@ OregonH.UI.runaway = function(){
 OregonH.UI.showShop = function(products){
  
  //get shop area
- var shopDiv = document.getElementById('shop');
+ var shopDiv = document.getElementById('modal');
  shopDiv.classList.remove('hidden');
 
  //init the shop just once
@@ -128,7 +132,7 @@ OregonH.UI.showShop = function(products){
        OregonH.UI.buyProduct({
          item: target.getAttribute('data-item'),
          qty: target.getAttribute('data-qty'),
-         price: target.getAttribute('data-price')
+         price: target.getAttribute('data-price'),
        });
 
      }
@@ -145,8 +149,13 @@ OregonH.UI.showShop = function(products){
  var product;
  for(var i=0; i < products.length; i++) {
    product = products[i];
-   prodsDiv.innerHTML += '<div class="product" data-qty="' + product.qty + '" data-item="' + product.item + '" data-price="' + product.price + '">' + product.qty + ' ' + product.item + ' - $' + product.price + '</div>';
+   prodsDiv.innerHTML += 
+   '<div class="product"> <img src="' + product.img + '" width="100" /> <div class="product-item" data-qty="' + product.qty + '" data-item="' + product.item + '" data-price="' + product.price + '">' + product.qty+ ' ' + product.item + ' - $' + product.price + '</div> </div>';
  }
+//  for(var i=0; i < products.length; i++) { 
+//   product = products[i];
+//   prodsDiv.innerHTML += '<div class="product-item" data-qty="' + product.qty + '" data-item="' + product.item + '" data-price="' + product.price + '">' + product.qty + ' ' + product.item + ' - $' + product.price + '</div>';
+//   }
 };
 
 //buy product
@@ -160,6 +169,7 @@ OregonH.UI.buyProduct = function(product) {
  OregonH.UI.caravan.money -= product.price;
 
  OregonH.UI.caravan[product.item] += +product.qty;
+
 
  OregonH.UI.notify('Bought ' + product.qty + ' x ' + product.item, 'positive');
 

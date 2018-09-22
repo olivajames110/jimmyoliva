@@ -33,7 +33,7 @@ OregonH.Game.init = function() {
   distance: 0,
   crew: 30,
   food: 80,
-  oxen: 2,
+  spaceShip: 2,
   money: 300,
   firepower: 10
  });

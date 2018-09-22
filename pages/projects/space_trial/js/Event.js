@@ -35,7 +35,7 @@ OregonH.Event.eventTypes = [
  {
    type: 'STAT-CHANGE',
    notification: 'negative',
-   stat: 'oxen',
+   stat: 'spaceShip',
    value: -1,
    text: 'Ox flu outbreak. Casualties: '
  },
@@ -56,19 +56,19 @@ OregonH.Event.eventTypes = [
  {
    type: 'STAT-CHANGE',
    notification: 'positive',
-   stat: 'oxen',
+   stat: 'spaceShip',
    value: 1,
-   text: 'Found wild oxen. New oxen: '
+   text: 'Found wild spaceShip. New spaceShip: '
  },
  {
   type: 'SHOP',
   notification: 'neutral',
   text: 'You have found a shop',
   products: [
-    {item: 'food', qty: 20, price: 50},
-    {item: 'oxen', qty: 1, price: 200},
-    {item: 'firepower', qty: 2, price: 50},
-    {item: 'crew', qty: 5, price: 80}
+    {item: 'Food Ration', qty: 20, price: 50, img: "http://www.ejinsight.com/wp-content/uploads/2017/07/1613381_a70114d8991162e774dd92cbd2d0158d.jpg"},
+    {item: 'Space Ship', qty: 1, price: 200, img: "https://qph.fs.quoracdn.net/main-qimg-214082750d3887a39d06992eb6b7d147-c"},
+    {item: 'Missle Ammo', qty: 2, price: 50, img: "https://vignette.wikia.nocookie.net/deadspace/images/4/49/Full-plasma_ammo.png/revision/latest?cb=20110204214841"},
+    {item: 'Astronauts', qty: 5, price: 80, img: "https://blog.sleepnumber.com/wp-content/uploads/2017/04/90155_Astronaut.jpg"}
   ]
 },
 {
@@ -76,21 +76,21 @@ OregonH.Event.eventTypes = [
   notification: 'neutral',
   text: 'You have found a shop',
   products: [
-    {item: 'food', qty: 30, price: 50},
-    {item: 'oxen', qty: 1, price: 200},
-    {item: 'firepower', qty: 2, price: 20},
-    {item: 'crew', qty: 10, price: 80}
+    {item: 'Food Ration', qty: 30, price: 50, img: "http://www.ejinsight.com/wp-content/uploads/2017/07/1613381_a70114d8991162e774dd92cbd2d0158d.jpg"},
+    {item: 'Space Ship', qty: 1, price: 200, img: "https://qph.fs.quoracdn.net/main-qimg-214082750d3887a39d06992eb6b7d147-c"},
+    {item: 'firepower', qty: 2, price: 20, img: "https://vignette.wikia.nocookie.net/deadspace/images/4/49/Full-plasma_ammo.png/revision/latest?cb=20110204214841"},
+    {item: 'Astronauts', qty: 10, price: 80, img: "https://blog.sleepnumber.com/wp-content/uploads/2017/04/90155_Astronaut.jpg"}
   ]
 },
 {
   type: 'SHOP',
   notification: 'neutral',
-  text: 'Smugglers sell various goods',
+  text: 'You came across a Space Station',
   products: [
-    {item: 'food', qty: 20, price: 60},
-    {item: 'oxen', qty: 1, price: 300},
-    {item: 'firepower', qty: 2, price: 80},
-    {item: 'crew', qty: 5, price: 60}
+    {item: 'Food Ration', qty: 20, price: 60, img: "http://www.ejinsight.com/wp-content/uploads/2017/07/1613381_a70114d8991162e774dd92cbd2d0158d.jpg"},
+    {item: 'Space Ship', qty: 1, price: 300, img: "https://qph.fs.quoracdn.net/main-qimg-214082750d3887a39d06992eb6b7d147-c"},
+    {item: 'firepower', qty: 2, price: 80, img: "https://vignette.wikia.nocookie.net/deadspace/images/4/49/Full-plasma_ammo.png/revision/latest?cb=20110204214841"},
+    {item: 'Astronauts', qty: 5, price: 60, img: "https://blog.sleepnumber.com/wp-content/uploads/2017/04/90155_Astronaut.jpg"}
   ]
 },
  {
@@ -172,7 +172,8 @@ OregonH.Event.shopEvent = function(eventData) {
    products.push({
      item: eventData.products[j].item,
      qty: eventData.products[j].qty,
-     price: Math.round(eventData.products[j].price * priceFactor)
+     price: Math.round(eventData.products[j].price * priceFactor),
+     img: eventData.products[j].img
    });
  }
 
@@ -186,3 +187,8 @@ OregonH.Event.attackEvent = function(eventData){
 
  this.ui.showAttack(firepower, gold);
 };
+
+
+OregonH.Event.addToCart = function() {
+
+}

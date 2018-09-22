@@ -84,3 +84,18 @@
 .table-container tr:nth-child(even){
   background-color: #fff;
 }
+
+
+.steve {
+  font-size: 50px;
+  color: green;
+  padding-left: 500px;
+  transform: rotate(40deg);
+}
+
+
+.jimmy {
+  color: red;
+  font-weight: bolder;
+  font-size: 20px;
+}

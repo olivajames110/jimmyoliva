@@ -7,7 +7,7 @@ OregonH.Caravan.init = function(stats){
  this.distance = stats.distance;
  this.crew = stats.crew;
  this.food = stats.food;
- this.oxen = stats.oxen;
+ this.spaceShip = stats.spaceShip;
  this.money = stats.money;
  this.firepower= stats.firepower;
 };
@@ -18,7 +18,7 @@ OregonH.Caravan.updateWeight = function() {
  var droppedGuns = 0;
 
  // How much the caravan can carry
- this.capacity = (this.oxen * OregonH.weightPerOx) + (this.crew + OregonH.weightPerPerson);
+ this.capacity = (this.spaceShip * OregonH.weightPerOx) + (this.crew + OregonH.weightPerPerson);
 
  // How much weight we currently have
  this.weight = (this.food * OregonH.foodWeight) + (this.firepower + OregonH.firepowerWeight);
