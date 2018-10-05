@@ -117,8 +117,6 @@ function drawSun() {
 
 
 
-
-
 // Draws the moon
 function drawMoon() {
  lc.beginPath();
@@ -241,7 +239,6 @@ var mountainLocation = screenHeight + grassLocation + grassHieght;
 
 
  // Draws middle mountain cap
-
  lc.beginPath();
  lc.moveTo((650 * mobileNum) , (mountainLocation - 370 * mobileNum));
  lc.lineTo((730 * mobileNum) , (mountainLocation - 250 * mobileNum));

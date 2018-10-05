@@ -6,7 +6,7 @@ OregonH.weightPerPerson = 2;
 OregonH.foodWeight = 0.6;
 OregonH.firepowerWeight = 5;
 OregonH.gameSpeed = 800;
-OregonH.dayPerStep = 0.2;
+OregonH.dayPerStep = .2;
 OregonH.foodPerPerson = 0.02;
 OregonH.fullSpeed = 5;
 OregonH.slowSpeed = 3;
@@ -33,8 +33,8 @@ OregonH.Game.init = function() {
   distance: 0,
   crew: 30,
   food: 80,
-  oxen: 2,
-  money: 300,
+  spaceShip: 2,
+  money: 1000,
   firepower: 10
  });
 
@@ -58,7 +58,7 @@ OregonH.Game.init = function() {
 OregonH.Game.startJourney = function() {
  this.gameActive = true;
  this.previousTime = null;
- this.ui.notify('A great adventure begins', 'positive');
+ this.ui.notify('The journey to the edge of the solar system begins...', 'positive');
 
  this.step();
 };
@@ -95,7 +95,7 @@ OregonH.Game.updateGame = function() {
   
   //game over no food
   if(this.caravan.food === 0) {
-    this.ui.notify('Your caravan starved to death', 'negative');
+    this.ui.notify('Your crew starved to death', 'negative');
     this.gameActive = false;
     return;
   }
@@ -143,5 +143,13 @@ OregonH.Game.resumeJourney = function() {
 };
  
  
+
+var pause = document.getElementById('pause');
+document.addEventListener('keypress' , function(e) {
+  console.log(e)
+  if(e.keyCode === 97) {
+    OregonH.Game.gameActive = false;
+  }
+} );
 //init game
 OregonH.Game.init();

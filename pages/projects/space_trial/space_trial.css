@@ -1,11 +1,27 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto+Mono:400,500,700i');
 
-body {
+/* body {
   background: url("https://www.rug.nl/about-us/news-and-events/news/archief2017/nieuwsberichten/1127-stars.jpg");
+} */
+
+:root {
+  --boxHeight: 230px;
 }
 
+p {
+  font-family: "Roboto Mono";
+}
+
+#orb {
+  background: linear-gradient(90deg, rgba(24, 6, 46, 0.741),rgba(13, 44, 84, 0.638)), linear-gradient(90deg, #183152,rgb(9, 45, 92));
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -100;
+ }
+
 h1{
-  font-size: 20px;
+  font-size: 18px;
   font-weight: bold;
 }
 
@@ -14,36 +30,36 @@ h1{
   grid-template-columns: 4.5fr 7fr;
 }
 
-.stats , .messages , .controls {
+.box-style  {
   background-color: rgba(255,255,255,.90);
   color: black;
   padding: 30px 20px;
   margin: 30px;
-  box-shadow: inset 0px 0px 4px 4px #000000, inset 0px 0px 4px 4px #ffffff;
+  box-shadow: 0px 0px 15px 5px #ffffff4d;
   height: auto;
   font-family: "Roboto Mono";
+  border-radius: 5px;
 }
-
 
 
 .message-box {
   overflow-y: auto;
-  max-height: 450px;
   background-color: white;
   border-radius: 8px;
   padding: 30px;
   box-shadow: inset 0 0 2px 1px #0000003d;
   overflow-y: scroll;
   position: relative;
-  height: 300px;
+  height: calc(100% - 100px);
+  max-height: var(--boxHeight);
 }
 
 .stat-row {
-  font-size: 18px;
+  font-size: 13px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding: 10px 20px;
+  padding: 5px 10px;
   /* border-bottom: 1px solid #00000037; */
 }
 
@@ -56,122 +72,13 @@ h1{
 }
 
 .controls-progress-bar {
-  display: grid;
-  grid-template-columns: 7fr 3fr;
+  height: 150px;
   text-align: center;
-}
-
-.progress-bar {
   position: relative;
-  padding: 30px 20px;
-  margin: 30px;
 }
 
-.progress-bar svg {
-  color: rgb(118, 13, 13);
-  stroke: white;
-  position: absolute;
-  top: 60px;
-}
-
-.rocket-img {
-  position: absolute;
-  left: 280px;
-  top: 50px;
-}
-
-.mars-img {
-  position: absolute;
-  left: 500px;
-  top: 40px;
-}
-
-.earth-img {
-  position: absolute;
-  left: 0;
-  top: 40px;
-}
-
-.jupiter-img {
-  position: absolute;
-  right: 100px;
-  top: 0px;
-}
-
-.control-buttons button{
-  background-color: rgb(77, 157, 61);
-  padding: 10px 15px;
-  color: white;
-  border: none;
-  text-transform: uppercase;
-  font-family: "Roboto Mono";
-  margin: 5px;
-  cursor: pointer;
-}
-
-.control-buttons button:nth-child(1){
-  background-color: rgb(77, 157, 61);
-}
-.control-buttons button:nth-child(2){
-  background-color: rgb(157, 61, 61);
-}@import url('https://fonts.googleapis.com/css?family=Roboto+Mono:400,500,700i');
-
-body {
-  background: url("https://www.rug.nl/about-us/news-and-events/news/archief2017/nieuwsberichten/1127-stars.jpg");
-}
-
-h1{
-  font-size: 20px;
-  font-weight: bold;
-}
-
-.stats-messages {
-  display: grid;
-  grid-template-columns: 4.5fr 7fr;
-}
-
-.stats , .messages , .controls {
-  background-color: rgba(255,255,255,.90);
-  color: black;
-  padding: 30px 20px;
-  margin: 30px;
-  box-shadow: inset 0px 0px 4px 4px #000000, inset 0px 0px 4px 4px #ffffff;
-  height: auto;
-  font-family: "Roboto Mono";
-}
-
-
-/* .message-box {
-  background-color: white;
-  border-radius: 8px;
-  padding: 30px;
-  box-shadow: inset 0 0 2px 1px #0000003d;
-  overflow-y: scroll;
-  position: relative;
-  height: 250px;
-} */
-
-.stat-row {
-  font-size: 18px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding: 10px 20px;
-  /* border-bottom: 1px solid #00000037; */
-}
-
-.message-line {
-  color: rgb(77, 157, 61);
-}
-
-.day-num {
-  font-weight: bolder;
-}
-
-.controls-progress-bar {
-  display: grid;
-  grid-template-columns: 7fr 3fr;
-  text-align: center;
+.controls {
+  padding-bottom: 20px;
 }
 
 .progress-bar {
@@ -194,6 +101,10 @@ h1{
   transition: cubic-bezier(0, 0, 0.88, 1.41) all 2s
 }
 
+.moon-earth {
+  position: relative;
+}
+
 .mars-img {
   position: absolute;
   left: 500px;
@@ -210,6 +121,13 @@ h1{
   position: absolute;
   right: 100px;
   top: 0px;
+}
+
+.moon-img {
+  position: absolute;
+  top: 61px;
+  left: 120px;
+  width: 30px;
 }
 
 .control-buttons button{
@@ -230,6 +148,7 @@ h1{
   background-color: rgb(157, 61, 61);
 }
 
+
 .update-positive {
   color: #669966;
 }
@@ -246,34 +165,222 @@ h1{
   display: none;
 }
 
-#shop {
+/* #shop {
   float: left;
   background-color: white;
   margin: 10px;
   padding: 10px;
   height: 90px;
   width: 350px;
-}
- 
-.product {
-  float: left;
-  margin: 5px;
-  padding: 2px;
-  border: 1px solid black;
-  font-size: 12px;
-}
- 
-#shop button {
-  clear: both;
-  float: left;
-  margin: 5px;
-}
- 
-/* #attack {
-  float: left;
-  background-color: white;
-  margin: 10px;
-  padding: 10px;
-  height: 60px;
-  width: 150px;
 } */
+ 
+.border-padding {
+  padding: 15px 30px;
+}
+
+#shop button {
+  margin: 5px;
+  margin-top: 30px;
+  border: none;
+}
+
+#leaver-shop {
+    background-color: none;
+    color: rgb(87, 85, 85);
+}
+
+.purchased-item {
+  font-family: "Roboto Mono";
+  font-size: 16px;
+  padding-top: 15px;
+  text-align: center;
+}
+
+.fa-arrow-left:before {
+  content: "\f060";
+  margin-right: 5px;
+}
+
+.fa-dollar-sign:before {
+    content: "\f155";
+    margin-left: 5px;
+}
+
+#shop h1  {
+  text-align: center;
+  font-family: "Roboto Mono";
+  color: #183152;
+}
+
+/* #shop {
+  display: grid;
+  grid-template-columns: 6fr 3fr;
+  flex-wrap: wrap;
+} */
+
+.purchase-column , .shop-shop-column {
+  padding: 0 20px;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.purchase-column {
+  border-left: 2px solid rgba(0, 0, 0, 0.693);
+
+}
+
+.shop-shop-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+.shop-buttons {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.prods {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.prods img {
+  width: 130px;
+  height: 100px;
+  background-size: cover;
+  
+}
+
+.product {
+  margin: 25px 15px;
+  border: 1px solid #e3e1e1;
+  background-color: #fafafa;
+  font-size: 12px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.product-item {
+  padding: 20px 10px;
+  border: none;
+  text-align: center;
+}
+
+.shop-current-item{
+  text-align: center;
+  font-weight: bold;
+  padding: 5px;
+}
+
+.imporant-stat-column {
+  display: flex;
+  justify-content: space-between;
+}
+
+.imporant-stat-column .stat-title {
+  font-weight: bold;
+}
+
+.imporant-stat-column .stat-title span {
+  font-weight: normal;
+}
+
+/* #attack {
+} */
+
+#modal-shop , #modal-fly {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.405);
+}
+
+.fly-desc{
+  display: grid;
+  grid-template-columns: 4fr 2fr;
+}
+
+#game-result {
+  font-size: 18px;
+  padding: 30px 0;
+  font-family: "Roboto Mono";
+}
+
+.modal-header {
+  background: linear-gradient(90deg, #202766ab, #3f1f518f) , linear-gradient(#243097, #9b4343);
+  padding: 20px;
+  color: white;
+}
+
+.modal-header h1 {
+  font-size: 24px;
+  text-transform: uppercase;
+  font-family: "Roboto Mono";
+}
+
+.modal-header-body {
+  font-size: 12px;
+  font-family: "Roboto Mono";
+}
+
+.modal-content {
+  margin: 5% auto;
+  width: 70%;
+  background-color: white;
+  max-width: 800px;
+}
+
+.modal-body {
+padding: 20px;
+
+}
+
+/* .header-and-money {
+  display: flex;
+  justify-content: space-around;
+  width: 100%; */
+ 
+
+.control-examples {
+  position: relative;
+  padding: 0 30px;
+  text-align: center;
+}
+
+.control-examples h1 {
+  padding-left: 25px;
+}
+
+#up-arrow {
+ position: absolute; 
+ left: 50%;
+ top: 30%;
+}
+
+#left-arrow {
+  position: absolute; 
+  top: 45%;
+  left: 40%;
+ }
+ 
+#right-arrow {
+  position: absolute;
+  top: 45%;
+  right: 35%;
+  
+ }
+ 
+#down-arrow {
+  position: absolute;
+  left: 50%;
+  bottom: 30%; 
+ }

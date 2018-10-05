@@ -1,0 +1,23 @@
+@media (max-width: 600px) {
+    
+}
+
+@import url( 'https://fonts.googleapis.com/css?family=Raleway|Roboto+Mono');
+:root {
+    --opacity: .5;
+    --blur: 40px;
+    --spacing: 10px;
+    --height: 400px;
+    --width: 70%;
+    --font: 'Roboto Mono', monospace;
+    --fontRaleway: 'Raleway', monospace;
+}
+
+body {
+    height: 100%;
+    background: linear-gradient(90deg, rgb(60, 81, 184), rgb(184, 60, 173));
+}
+
+html {
+    height: 100%;
+}

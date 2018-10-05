@@ -1,7 +1,11 @@
 var OregonH = OregonH || {};
+ var currentFood = OregonH.Caravan.food;
+ console.log('OregonH.Caravan.food', OregonH.Caravan.food)
+//  var currentFirepower = OregonH.Caravan.food;
+//  var currentShips = OregonH.Caravan.food;
+//  var currentFood = OregonH.Caravan.food;
 
 OregonH.Event = {};
-
  
 OregonH.Event.eventTypes = [
  {
@@ -9,104 +13,104 @@ OregonH.Event.eventTypes = [
    notification: 'negative',
    stat: 'crew',
    value: -3,
-   text: 'Food intoxication. Casualties: '
+   text: 'Astronauts die from unknown bacteria. Casualties: '
  },
  {
    type: 'STAT-CHANGE',
    notification: 'negative',
    stat: 'crew',
    value: -4,
-   text: 'Flu outbreak. Casualties: '
+   text: 'Unknown disease spreads. Casualties: '
  },
  {
    type: 'STAT-CHANGE',
    notification: 'negative',
    stat: 'food',
    value: -10,
-   text: 'Worm infestation. Food lost: '
+   text: 'Hole appears in Food Cargo area. Food lost: '
  },
  {
    type: 'STAT-CHANGE',
    notification: 'negative',
    stat: 'money',
    value: -50,
-   text: 'Pick pockets steal $'
+   text: 'Space Pirates board ship and steal $'
  },
  {
    type: 'STAT-CHANGE',
    notification: 'negative',
-   stat: 'oxen',
+   stat: 'spaceShip',
    value: -1,
-   text: 'Ox flu outbreak. Casualties: '
+   text: 'Engine failure on Freighter. Space Ships lost: '
  },
  {
    type: 'STAT-CHANGE',
    notification: 'positive',
    stat: 'food',
    value: 20,
-   text: 'Found wild berries. Food added: '
+   text: 'Found preserved food rations on broken abandoned Space Station. Food added: '
  },
  {
    type: 'STAT-CHANGE',
    notification: 'positive',
    stat: 'food',
    value: 20,
-   text: 'Found wild berries. Food added: '
+   text: 'Found preserved food rations on abandoned Space Ship. Food added: '
  },
  {
    type: 'STAT-CHANGE',
    notification: 'positive',
-   stat: 'oxen',
+   stat: 'spaceShip',
    value: 1,
-   text: 'Found wild oxen. New oxen: '
+   text: 'You found a working abandoned Space Ship. New Space Ship: '
  },
  {
   type: 'SHOP',
   notification: 'neutral',
-  text: 'You have found a shop',
+  text: 'You discovered a working abandoned Space Station',
   products: [
-    {item: 'food', qty: 20, price: 50},
-    {item: 'oxen', qty: 1, price: 200},
-    {item: 'firepower', qty: 2, price: 50},
-    {item: 'crew', qty: 5, price: 80}
+    {item: 'Food Ration', type:'food', current: 0, qty: 20, price: 50, img: "http://www.ejinsight.com/wp-content/uploads/2017/07/1613381_a70114d8991162e774dd92cbd2d0158d.jpg"},
+    {item: 'Space Ship', type: 'ship' , current: 0, qty: 1, price: 200, img: "https://qph.fs.quoracdn.net/main-qimg-214082750d3887a39d06992eb6b7d147-c"},
+    {item: 'Missle Ammo', type: 'ammo' , current: 0, qty: 2, price: 50, img: "https://vignette.wikia.nocookie.net/deadspace/images/4/49/Full-plasma_ammo.png/revision/latest?cb=20110204214841"},
+    {item: 'Astronauts',  type: 'crew' , current: 0, qty: 5, price: 80, img: "https://blog.sleepnumber.com/wp-content/uploads/2017/04/90155_Astronaut.jpg"}
   ]
 },
 {
   type: 'SHOP',
   notification: 'neutral',
-  text: 'You have found a shop',
+  text: 'You discovered a Space Station',
   products: [
-    {item: 'food', qty: 30, price: 50},
-    {item: 'oxen', qty: 1, price: 200},
-    {item: 'firepower', qty: 2, price: 20},
-    {item: 'crew', qty: 10, price: 80}
+    {item: 'Food Ration', type:'food', current: 0, qty: 30, price: 50, img: "http://www.ejinsight.com/wp-content/uploads/2017/07/1613381_a70114d8991162e774dd92cbd2d0158d.jpg"},
+    {item: 'Space Ship', type: 'ship' , current: 0, qty: 1, price: 200, img: "https://qph.fs.quoracdn.net/main-qimg-214082750d3887a39d06992eb6b7d147-c"},
+    {item: 'Missle Ammo', type: 'ammo' , current: 0, qty: 2, price: 20, img: "https://vignette.wikia.nocookie.net/deadspace/images/4/49/Full-plasma_ammo.png/revision/latest?cb=20110204214841"},
+    {item: 'Astronauts',  type: 'crew' , current: 0, qty: 10, price: 80, img: "https://blog.sleepnumber.com/wp-content/uploads/2017/04/90155_Astronaut.jpg"}
   ]
 },
 {
   type: 'SHOP',
   notification: 'neutral',
-  text: 'Smugglers sell various goods',
+  text: 'You discovered a Space Vendor',
   products: [
-    {item: 'food', qty: 20, price: 60},
-    {item: 'oxen', qty: 1, price: 300},
-    {item: 'firepower', qty: 2, price: 80},
-    {item: 'crew', qty: 5, price: 60}
+    {item: 'Food Ration', type:'food', current: 0, qty: 20, price: 60, img: "http://www.ejinsight.com/wp-content/uploads/2017/07/1613381_a70114d8991162e774dd92cbd2d0158d.jpg"},
+    {item: 'Space Ship', type: 'ship' , current: 0, qty: 1, price: 300, img: "https://qph.fs.quoracdn.net/main-qimg-214082750d3887a39d06992eb6b7d147-c"},
+    {item: 'Missle Ammo', type: 'ammo' , current: 0, qty: 2, price: 80, img: "https://vignette.wikia.nocookie.net/deadspace/images/4/49/Full-plasma_ammo.png/revision/latest?cb=20110204214841"},
+    {item: 'Astronauts',  type: 'crew' , current: 0, qty: 5, price: 60, img: "https://blog.sleepnumber.com/wp-content/uploads/2017/04/90155_Astronaut.jpg"}
   ]
 },
  {
   type: 'ATTACK',
   notification: 'negative',
-  text: 'Bandits are attacking you'
+  text: 'You are entering  a space field. Fly around or go through?'
 },
 {
   type: 'ATTACK',
   notification: 'negative',
-  text: 'Bandits are attacking you'
+  text: 'You are entering  a space field. Fly around or go through?'
 },
 {
   type: 'ATTACK',
   notification: 'negative',
-  text: 'Bandits are attacking you'
+  text: 'You are entering  a space field. Fly around or go through?'
 }
 
 ];
@@ -155,9 +159,24 @@ OregonH.Event.statChangeEvent = function(eventData) {
 
 
 OregonH.Event.shopEvent = function(eventData) {
- //number of products for sale
- var numProds = Math.ceil(Math.random() * 4);
-
+  //number of products for sale
+  var numProds = Math.ceil(Math.random() * 4);
+  var currentFood = Math.ceil(OregonH.Caravan.food);
+  var currentSpaceShip = Math.ceil(OregonH.Caravan.spaceShip);
+  var currentFirepower = Math.ceil(OregonH.Caravan.firepower);
+  var currentCrew = Math.ceil(OregonH.Caravan.crew);
+  
+  function getCurrent(type) {
+    if (type === "food") {
+      return currentFood;
+    } else if (type === "ammo"){
+      return currentFirepower;
+    } else if (type === "ship"){
+      return currentSpaceShip;
+    } else if (type === "crew"){
+      return currentCrew;
+    }
+  }
  //product list
  var products = [];
  var j, priceFactor;
@@ -172,10 +191,14 @@ OregonH.Event.shopEvent = function(eventData) {
    products.push({
      item: eventData.products[j].item,
      qty: eventData.products[j].qty,
-     price: Math.round(eventData.products[j].price * priceFactor)
+     price: Math.round(eventData.products[j].price * priceFactor),
+     img: eventData.products[j].img,
+     type: eventData.products[j].type,
+     current: getCurrent(eventData.products[j].type)
    });
  }
 
+ OregonH.UI.refreshStats();
  this.ui.showShop(products);
 };
 
