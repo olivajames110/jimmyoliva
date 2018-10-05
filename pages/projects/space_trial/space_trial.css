@@ -5,6 +5,7 @@
 } */
 
 :root {
+<<<<<<< HEAD
   --boxHeight: 230px;
 }
 
@@ -12,6 +13,11 @@ p {
   font-family: "Roboto Mono";
 }
 
+=======
+  --boxHeight: 150px;
+}
+
+>>>>>>> 16e87fdb9de82babf5e22233af3d1cbc2a621ed8
 #orb {
   background: linear-gradient(90deg, rgba(24, 6, 46, 0.741),rgba(13, 44, 84, 0.638)), linear-gradient(90deg, #183152,rgb(9, 45, 92));
   position: absolute;
@@ -99,10 +105,13 @@ h1{
   left: 280px;
   top: 50px;
   transition: cubic-bezier(0, 0, 0.88, 1.41) all 2s
+<<<<<<< HEAD
 }
 
 .moon-earth {
   position: relative;
+=======
+>>>>>>> 16e87fdb9de82babf5e22233af3d1cbc2a621ed8
 }
 
 .mars-img {
@@ -146,6 +155,7 @@ h1{
 }
 .control-buttons button:nth-child(2){
   background-color: rgb(157, 61, 61);
+<<<<<<< HEAD
 }
 
 
@@ -384,3 +394,172 @@ padding: 20px;
   left: 50%;
   bottom: 30%; 
  }
+=======
+}
+
+
+.update-positive {
+  color: #669966;
+}
+ 
+.update-negative {
+  color: red;
+}
+ 
+.update-neutral {
+  color: #90908F;
+}
+
+.hidden {
+  display: none;
+}
+
+/* #shop {
+  float: left;
+  background-color: white;
+  margin: 10px;
+  padding: 10px;
+  height: 90px;
+  width: 350px;
+} */
+ 
+.border-padding {
+  padding: 15px 30px;
+}
+
+#shop button {
+  margin: 5px;
+  margin-top: 30px;
+  border: none;
+}
+
+#leaver-shop {
+    background-color: none;
+    color: rgb(87, 85, 85);
+}
+
+#purchased-item {
+  font-family: "Roboto Mono";
+  font-size: 16px;
+  padding-top: 15px;
+  text-align: center;
+}
+
+.fa-arrow-left:before {
+  content: "\f060";
+  margin-right: 5px;
+}
+
+.fa-dollar-sign:before {
+    content: "\f155";
+    margin-left: 5px;
+}
+
+#shop h1  {
+  text-align: center;
+  font-family: "Roboto Mono";
+  color: #183152;
+}
+
+#shop {
+  display: grid;
+  grid-template-columns: 6fr 3fr;
+  flex-wrap: wrap;
+}
+
+.purchase-column , .shop-shop-column {
+  padding: 0 20px;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.purchase-column {
+  border-left: 2px solid rgba(0, 0, 0, 0.693);
+
+}
+
+.shop-shop-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+.shop-buttons {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.prods {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.prods img {
+  width: 130px;
+  height: 100px;
+  background-size: cover;
+  
+}
+
+.product {
+  margin: 25px 15px;
+  border: 1px solid #e3e1e1;
+  background-color: #fafafa;
+  font-size: 12px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.product-item {
+  padding: 20px 10px;
+  border: none;
+  text-align: center;
+}
+
+/* #attack {
+} */
+
+#modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.405);
+}
+
+.modal-header {
+  background: linear-gradient(90deg, #202766ab, #3f1f518f) , linear-gradient(#243097, #9b4343);
+  padding: 20px;
+  color: white;
+}
+
+.modal-header h1 {
+  font-size: 24px;
+  text-transform: uppercase;
+  font-family: "Roboto Mono";
+}
+
+.modal-header-body {
+  font-size: 12px;
+  font-family: "Roboto Mono";
+}
+
+.modal-content {
+  margin: 5% auto;
+  width: 70%;
+  background-color: white;
+  max-width: 1200px;
+}
+
+.modal-body {
+padding: 20px;
+
+}
+>>>>>>> 16e87fdb9de82babf5e22233af3d1cbc2a621ed8

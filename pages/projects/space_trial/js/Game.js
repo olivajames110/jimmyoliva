@@ -34,7 +34,11 @@ OregonH.Game.init = function() {
   crew: 30,
   food: 80,
   spaceShip: 2,
+<<<<<<< HEAD
   money: 1000,
+=======
+  money: 300,
+>>>>>>> 16e87fdb9de82babf5e22233af3d1cbc2a621ed8
   firepower: 10
  });
 

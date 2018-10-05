@@ -1,11 +1,21 @@
 var OregonH = OregonH || {};
 
 OregonH.UI = {};
-
 // Show notification in the message box
 OregonH.UI.notify = function(message , type) {
+  
+  var modal = document.getElementById("modal");
+  if (modal.className === "") {
+   document.getElementById("purchased-item-list").innerHTML = '<div class="purchased-item">' + message + +type + '</div>' ;
+  }
  document.getElementById("message-line").innerHTML = '<div class="update-' + type + '">Day '+ Math.ceil(this.caravan.day) + ': ' + message+'</div>' + document.getElementById('message-line').innerHTML;
   }
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> 16e87fdb9de82babf5e22233af3d1cbc2a621ed8
 
  // refresh visual caravan stats
  OregonH.UI.refreshStats = function() {
@@ -19,8 +29,12 @@ OregonH.UI.notify = function(message , type) {
    document.getElementById('shop-stat-money').innerHTML = "$" + this.caravan.money;
    document.getElementById('stat-firepower').innerHTML = this.caravan.firepower;
    document.getElementById('stat-weight').innerHTML = Math.ceil(this.caravan.weight) + '/' + this.caravan.capacity;
+<<<<<<< HEAD
    //controls speed of the rocket
    document.getElementById('rocket-img').style.left = (this.caravan.distance / OregonH.finalDistance) + '%';
+=======
+   document.getElementById('rocket-img').style.left = (180 * this.caravan.distance / OregonH.finalDistance) + '%';
+>>>>>>> 16e87fdb9de82babf5e22233af3d1cbc2a621ed8
  };
 
  var fcanvas = document.getElementById('flappy-canvas');
@@ -242,7 +256,11 @@ OregonH.UI.runaway = function(){
 OregonH.UI.showShop = function(products){
  
  //get shop area
+<<<<<<< HEAD
  var shopDiv = document.getElementById('modal-shop');
+=======
+ var shopDiv = document.getElementById('modal');
+>>>>>>> 16e87fdb9de82babf5e22233af3d1cbc2a621ed8
  shopDiv.classList.remove('hidden');
 
  //init the shop just once
@@ -281,6 +299,7 @@ OregonH.UI.showShop = function(products){
  var product;
  for(var i=0; i < products.length; i++) {
    product = products[i];
+<<<<<<< HEAD
    prodsDiv.innerHTML =
     `<div class="product">
       <img src="${product.img}" width="100" />
@@ -291,7 +310,15 @@ OregonH.UI.showShop = function(products){
     </div>`;
   //  prodsDiv.innerHTML += 
   //  '<div class="product"> <img src="' + product.img + '" width="100" /> <div class="product-item" data-qty="' + product.qty + '" data-item="' + product.item + '" data-price="' + product.price + '">' + product.qty+ ' ' + product.item + ' - $' + product.price + '</div> <div class="shop-current-item">Current: ' + product.current + '</div></div>';
+=======
+   prodsDiv.innerHTML += 
+   '<div class="product"> <img src="' + product.img + '" width="100" /> <div class="product-item" data-qty="' + product.qty + '" data-item="' + product.item + '" data-price="' + product.price + '">' + product.qty+ ' ' + product.item + ' - $' + product.price + '</div> </div>';
+>>>>>>> 16e87fdb9de82babf5e22233af3d1cbc2a621ed8
  }
+//  for(var i=0; i < products.length; i++) { 
+//   product = products[i];
+//   prodsDiv.innerHTML += '<div class="product-item" data-qty="' + product.qty + '" data-item="' + product.item + '" data-price="' + product.price + '">' + product.qty + ' ' + product.item + ' - $' + product.price + '</div>';
+//   }
 };
 
 //buy product
@@ -305,7 +332,12 @@ OregonH.UI.buyProduct = function(product) {
  OregonH.UI.caravan.money -= product.price;
  
  OregonH.UI.caravan[product.item] += +product.qty;
+<<<<<<< HEAD
  
+=======
+
+
+>>>>>>> 16e87fdb9de82babf5e22233af3d1cbc2a621ed8
  OregonH.UI.notify('Bought ' + product.qty + ' x ' + product.item, 'positive');
  
  OregonH.UI.prodsDiv.classList.add("hidden");
