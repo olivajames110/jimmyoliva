@@ -5,11 +5,11 @@ mobileMenuBtn.addEventListener("click" , function(){
  var navClass = document.querySelector("nav ul");
  
  if (navClassIsClosed) {
-  navClass.style.display = "inherit";
+  navClass.className = "desktop-nav";
   navClassIsClosed = false;
 
  } else {
-  navClass.style.display = "none";
+  navClass.className = "mobile-nav";
   navClassIsClosed = true;
  }
 })

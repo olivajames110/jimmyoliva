@@ -1,0 +1,94 @@
+
+@import url('https://fonts.googleapis.com/css?family=Raleway|Roboto+Mono');
+
+@media only screen and (max-width: 600px) {
+ .drum-header h1 {
+  padding-top: 100px !important;
+ }
+
+ .return-arrow {
+  top: 87% !important;
+ }
+
+}
+
+
+#drum-machine-container {
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ position: relative;
+}
+
+
+.drum-body {
+ background: url("Images/drum_bg.jpg");
+ background-position: right;
+ background-size: cover;
+ background-repeat: no-repeat; 
+}
+
+header  {
+ /* background-color: #092d5c !important; */
+}
+
+.drum-header {
+ text-align: center;
+ font-family: 'Roboto Mono', monospace;
+ padding: 0 10px;
+}
+
+.drum-header h1 {
+ padding-top: 20px;
+ font-size: 48px;
+ color: rgba(255, 255, 255, 0.9);
+}
+
+.drum-header span {
+ color: white;
+ font-size: 16px;
+ padding-top: 30px;
+ 
+
+}
+
+.key-container {
+ display: flex;
+ justify-content: center;
+ flex-wrap: wrap;
+ margin-top: 50px;
+ max-width: 1000px;
+}
+
+.key {
+ background-color: #ffffffc1;
+ border-radius: 5px;
+ padding: 30px 40px;
+ margin: 15px;
+ text-align: center;
+ transition: all ease .1s;
+ width: 70px;
+ height: 70px;
+ font-family: 'Roboto Mono', monospace;
+}
+
+.key:hover {
+cursor: pointer;
+}
+
+.key-letter {
+font-size: 36px;
+}
+
+.key-instrument {
+ font-size: 14px;
+ margin-top: 10px;
+ font-weight: bold;
+}
+
+.playing {
+ transform: scale(1.1);
+ box-shadow: 1px 0px 50px 8px rgba(222, 183, 65, 0.481);
+ background-color: #fffffff3;
+ 
+}

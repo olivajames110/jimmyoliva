@@ -1,8 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway|Roboto+Mono');
 
 
-
-
 .land {
  position: relative;
 }
@@ -10,15 +8,13 @@
 .land-day {
 	background-position: 100% 100%;
 }
-
-.land-night{
+ .land-night{
 	background-position: 0 0;
 }
 
-
 #land {
 	background-image:linear-gradient(to bottom,#16133a, #48BAFF);
-	background-size: 200% 200%;
+	background-size: 300% 300%;
 	transition: 2s ease;
 }
 
@@ -44,10 +40,10 @@
 
 #up-down-btns {
  position: absolute;
- bottom: 40px;
- right: 100px;
+ top: 260px;
+ right: 50px;
  display: flex;
- flex-direction: column;
+ flex-direction: row;
 
 }
 
@@ -65,7 +61,7 @@
  display: flex;
  flex-direction: column;
  justify-content: center;
- margin: 5px 0;
+ margin: 0 5px;
 }
 
 .up-down-btn-style:hover {

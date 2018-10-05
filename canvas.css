@@ -1,7 +1,9 @@
 
 @import url('https://fonts.googleapis.com/css?family=Raleway|Roboto+Mono');
 
-
+:root {
+  --font: 'Roboto Mono', monospace;
+}
 
 * {
  margin: 0;
@@ -12,12 +14,17 @@ header {
  display: flex;
  justify-content: space-between;
  padding: 30px ;
- background: linear-gradient(180deg, #00000093 , #00000000);
+ 
 }
 
 header ul {
  display: flex;
  list-style: none;
+}
+
+header a {
+  text-decoration: none;
+  color: #DEB841;
 }
 
 header li {
@@ -223,5 +230,33 @@ line-height: 1.6em;
 
 }
 
+svg {
+  transform: scale(0.5);
+}
 
+.return-section {
+  background: linear-gradient(90deg, #535353,rgba(250, 250, 250, 0));
+  display: flex;
+  position: absolute;
+  left: 0;
+  height: calc(100vh - 134px);
+  align-items: center;
+}
 
+.return-arrow {
+  display: flex;
+  flex-direction: column;
+  top: 50%;
+  left: 10px;
+  color: white;
+  text-align: center;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.return-section span {
+  font-family: 'Raleway', monospace;
+  text-align: center;
+  margin-top: 5px;
+  transform: rotate(-90deg);
+ }

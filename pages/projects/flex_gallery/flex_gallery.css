@@ -1,0 +1,83 @@
+
+
+#flex-container{
+    display: flex;
+    height: calc(100vh - 134px);
+    overflow: hidden;
+}
+
+.image1 {
+    background: url("https://c.pxhere.com/photos/f9/50/bloom_blooming_blossom_branch_cherry_flora_flower_flowers-1159275.jpg!d");
+}
+
+.image2 {
+    background: url("https://i.pinimg.com/originals/fb/ec/21/fbec21d1dfb1088a1de976eb6572842a.jpg");
+}
+
+.image3 {
+    background: url("https://i.imgur.com/zlb4GG3.jpg");
+}
+
+.image4 {
+    background: url("https://az616578.vo.msecnd.net/files/2016/09/10/636090695124499947223829352_fall-012.jpg");
+}
+
+.image5 {
+    background: url("https://fournews-assets-prod-s3b-ew1-aws-c4-pml.s3.amazonaws.com/media/2017/12/snow_london_g_hd.jpg");
+}
+
+
+
+.image-panel {
+    background-position: center;
+    background-size: cover;
+    flex: 1;
+    color: white;
+    text-align: center;
+    font-size: 18px;
+    font-family: var(--font);
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    transition: 1.4s ease;
+    box-shadow: inset 0 0 20px 10px rgba(0, 0, 0, 0.2);
+}
+
+.image-panel > * {
+    flex: 1 0 auto;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.5s;
+    text-transform: uppercase;
+}
+
+
+.open-active {
+    font-size: 36px;
+    flex: 4;
+}
+
+.image-panel > *:first-child {
+    transform: translateY(-100%);
+}
+
+.image-panel p {
+    text-shadow: 0px 0px 12px #000000f5;
+}
+
+.image-panel.open-active > *:first-child {
+    transform: translateY(0);
+    font-size: 20px;
+}
+
+.image-panel > *:last-child {
+    transform: translateY(100%);
+}
+
+.image-panel.open-active > *:last-child {
+    transform: translateY(0);
+    font-size: 20px;
+}

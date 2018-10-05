@@ -1,0 +1,208 @@
+
+@import url('https://fonts.googleapis.com/css?family=Raleway|Roboto+Mono');
+
+@media only screen and (max-width: 600px) {
+ .drum-header h1 {
+  padding-top: 100px !important;
+ }
+
+ .return-arrow {
+  top: 87% !important;
+ }
+
+}
+
+#clock-body {
+ /* background: url("Images/drum_bg.jpg");
+ background-position: right;
+ background-size: cover;
+ background-repeat: no-repeat;  */
+ background-color: #092d5c;
+ position: relative;
+ height: 100vh;
+}
+
+.clock {
+ width: 25rem;
+ height: 25rem;
+ border: 10px solid #B09B5F;
+ border-radius: 50%;
+ margin: 35px auto; 
+ position: relative;
+ padding: 2rem;
+ background-color: #CAD1DB;
+ box-shadow: inset 0px 0px 1px 5px #989494c9;
+}
+
+.clock-face {
+ position: relative;
+ width: 100%;
+ height: 100%;
+ transform: translate(-3px);
+}
+
+.center-piece {
+ position: absolute;
+ height: 25px;
+ width: 25px;
+ border-radius: 51%;
+ top: 47%;
+ background-color: rgb(68, 64, 41);
+ left: 47%;
+ z-index: 100;
+     border: 1px solid rgba(181, 173, 128, 0.79);
+}
+
+.sec-hand {
+ height: 2px;
+ width: 50%;
+ top: 50%;
+}
+
+.min-hand {
+ height: 6px;
+ width: 45%;
+ top: 50%;
+ left: 5%;
+ border-top-left-radius: 5px;
+ border-bottom-left-radius: 5px;
+}
+
+.hour-hand {
+ height: 10px;
+ width: 30%;
+ top: 49%;
+ left: 20%;
+ border-top-left-radius: 2px;
+ border-bottom-left-radius: 2px;
+ border: 1px solid #7d7859;
+}
+
+.hand {
+ background: #5A5537;
+ position: absolute;
+ transform-origin: 100%;
+ /* transform: rotate(90deg); */
+ transition: all 0.2s;
+ transition-timing-function: cubic-bezier(0.18, -0.22, 0.58, 1.75);
+ border: 1px solid #7d7859;
+}
+
+.svg-hand {
+ width: 50%;
+}
+
+.tick {
+ position: absolute;
+ transform-origin: 50%;
+ background: black;
+ height: 3px;
+}
+
+.num {
+ background-color: #7a8087;
+ padding: 5px 10px;
+ color: #f4f6f8;
+}
+
+.num-12 {
+ position: absolute;
+ transform-origin: 50%;
+ height: 10px;
+ width: 10%;
+ top: 5%;
+ left: 45%;
+ font-size: 44px;
+ font-family: 'Roboto Mono', monospace;
+}
+
+.num-3 {
+ 
+ width: 10%;
+ top: 50%;
+ right: 0%;
+
+}
+
+.num-6 {
+
+ width: 10%;
+ bottom: 5%;
+ right: 44%;
+ transform: rotate(90deg);
+}
+
+.num-9 {
+
+ width: 10%;
+ top: 50%;
+ left: 0;
+}
+
+.digital-clock   {
+ position: relative;
+ display: flex;
+ margin: 0 auto;
+ border: 8px solid #ffffffa6;
+ background-color: #ffffffc9;
+ justify-content: center;
+ max-width: 800px;
+ border-top-left-radius: 20px;
+ border-top-right-radius: 20px;
+ border-bottom-right-radius: 8px;
+ border-bottom-left-radius: 8px;
+ border-bottom: 80px solid #ffffffc9;
+ box-shadow: 0 0 50px 40px;
+ box-shadow: inset 0px 0px 25px 4px #989494c9;
+
+ 
+}
+
+.digital-num {
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ flex-direction: column;
+ width: 150px;
+ height: 150px;
+ font-size: 36px;
+ font-family: 'Roboto Mono', monospace;
+ text-align: center;
+}
+
+.digital-num:nth-child(6) {
+ flex-direction: row;
+}
+
+.digital-label {
+ font-size: 15px;
+ display: flex;
+ flex-direction: column;
+ font-weight: 500;
+}
+
+.clock-sep {
+ font-size: 48px;
+ align-self: center;
+}
+
+.am-pm {
+ margin: 0 20px;
+ color: #37557b;
+}
+
+.dial {
+ width: 30px;
+ height: 30px;
+ border-radius: 50%;
+ background-color: #dedede;
+ border: 2px solid #999595c9;
+ bottom: -45px;
+ position: absolute;
+}
+
+.clock-section {
+    background: linear-gradient(90deg, #3f24c4, #9c3ab6);
+    padding-top: 20px ;
+}
+
