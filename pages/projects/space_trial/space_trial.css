@@ -5,19 +5,14 @@
 } */
 
 :root {
-<<<<<<< HEAD
-  --boxHeight: 230px;
+  --boxHeight: 150px;
 }
 
 p {
   font-family: "Roboto Mono";
 }
+  
 
-=======
-  --boxHeight: 150px;
-}
-
->>>>>>> 16e87fdb9de82babf5e22233af3d1cbc2a621ed8
 #orb {
   background: linear-gradient(90deg, rgba(24, 6, 46, 0.741),rgba(13, 44, 84, 0.638)), linear-gradient(90deg, #183152,rgb(9, 45, 92));
   position: absolute;
@@ -105,13 +100,11 @@ h1{
   left: 280px;
   top: 50px;
   transition: cubic-bezier(0, 0, 0.88, 1.41) all 2s
-<<<<<<< HEAD
+
 }
 
 .moon-earth {
   position: relative;
-=======
->>>>>>> 16e87fdb9de82babf5e22233af3d1cbc2a621ed8
 }
 
 .mars-img {
@@ -155,7 +148,6 @@ h1{
 }
 .control-buttons button:nth-child(2){
   background-color: rgb(157, 61, 61);
-<<<<<<< HEAD
 }
 
 
@@ -394,7 +386,6 @@ padding: 20px;
   left: 50%;
   bottom: 30%; 
  }
-=======
 }
 
 
@@ -561,5 +552,3 @@ padding: 20px;
 .modal-body {
 padding: 20px;
 
-}
->>>>>>> 16e87fdb9de82babf5e22233af3d1cbc2a621ed8

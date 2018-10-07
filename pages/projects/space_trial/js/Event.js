@@ -62,28 +62,18 @@ OregonH.Event.eventTypes = [
    notification: 'positive',
    stat: 'spaceShip',
    value: 1,
-<<<<<<< HEAD
    text: 'You found a working abandoned Space Ship. New Space Ship: '
-=======
-   text: 'Found wild spaceShip. New spaceShip: '
->>>>>>> 16e87fdb9de82babf5e22233af3d1cbc2a621ed8
  },
  {
   type: 'SHOP',
   notification: 'neutral',
   text: 'You discovered a working abandoned Space Station',
   products: [
-<<<<<<< HEAD
-    {item: 'Food Ration', type:'food', current: 0, qty: 20, price: 50, img: "http://www.ejinsight.com/wp-content/uploads/2017/07/1613381_a70114d8991162e774dd92cbd2d0158d.jpg"},
-    {item: 'Space Ship', type: 'ship' , current: 0, qty: 1, price: 200, img: "https://qph.fs.quoracdn.net/main-qimg-214082750d3887a39d06992eb6b7d147-c"},
-    {item: 'Missle Ammo', type: 'ammo' , current: 0, qty: 2, price: 50, img: "https://vignette.wikia.nocookie.net/deadspace/images/4/49/Full-plasma_ammo.png/revision/latest?cb=20110204214841"},
-    {item: 'Astronauts',  type: 'crew' , current: 0, qty: 5, price: 80, img: "https://blog.sleepnumber.com/wp-content/uploads/2017/04/90155_Astronaut.jpg"}
-=======
     {item: 'Food Ration', qty: 20, price: 50, img: "http://www.ejinsight.com/wp-content/uploads/2017/07/1613381_a70114d8991162e774dd92cbd2d0158d.jpg"},
     {item: 'Space Ship', qty: 1, price: 200, img: "https://qph.fs.quoracdn.net/main-qimg-214082750d3887a39d06992eb6b7d147-c"},
     {item: 'Missle Ammo', qty: 2, price: 50, img: "https://vignette.wikia.nocookie.net/deadspace/images/4/49/Full-plasma_ammo.png/revision/latest?cb=20110204214841"},
     {item: 'Astronauts', qty: 5, price: 80, img: "https://blog.sleepnumber.com/wp-content/uploads/2017/04/90155_Astronaut.jpg"}
->>>>>>> 16e87fdb9de82babf5e22233af3d1cbc2a621ed8
+
   ]
 },
 {
@@ -91,38 +81,22 @@ OregonH.Event.eventTypes = [
   notification: 'neutral',
   text: 'You discovered a Space Station',
   products: [
-<<<<<<< HEAD
-    {item: 'Food Ration', type:'food', current: 0, qty: 30, price: 50, img: "http://www.ejinsight.com/wp-content/uploads/2017/07/1613381_a70114d8991162e774dd92cbd2d0158d.jpg"},
-    {item: 'Space Ship', type: 'ship' , current: 0, qty: 1, price: 200, img: "https://qph.fs.quoracdn.net/main-qimg-214082750d3887a39d06992eb6b7d147-c"},
-    {item: 'Missle Ammo', type: 'ammo' , current: 0, qty: 2, price: 20, img: "https://vignette.wikia.nocookie.net/deadspace/images/4/49/Full-plasma_ammo.png/revision/latest?cb=20110204214841"},
-    {item: 'Astronauts',  type: 'crew' , current: 0, qty: 10, price: 80, img: "https://blog.sleepnumber.com/wp-content/uploads/2017/04/90155_Astronaut.jpg"}
-=======
     {item: 'Food Ration', qty: 30, price: 50, img: "http://www.ejinsight.com/wp-content/uploads/2017/07/1613381_a70114d8991162e774dd92cbd2d0158d.jpg"},
     {item: 'Space Ship', qty: 1, price: 200, img: "https://qph.fs.quoracdn.net/main-qimg-214082750d3887a39d06992eb6b7d147-c"},
     {item: 'firepower', qty: 2, price: 20, img: "https://vignette.wikia.nocookie.net/deadspace/images/4/49/Full-plasma_ammo.png/revision/latest?cb=20110204214841"},
     {item: 'Astronauts', qty: 10, price: 80, img: "https://blog.sleepnumber.com/wp-content/uploads/2017/04/90155_Astronaut.jpg"}
->>>>>>> 16e87fdb9de82babf5e22233af3d1cbc2a621ed8
   ]
 },
 {
   type: 'SHOP',
   notification: 'neutral',
-<<<<<<< HEAD
-  text: 'You discovered a Space Vendor',
-  products: [
-    {item: 'Food Ration', type:'food', current: 0, qty: 20, price: 60, img: "http://www.ejinsight.com/wp-content/uploads/2017/07/1613381_a70114d8991162e774dd92cbd2d0158d.jpg"},
-    {item: 'Space Ship', type: 'ship' , current: 0, qty: 1, price: 300, img: "https://qph.fs.quoracdn.net/main-qimg-214082750d3887a39d06992eb6b7d147-c"},
-    {item: 'Missle Ammo', type: 'ammo' , current: 0, qty: 2, price: 80, img: "https://vignette.wikia.nocookie.net/deadspace/images/4/49/Full-plasma_ammo.png/revision/latest?cb=20110204214841"},
-    {item: 'Astronauts',  type: 'crew' , current: 0, qty: 5, price: 60, img: "https://blog.sleepnumber.com/wp-content/uploads/2017/04/90155_Astronaut.jpg"}
-=======
   text: 'You came across a Space Station',
   products: [
     {item: 'Food Ration', qty: 20, price: 60, img: "http://www.ejinsight.com/wp-content/uploads/2017/07/1613381_a70114d8991162e774dd92cbd2d0158d.jpg"},
     {item: 'Space Ship', qty: 1, price: 300, img: "https://qph.fs.quoracdn.net/main-qimg-214082750d3887a39d06992eb6b7d147-c"},
     {item: 'firepower', qty: 2, price: 80, img: "https://vignette.wikia.nocookie.net/deadspace/images/4/49/Full-plasma_ammo.png/revision/latest?cb=20110204214841"},
     {item: 'Astronauts', qty: 5, price: 60, img: "https://blog.sleepnumber.com/wp-content/uploads/2017/04/90155_Astronaut.jpg"}
->>>>>>> 16e87fdb9de82babf5e22233af3d1cbc2a621ed8
-  ]
+	]
 },
  {
   type: 'ATTACK',
@@ -219,13 +193,8 @@ OregonH.Event.shopEvent = function(eventData) {
      item: eventData.products[j].item,
      qty: eventData.products[j].qty,
      price: Math.round(eventData.products[j].price * priceFactor),
-<<<<<<< HEAD
      img: eventData.products[j].img,
-     type: eventData.products[j].type,
-     current: getCurrent(eventData.products[j].type)
-=======
-     img: eventData.products[j].img
->>>>>>> 16e87fdb9de82babf5e22233af3d1cbc2a621ed8
+     
    });
  }
 
