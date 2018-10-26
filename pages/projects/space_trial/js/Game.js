@@ -1,16 +1,17 @@
 var OregonH = OregonH || {};
-
+var numOfEvents = 0;
+var ratio = 0.015
 // Constants
 OregonH.weightPerOx = 20;
 OregonH.weightPerPerson = 2;
 OregonH.foodWeight = 0.6;
 OregonH.firepowerWeight = 5;
-OregonH.gameSpeed = 800;
-OregonH.dayPerStep = .2;
+OregonH.gameSpeed = 1;
+OregonH.dayPerStep = ratio;
 OregonH.foodPerPerson = 0.02;
-OregonH.fullSpeed = 5;
-OregonH.slowSpeed = 3;
-OregonH.finalDistance = 1000;
+OregonH.fullSpeed = 1;
+// OregonH.slowSpeed = 3;
+OregonH.finalDistance = 100;
 OregonH.eventProbability = 0.15;
 OregonH.enemyFirepowerAverage = 5;
 OregonH.enemyGoldAverage = 50;
@@ -58,7 +59,7 @@ OregonH.Game.init = function() {
 OregonH.Game.startJourney = function() {
  this.gameActive = true;
  this.previousTime = null;
- this.ui.notify('The journey to the edge of the solar system begins...', 'positive');
+ this.ui.notify('Your journey to the end of the solar system begins...', 'positive');
 
  this.step();
 };
@@ -68,7 +69,7 @@ OregonH.Game.step = function(timestamp) {
 
  // Starting, setup the previous time for the first time
  if (!this.previousTime) {
-  this.previousTime = timestamp;
+  this.previousTime = timestamp * 5;
   this.updateGame();
  }
 
@@ -91,6 +92,8 @@ OregonH.Game.updateGame = function() {
   this.caravan.day += OregonH.dayPerStep;
  
   //food consumption
+  
+  
   this.caravan.consumeFood();
   
   //game over no food
@@ -118,17 +121,40 @@ OregonH.Game.updateGame = function() {
   }
  
   //check win game
-  if(this.caravan.distance >= OregonH.FINAL_DISTANCE) {
-    this.ui.notify('You have returned home!', 'positive');
+  if(this.caravan.distance === 5000) {
+    this.ui.notify('You won!', 'positive');
     this.gameActive = false;
     return;
   }
+
+
+  if(this.caravan.distance === 1500) {
+    OregonH.UI.showAttack(0,0)
+    this.ui.notify('Enterign', 'positive');
+    this.gameActive = false;
+    return;
+  }
+
+
+
+  // //check if ships are gone
+  // if(this.caravan.spaceShip <= 0) {
+  //   this.caravan.crew = 0;
+  //   this.ui.notify('Everyone died', 'negative');
+  //   this.gameActive = false;
+  //   return;
+  // }
  
   //random events logic will go here..
   //random events
-if (Math.random() <= OregonH.eventProbability) {
- this.eventManager.generateEvent();
-} 
+var ranNum = Math.random() * 25;
+if (ranNum <= OregonH.eventProbability) {
+  numOfEvents++;
+  console.log("Event Triggered: " + ranNum)
+ this.eventManager.generateEvent(ranNum);
+} else{
+  console.log("No Trigger: " + ranNum)
+}
 };
  
 //pause the journey
@@ -151,5 +177,9 @@ document.addEventListener('keypress' , function(e) {
     OregonH.Game.gameActive = false;
   }
 } );
+
+// if (OregonH.caravan.distance === 250) {
+//   console.log('test');
+//  }
 //init game
 OregonH.Game.init();

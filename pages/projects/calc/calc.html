@@ -34,52 +34,25 @@
         </header id="interior-header">
 
         <div id="calc-container">
-            <div class="calc">
-                <table>
-                    <tbody>
-                        <tr>
-                            <td colspan="4">
-                                <input id="input-numbers"/>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><input class="button" type="button" value="C"</td>
-                            <td><input class="button" type="button" value="/"</td>
-                            <td><input class="button" type="button" value="%"</td>
-                            <td><input class="button" type="button" value="*"</td>
-                        </tr>
-
-                        <tr>
-                            <td><input class="button" type="button" value="7"</td>
-                            <td><input class="button" type="button" value="8"</td>
-                            <td><input class="button" type="button" value="9"</td>
-                            <td><input class="button" type="button" value="-"</td>
-                        </tr>
-
-                        <tr>
-                            <td><input class="button" type="button" value="4"</td>
-                            <td><input class="button" type="button" value="5"</td>
-                            <td><input class="button" type="button" value="6"</td>
-                            <td><input class="button" type="button" value="+"</td>
-                        </tr>
-
-                        <tr>
-                            <td><input class="button" type="button" value="1"</td>
-                            <td><input class="button" type="button" value="2"</td>
-                            <td><input class="button" type="button" value="3"</td>
-                            <td rowspan="2"><input class="button" type="button" value="Enter"</td>
-                        </tr>
-
-                        <tr>
-                            <td colspan="2"><input class="button" type="button" value="0"</td>
-                            <td><input class="button" type="button" value="."</td>
-
-                        </tr>
-
-                    </tbody>
-                </table>
+            <div id="calc-results" class="calc-results">0000</div>
+            <div class="calc-numbers">
+               <button class="btn" type="button" data-num="*">*</button>
+               <button class="btn" type="button" data-num="/">/</button>
+               <button class="btn" type="button" data-num="-">-</button>
+               <button class="btn" type="button" data-num="+">+</button>
+               <button class="btn" type="button" data-num="9">9</button>
+               <button class="btn" type="button" data-num="8">8</button>
+               <button class="btn" type="button" data-num="7">7</button>
+               <button class="btn" type="button" data-num="6">6</button>
+               <button class="btn" type="button" data-num="5">5</button>
+               <button class="btn" type="button" data-num="4">4</button>
+               <button class="btn" type="button" data-num="3">3</button>
+               <button class="btn" type="button" data-num="2">2</button>
+               <button class="btn" type="button" data-num="1">1</button>
+               <button class="btn" type="button" data-num="0">0</button>
+               <button class="btn" type="button" data-num="Enter">Enter</button>
             </div>
         </div>
     </body>
-    <script src="slider.js"></script>
+    <script src="calc.js"></script>
 </html>

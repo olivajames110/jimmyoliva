@@ -6,13 +6,14 @@ OregonH.UI.notify = function(message , type) {
   
   var modal = document.getElementById("modal");
   if (modal.className === "") {
-   document.getElementById("purchased-item-list").innerHTML = '<div class="purchased-item">' + message + +type + '</div>' ;
+   document.getElementById("purchased-item-list").innerHTML = '<div class="purchased-item">' + message +type + '</div>' ;
   }
  document.getElementById("message-line").innerHTML = '<div class="update-' + type + '">Day '+ Math.ceil(this.caravan.day) + ': ' + message+'</div>' + document.getElementById('message-line').innerHTML;
   }
 
  // refresh visual caravan stats
  OregonH.UI.refreshStats = function() {
+   var rocketLocation = ((this.caravan.distance / 50))
    //modify the dom
    document.getElementById('stat-day').innerHTML = Math.ceil(this.caravan.day);
    document.getElementById('stat-distance').innerHTML = Math.floor(this.caravan.distance);
@@ -23,8 +24,9 @@ OregonH.UI.notify = function(message , type) {
    document.getElementById('shop-stat-money').innerHTML = "$" + this.caravan.money;
    document.getElementById('stat-firepower').innerHTML = this.caravan.firepower;
    document.getElementById('stat-weight').innerHTML = Math.ceil(this.caravan.weight) + '/' + this.caravan.capacity;
+  //  document.getElementById('rocket-img').style.left = this.caravan.distance / OregonH.finalDistance) + '%';
+   document.getElementById('rocket-img').style.left = rocketLocation + '%';
 
-   document.getElementById('rocket-img').style.left = ( this.caravan.distance / OregonH.finalDistance) + '%';
  };
 
  var fcanvas = document.getElementById('flappy-canvas');
@@ -89,9 +91,6 @@ OregonH.UI.showAttack = function(firepower, gold) {
  
 //runing away from enemy
 OregonH.UI.go = function(){
-
-
-
   var fcanvas = document.getElementById('flappy-canvas');
   var fctx = fcanvas.getContext('2d');
   var parentContainer = document.getElementById("parent").offsetWidth;
@@ -217,14 +216,13 @@ var gravity = 0;
     gameResult.classList.add('hidden')
     OregonH.Game.resumeJourney();
      console.log('game over');
-  }, 3000);
+  }, 1400);
  }
 }
   draw();
 }
 
 OregonH.UI.runaway = function(){
- 
   //remove event listener
   console.log('close');
   
@@ -238,7 +236,7 @@ OregonH.UI.runaway = function(){
     gameResult.classList.add('hidden')
     OregonH.Game.resumeJourney();
      console.log('game over');
-  }, 3000);
+  }, 1400);
  
 };
 
