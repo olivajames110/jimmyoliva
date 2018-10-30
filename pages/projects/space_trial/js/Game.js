@@ -73,6 +73,11 @@ OregonH.Game.step = function(timestamp) {
   this.updateGame();
  }
 
+ if (this.caravan.distance === 100) {
+   console.log("asdasdhabsdlkhbaskjdhbakjhsdbkajhbd");
+   
+ }
+
    //time difference
   var progress = timestamp - this.previousTime;
  
@@ -127,6 +132,12 @@ OregonH.Game.updateGame = function() {
     return;
   }
 
+  if(this.caravan.distance === 100) {
+    OregonH.UI.showShop()
+    this.ui.notify('Your made it to Mars. Would you like to go shopping?', 'positive');
+    this.gameActive = false;
+    return;
+  }
 
   if(this.caravan.distance === 1500) {
     OregonH.UI.showAttack(0,0)

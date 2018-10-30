@@ -151,6 +151,20 @@ OregonH.Event.generateEvent = function(ranNum) {
   //  }
 };
 
+OregonH.Event.visitPlanet = function(ranNum) {
+  this.ranNum = ranNum;
+  //pick random one
+  var eventIndex = Math.floor(Math.random() * this.eventTypes.length);
+  var eventData = this.eventTypes[eventIndex];
+  this.game.pauseJourney();
+
+  //notify user
+  this.ui.notify(eventData.text, eventData.notification);
+
+  //prepare event
+  this.shopEvent(eventData);
+}
+
 OregonH.Event.statChangeEvent = function(eventData) {
  //Cant have negative quantities
   if(eventData.value + this.caravan[eventData.stat] >=  0) {
