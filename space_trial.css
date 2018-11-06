@@ -1,0 +1,700 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Mono:400,500,700i');
+
+/* body {
+  background: url("https://www.rug.nl/about-us/news-and-events/news/archief2017/nieuwsberichten/1127-stars.jpg");
+} */
+
+:root {
+  --boxHeight: 150px;
+}
+
+p {
+  font-family: "Roboto Mono";
+}
+  
+
+#orb {
+  background: linear-gradient(90deg, rgba(24, 6, 46, 0.741),rgba(13, 44, 84, 0.638)), linear-gradient(90deg, #183152,rgb(9, 45, 92));
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -100;
+ }
+
+h1{
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  grid-gap: 25px;
+}
+
+.stats-messages {
+  display: grid;
+  grid-template-columns: 4.5fr 7fr;
+}
+
+.box-style  {
+  background-color: rgba(255,255,255,.90);
+  color: black;
+  padding: 30px 20px;
+  margin: 30px;
+  box-shadow: 0px 0px 15px 5px #ffffff4d;
+  height: auto;
+  font-family: "Roboto Mono";
+  border-radius: 5px;
+}
+
+
+
+.message-box {
+  overflow-y: auto;
+  background-color: white;
+  border-radius: 8px;
+  padding: 30px;
+  box-shadow: inset 0 0 2px 1px #0000003d;
+  overflow-y: scroll;
+  position: relative;
+  height: calc(100% - 100px);
+  max-height: 250px;
+}
+
+.stat-row {
+  font-size: 13px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 5px 10px;
+  /* border-bottom: 1px solid #00000037; */
+}
+
+.message-line {
+  color: rgb(77, 157, 61);
+}
+
+.day-num {
+  font-weight: bolder;
+}
+
+.controls-progress-bar {
+  height: 150px;
+  text-align: center;
+  position: relative;
+}
+
+.controls {
+  padding-bottom: 20px;
+}
+
+.progress-bar {
+  position: relative;
+  padding: 30px 20px;
+  margin: 30px;
+}
+
+
+/************************ PLANETS ************************/
+
+#rocket-img {
+  position: absolute;
+  left: 0.2%;
+  top: 50px;
+  /* transition: cubic-bezier(0, 0, 0.88, 1.41) all 2s */
+  /* transition:  all 2s; */
+  z-index: 1000;
+}
+
+.rocket-img-game {
+  position: absolute;
+  bottom: 2%;
+  right: 3%;
+  /* transition: cubic-bezier(0, 0, 0.88, 1.41) all 2s */
+  /* transition:  all 2s; */
+  z-index: 1000;
+  width: 50px;
+  transform: rotate(270deg);
+  animation: landRocket 5.4s;
+  animation-iteration-count: 1;
+}
+
+
+@keyframes landRocket {
+  0% {bottom: 100%;}
+  100% {bottom: 2%;}
+}
+
+.progress-section {
+  position: relative;
+  padding: 20px 0;
+}
+.planets {
+  position: relative;
+  padding: 50px 0;
+}
+
+.earth {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.earth-img {
+  position: absolute;
+  left: 0;
+  top: 40px;
+}
+
+.earth-moon {
+position: relative;
+}
+
+.moon-img {
+  position: absolute;
+  top: 25px;
+  left: 55px;
+  width: 20px;
+}
+
+.mars-img {
+  position: absolute;
+  left: 17%;
+  top: 40px;
+}
+
+.asteroid-belt {
+  position: absolute;
+  left: 29%;
+  top: 25px;
+}
+
+.jupiter {
+  position: absolute;
+  right: 45%;
+  top: 0;
+}
+
+.saturn {
+  position: absolute;
+  right: 30%;
+  top: 25px;
+}
+.uranus {
+  position: absolute;
+  right: 15%;
+  top: 30px;
+}
+
+.pluto {
+  position: absolute;
+  right: 5%;
+  top: 50px;
+}
+
+.flag {
+  position: absolute;
+  left: 17%;
+  top: 15%;
+  width: 38px;
+  z-index: 10000;
+}
+
+.game-flag {
+  position: absolute;
+  left: 43%;
+  top: 39%;
+  width: 71px;
+  z-index: 10000;
+  animation: plantFlag 1.5s ;
+  animation-timing-function: cubic-bezier(0.8,-0.21, 0.17, 1);
+  animation-iteration-count: 1;
+  
+}
+
+@keyframes plantFlag {
+  0% {top: 0%;}
+  100% {top: 37%;}
+}
+
+/* .progress-bar svg {
+  color: rgb(118, 13, 13);
+  stroke: white;
+  position: absolute;
+  top: 60px;
+} */
+
+
+
+
+
+/* .jupiter-img {
+  position: absolute;
+  right: 100px;
+  top: 0px;
+} */
+.control-buttons {
+  margin-top: 20px;
+  font-family: "Roboto Mono";
+}
+
+
+.control-buttons button{
+  background-color: rgb(77, 157, 61);
+  padding: 10px 15px;
+  color: white;
+  border: none;
+  text-transform: uppercase;
+  font-family: "Roboto Mono";
+  margin: 5px;
+  cursor: pointer;
+}
+
+.control-buttons button:nth-child(1){
+  background-color: rgb(77, 157, 61);
+}
+.control-buttons button:nth-child(2){
+  background-color: rgb(157, 61, 61);
+}
+
+
+.update-positive {
+  color: #669966;
+}
+ 
+.update-negative {
+  color: red;
+}
+ 
+.update-neutral {
+  color: #90908F;
+}
+
+.hidden {
+  display: none;
+}
+
+/* #shop {
+  float: left;
+  background-color: white;
+  margin: 10px;
+  padding: 10px;
+  height: 90px;
+  width: 350px;
+} */
+ 
+.border-padding {
+  padding: 15px 30px;
+}
+
+#shop button {
+  margin: 5px;
+  margin-top: 30px;
+  border: none;
+}
+
+#leaver-shop {
+    background-color: none;
+    color: rgb(87, 85, 85);
+}
+
+.purchased-item {
+  font-family: "Roboto Mono";
+  font-size: 16px;
+  padding-top: 15px;
+  text-align: center;
+}
+
+.fa-arrow-left:before {
+  content: "\f060";
+  margin-right: 5px;
+}
+
+.fa-dollar-sign:before {
+    content: "\f155";
+    margin-left: 5px;
+}
+
+#shop h1  {
+  text-align: center;
+  font-family: "Roboto Mono";
+  color: #183152;
+}
+
+/* #shop {
+  display: grid;
+  grid-template-columns: 6fr 3fr;
+  flex-wrap: wrap;
+} */
+
+.purchase-column , .shop-shop-column {
+  padding: 0 20px;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.purchase-column {
+  border-left: 2px solid rgba(0, 0, 0, 0.693);
+
+}
+
+.shop-shop-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+.shop-buttons {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.prods {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.prods img {
+  width: 130px;
+  height: 100px;
+  background-size: cover;
+  
+}
+
+.product {
+  margin: 25px 15px;
+  border: 1px solid #e3e1e1;
+  background-color: #fafafa;
+  font-size: 12px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.product-item {
+  padding: 20px 10px;
+  border: none;
+  text-align: center;
+}
+
+.shop-current-item{
+  text-align: center;
+  font-weight: bold;
+  padding: 5px;
+}
+
+.imporant-stat-column {
+  display: flex;
+  justify-content: space-between;
+}
+
+.imporant-stat-column .stat-title {
+  font-weight: bold;
+}
+
+.imporant-stat-column .stat-title span {
+  font-weight: normal;
+}
+
+/* #attack {
+} */
+
+#modal-shop , #modal-fly {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.405);
+}
+
+/* Makes the modal descripton into a grid so you can have text on the left and img or right */
+/* .fly-desc{
+  display: grid;
+  grid-template-columns: 4fr 2fr; 
+} */
+
+#game-result {
+  font-size: 18px;
+  padding: 30px 0;
+  font-family: "Roboto Mono";
+  position: relative;
+}
+
+.modal-header , #modal-header {
+  background: linear-gradient(90deg, #202766ab, #3f1f518f) , linear-gradient(#243097, #9b4343);
+  padding: 20px;
+}
+
+.modal-header-title {
+  color: white;
+  font-family: "Roboto Mono";
+  font-size: 24px;
+}
+
+.modal-header h1 , #modal-header h1 {
+  font-size: 24px;
+  text-transform: uppercase;
+  font-family: "Roboto Mono";
+}
+
+.modal-header-body {
+  font-size: 12px;
+  font-family: "Roboto Mono";
+}
+
+.modal-content {
+  margin: 5% auto;
+  width: 70%;
+  background-color: white;
+  max-width: 800px;
+}
+
+.modal-body {
+padding: 20px;
+margin: 25px 0;
+font-size: 20px;
+}
+
+.mars-game-bg {
+  background: url('images/Mars_bg.jpg');
+  width: 100%;
+  height: 450px;
+}
+
+.mars-game-bg {
+  display: flex;
+  justify-content: center; 
+}
+
+.mars-game-btns button {
+  padding: 15px 25px;
+  border: 1px solid rgba(255, 255, 255, 0.125);
+  background-color: rgba(255, 255, 255, 0.275);
+  border-radius: 30px;
+  margin: 0 15px;
+  box-shadow: 0px 1px 4px 1px #ffffff73;
+  transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+  cursor: pointer;
+}
+
+.mars-game-btns button:hover {
+  box-shadow: 0px 2px 10px 3px #ffffff73;
+}
+
+.mars-game-btns button:focus {
+  outline:0;
+  
+}
+
+.header-and-money {
+text-align: center
+}
+ 
+
+.control-examples {
+  position: relative;
+  padding: 0 30px;
+  text-align: center;
+}
+
+.control-examples h1 {
+  padding-left: 25px;
+}
+
+#up-arrow {
+ position: absolute; 
+ left: 50%;
+ top: 30%;
+}
+
+#left-arrow {
+  position: absolute; 
+  top: 45%;
+  left: 40%;
+ }
+ 
+#right-arrow {
+  position: absolute;
+  top: 45%;
+  right: 35%;
+  
+ }
+ 
+#down-arrow {
+  position: absolute;
+  left: 50%;
+  bottom: 30%; 
+ }
+}
+
+
+.update-positive {
+  color: #669966;
+}
+ 
+.update-negative {
+  color: red;
+}
+ 
+.update-neutral {
+  color: #90908F;
+}
+
+.hidden {
+  display: none;
+}
+
+/* #shop {
+  float: left;
+  background-color: white;
+  margin: 10px;
+  padding: 10px;
+  height: 90px;
+  width: 350px;
+} */
+ 
+.border-padding {
+  padding: 15px 30px;
+}
+
+#shop button {
+  margin: 5px;
+  margin-top: 30px;
+  border: none;
+}
+
+#leaver-shop {
+    background-color: none;
+    color: rgb(87, 85, 85);
+}
+
+#purchased-item {
+  font-family: "Roboto Mono";
+  font-size: 16px;
+  padding-top: 15px;
+  text-align: center;
+}
+
+.fa-arrow-left:before {
+  content: "\f060";
+  margin-right: 5px;
+}
+
+.fa-dollar-sign:before {
+    content: "\f155";
+    margin-left: 5px;
+}
+
+#shop h1  {
+  text-align: center;
+  font-family: "Roboto Mono";
+  color: #183152;
+}
+
+/* #shop {
+  display: grid;
+  grid-template-columns: 6fr 3fr;
+  flex-wrap: wrap;
+} */
+
+.purchase-column , .shop-shop-column {
+  padding: 0 20px;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.purchase-column {
+  border-left: 2px solid rgba(0, 0, 0, 0.693);
+
+}
+
+.shop-shop-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+.shop-buttons {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.prods {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.prods img {
+  width: 130px;
+  height: 100px;
+  background-size: cover;
+  
+}
+
+.product {
+  margin: 25px 15px;
+  border: 1px solid #e3e1e1;
+  background-color: #fafafa;
+  font-size: 12px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.product-item {
+  padding: 20px 10px;
+  border: none;
+  text-align: center;
+}
+
+/* #attack {
+} */
+
+#modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.405);
+}
+/* 
+.modal-header {
+  background: linear-gradient(90deg, #202766ab, #3f1f518f) , linear-gradient(#243097, #9b4343);
+  padding: 20px;
+  color: white;
+}
+
+.modal-header h1 {
+  font-size: 24px;
+  text-transform: uppercase;
+  font-family: "Roboto Mono";
+}
+
+.modal-header-body {
+  font-size: 12px;
+  font-family: "Roboto Mono";
+}
+
+.modal-content {
+  margin: 5% auto;
+  width: 70%;
+  background-color: white;
+  max-width: 1200px;
+}
+
+.modal-body {
+padding: 20px;
+ */
