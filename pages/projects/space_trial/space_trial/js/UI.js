@@ -97,19 +97,19 @@ OregonH.UI.showDiscovery = function(landmark) {
  
 
 
-OregonH.UI.plantFlag = function(){
+// OregonH.UI.plantFlag = function(){
   
-  //Add flag to the landmark
-  var modalDiv = document.getElementById('modal-fly');
-  var planetDiv = document.getElementById('planets');
-  var img = document.createElement('img');
-  img.classList.add('flag');
-  img.src = 'images/flag2.png';
-  planetDiv.appendChild(img);
-  this.removeBtns();
-  modalDiv.classList.add('hidden');
-  OregonH.Game.resumeJourney();
-};
+//   //Add flag to the landmark
+//   var modalDiv = document.getElementById('modal-fly');
+//   var planetDiv = document.getElementById('planets');
+//   var img = document.createElement('img');
+//   img.classList.add('flag');
+//   img.src = 'https://www.primeauxrv.com/wp-content/uploads/2018/05/PNGPIX-COM-America-Flag-PNG-Transparent-Image-500x346.png';
+//   planetDiv.appendChild(img);
+//   this.removeBtns();
+//   modalDiv.classList.add('hidden');
+//   OregonH.Game.resumeJourney();
+// };
 
  
 //creates the game

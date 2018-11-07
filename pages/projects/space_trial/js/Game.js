@@ -1,6 +1,12 @@
 var OregonH = OregonH || {};
 var numOfEvents = 0;
-var ratio = 0.015
+var ratio = 0.015;
+var marsIsDiscovered = false;
+var asteriodIsDiscovered = false;
+var jupiterIsDiscovered = false;
+var stationIsDiscovered = false;
+
+
 // Constants
 OregonH.weightPerOx = 20;
 OregonH.weightPerPerson = 2;
@@ -64,6 +70,15 @@ OregonH.Game.startJourney = function() {
  this.step();
 };
 
+OregonH.Game.createDiscoveryItem = function(landmark) {
+  var discoveryItemsDiv = document.getElementById('discovery-items')
+  var newDiv = document.createElement('div');
+  newDiv.classList.add('stat-row');
+  newDiv.classList.add('discovery-item');
+  newDiv.innerHTML = '' + landmark + '';
+  discoveryItemsDiv.appendChild(newDiv);
+}
+
 // Game Loop
 OregonH.Game.step = function(timestamp) {
 
@@ -73,21 +88,19 @@ OregonH.Game.step = function(timestamp) {
   this.updateGame();
  }
 
- if (this.caravan.distance === 100) {
-   console.log("asdasdhabsdlkhbaskjdhbakjhsdbkajhbd");
-   
- }
-
-   //time difference
+ //time difference
   var progress = timestamp - this.previousTime;
  
   //game update
   if(progress >= OregonH.gameSpeed) {
     this.previousTime = timestamp;
+    this.caravan.updateDistance();
     this.updateGame();
   }
   
   //we use "bind" so that we can refer to the context "this" inside of the step method
+  this.caravan.updateDistance();
+  // this.ui.refreshStats();
   if(this.gameActive) window.requestAnimationFrame(this.step.bind(this));
 };
  
@@ -97,8 +110,6 @@ OregonH.Game.updateGame = function() {
   this.caravan.day += OregonH.dayPerStep;
  
   //food consumption
-  
-  
   this.caravan.consumeFood();
   
   //game over no food
@@ -117,6 +128,8 @@ OregonH.Game.updateGame = function() {
   //show stats
   this.ui.refreshStats();
  
+  
+  
   //check if everyone died
   if(this.caravan.crew <= 0) {
     this.caravan.crew = 0;
@@ -132,47 +145,71 @@ OregonH.Game.updateGame = function() {
     return;
   }
 
-  if(this.caravan.distance === 100) {
-    OregonH.UI.showShop()
-    this.ui.notify('Your made it to Mars. Would you like to go shopping?', 'positive');
+//-----------------------------------------------
+
+  console.log(Math.floor(this.caravan.distance))
+  
+  //---SHOW moon DISCOVERY---
+  if (Math.floor(this.caravan.distance) >= 110 && (this.caravan.distance) <= 111) {
+    this.createDiscoveryItem("The Moon")
+  }
+
+
+  //---SHOW mars DISCOVERY---
+  if ((Math.floor(this.caravan.distance) >= 800 && (this.caravan.distance) <= 850) && !marsIsDiscovered) {
+    marsIsDiscovered = true;
+    this.createDiscoveryItem("Mars")
+    this.gameActive = false;
+    this.ui.showDiscovery('Planet Mars');
+  }
+  
+  
+  //---SHOW Asteroid Field DISCOVERY---
+
+  if(Math.floor(this.caravan.distance) >= 1400 && Math.floor((this.caravan.distance) <= 1422) && !asteriodIsDiscovered) {
+    // OregonH.UI.showAttack('belt')
+    asteriodIsDiscovered = true;
+    this.createDiscoveryItem("Asteroid Belt")
+    this.ui.showDiscovery('Asteroid Belt');
+    this.ui.notify('Carl', 'positive');
     this.gameActive = false;
     return;
   }
 
-  if(this.caravan.distance === 1500) {
-    OregonH.UI.showAttack(0,0)
-    this.ui.notify('Enterign', 'positive');
-    this.gameActive = false;
+  //Puts Jupiter on the discovered area
+  if(Math.floor(this.caravan.distance) >= 2500 && Math.floor((this.caravan.distance) <= 2502)  && !jupiterIsDiscovered) {
+    // OregonH.UI.showAttack('belt')
+    jupiterIsDiscovered = true;
+    this.createDiscoveryItem("Jupiter")
     return;
   }
 
+// Shows the space station
+   //------------random events------------
+   
+   if(Math.floor(this.caravan.distance) >= 1900 && Math.floor((this.caravan.distance) <= 1910)  && !stationIsDiscovered) {
+    stationIsDiscovered = true;
+    var ranNum = Math.random() * 25;
+    numOfEvents++;
+    // console.log("Event Triggered: " + ranNum)
+    this.eventManager.generateEvent(ranNum);
 
+  };
+  }
 
-  // //check if ships are gone
-  // if(this.caravan.spaceShip <= 0) {
-  //   this.caravan.crew = 0;
-  //   this.ui.notify('Everyone died', 'negative');
-  //   this.gameActive = false;
-  //   return;
-  // }
- 
-  //random events logic will go here..
-  //random events
-var ranNum = Math.random() * 25;
-if (ranNum <= OregonH.eventProbability) {
-  numOfEvents++;
-  console.log("Event Triggered: " + ranNum)
- this.eventManager.generateEvent(ranNum);
-} else{
-  console.log("No Trigger: " + ranNum)
-}
-};
- 
+//   var ranNum = Math.random() * 25;
+//   if (ranNum <= OregonH.eventProbability) {
+//     numOfEvents++;
+//     // console.log("Event Triggered: " + ranNum)
+//   this.eventManager.generateEvent(ranNum);
+// } else {
+//       // console.log("No Trigger: " + ranNum)
+//     }
 //pause the journey
 OregonH.Game.pauseJourney = function() {
   this.gameActive = false;
 };
- 
+
 //resume the journey
 OregonH.Game.resumeJourney = function() {
   this.gameActive = true;

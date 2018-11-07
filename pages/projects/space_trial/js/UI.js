@@ -1,7 +1,9 @@
 var OregonH = OregonH || {};
+var discoveredItems = [];
 
 OregonH.UI = {};
 // Show notification in the message box
+
 OregonH.UI.notify = function(message , type) {
   
   var modal = document.getElementById("modal");
@@ -9,88 +11,220 @@ OregonH.UI.notify = function(message , type) {
    document.getElementById("purchased-item-list").innerHTML = '<div class="purchased-item">' + message +type + '</div>' ;
   }
  document.getElementById("message-line").innerHTML = '<div class="update-' + type + '">Day '+ Math.ceil(this.caravan.day) + ': ' + message+'</div>' + document.getElementById('message-line').innerHTML;
+}
+
+// refresh visual caravan stats
+OregonH.UI.refreshStats = function() {
+  var rocketLocation = ((this.caravan.distance / 50))
+  //modify the dom
+  document.getElementById('stat-day').innerHTML = Math.ceil(this.caravan.day);
+  document.getElementById('stat-distance').innerHTML = Math.floor(this.caravan.distance);
+  document.getElementById('stat-crew').innerHTML = this.caravan.crew;
+  document.getElementById('stat-spaceShip').innerHTML = this.caravan.spaceShip;
+  document.getElementById('stat-food').innerHTML = Math.ceil(this.caravan.food);
+  document.getElementById('stat-money').innerHTML = "$" + this.caravan.money;
+  document.getElementById('shop-stat-money').innerHTML = "$" + this.caravan.money;
+  document.getElementById('stat-firepower').innerHTML = this.caravan.firepower;
+  document.getElementById('stat-weight').innerHTML = Math.ceil(this.caravan.weight) + '/' + this.caravan.capacity;
+//  document.getElementById('rocket-img').style.left = this.caravan.distance / OregonH.finalDistance) + '%';
+  document.getElementById('rocket-img').style.left = rocketLocation + '%';
+
+};
+
+OregonH.UI.createBtns = function() {
+  var newGoBtn = document.createElement('button');
+  var newLeaveBtn = document.createElement('button');
+  var parentBtnDiv = document.querySelector('.control-buttons');
+  //creates the buttons
+  newGoBtn.setAttribute('id','go'); 
+  newLeaveBtn.setAttribute('id','runaway');
+  parentBtnDiv.appendChild(newGoBtn);
+  parentBtnDiv.appendChild(newLeaveBtn)
+}
+
+OregonH.UI.removeBtns = function() {
+  var parentBtnDiv = document.querySelector('.control-buttons');
+  while(parentBtnDiv.firstChild) {
+    parentBtnDiv.removeChild(parentBtnDiv.firstChild);
+  }
+}
+
+OregonH.UI.showDiscovery = function(landmark) {
+  this.landmark = landmark;
+  discoveredItems.push("" + landmark + "");
+
+  this.createBtns();
+
+  var modalDiv = document.getElementById('modal-fly');
+  var modalHeader = document.getElementById('modal-header');
+  var modalBody = document.getElementById('modal-body');
+  var goBtn = document.getElementById('go');
+  var avoid = document.getElementById('runaway');
+  modalDiv.classList.remove('hidden');
+
+
+  if (landmark === 'Planet Mars'){
+    modalHeader.innerText = "You made it to the " + landmark;
+    modalBody.innerText = "Choose whether you want to land on the planet Mars or continue traveling."
+    goBtn.innerHTML = "Land on Planet Mars | Add +2 Days"
+    avoid.innerHTML = "Avoid Stopping"
+    // goBtn.addEventListener('click', this.plantFlag.bind(this)); 
+    goBtn.addEventListener('click', this.marsGame.bind(this)); 
+    avoid.addEventListener('click', this.runaway.bind(this));
+  } else if (landmark === 'Asteroid Belt') {
+    modalHeader.innerText = "You made it to the landmark " + landmark;
+    modalBody.innerText = "You can go around the asteroid field and add 3 days to your journey or take the risk of crashing and go through. Use your arrow keys to control the spaceship"
+    goBtn.innerHTML = "Go Through"
+    avoid.innerHTML = "Avoid asteroid field | add +3 Days"
+    goBtn.removeEventListener('click', this.plantFlag.bind(this));
+    goBtn.addEventListener('click', this.go.bind(this));
+    avoid.addEventListener('click', this.runaway.bind(this));
+  }
+};
+
+OregonH.UI.marsGame = function() {
+  console.log("Mars THE GAME START");
+  this.removeBtns();
+  var modalDiv = document.getElementById('modal-fly');
+  // Set the background
+  var mainRocket = document.getElementById('rocket-img');
+  mainRocket.style.opacity = 0;
+  var marsImg = document.getElementById('game-result');
+  marsImg.classList.add('mars-game-bg');
+
+  //Create the button div container
+  var btnDiv = document.createElement('div');
+  btnDiv.classList.add('mars-game-btns');
+  marsImg.appendChild(btnDiv);
+
+  var btnA = document.createElement('button');
+  btnA.setAttribute('id' , 'btn-a');
+  var btnB = document.createElement('button');
+  btnB.setAttribute('id' , 'btn-b');
+  var btnC = document.createElement('button');
+  btnC.setAttribute('id' , 'btn-c');
+  var btnD = document.createElement('button');
+  btnD.setAttribute('id' , 'btn-d');
+
+  //The initial starting text
+  // btnA.innerText = 'A) sample test A';
+  // btnB.innerText = 'B) sample asdtest B';
+  // btnC.innerText = 'C) asd';
+  // btnD.innerText = 'D) sample test D';
+
+  btnDiv.appendChild(btnA);
+  btnDiv.appendChild(btnB);
+  btnDiv.appendChild(btnC);
+  btnDiv.appendChild(btnD);
+  
+  var btnTxt = {
+    btnA: 'A) Explore',
+    btnB: 'B) Plant Flag',
+    btnC: 'C) Take a picture',
+    btnD: 'D) Return to space'
   }
 
- // refresh visual caravan stats
- OregonH.UI.refreshStats = function() {
-   var rocketLocation = ((this.caravan.distance / 50))
-   //modify the dom
-   document.getElementById('stat-day').innerHTML = Math.ceil(this.caravan.day);
-   document.getElementById('stat-distance').innerHTML = Math.floor(this.caravan.distance);
-   document.getElementById('stat-crew').innerHTML = this.caravan.crew;
-   document.getElementById('stat-spaceShip').innerHTML = this.caravan.spaceShip;
-   document.getElementById('stat-food').innerHTML = Math.ceil(this.caravan.food);
-   document.getElementById('stat-money').innerHTML = "$" + this.caravan.money;
-   document.getElementById('shop-stat-money').innerHTML = "$" + this.caravan.money;
-   document.getElementById('stat-firepower').innerHTML = this.caravan.firepower;
-   document.getElementById('stat-weight').innerHTML = Math.ceil(this.caravan.weight) + '/' + this.caravan.capacity;
-  //  document.getElementById('rocket-img').style.left = this.caravan.distance / OregonH.finalDistance) + '%';
-   document.getElementById('rocket-img').style.left = rocketLocation + '%';
+  function updateText() {
+    btnA.innerHTML = btnTxt.btnA;
+    btnB.innerHTML = btnTxt.btnB;
+    btnC.innerHTML = btnTxt.btnC;
+    btnD.innerHTML = btnTxt.btnD;
+  }
 
- };
-
- var fcanvas = document.getElementById('flappy-canvas');
- var parentContainer = document.getElementById("parent").offsetWidth;
- fcanvas.width = parentContainer;
-
-//show attack
-OregonH.UI.showAttack = function(firepower, gold) {
-  var attackDiv = document.getElementById('modal-fly');
-  attackDiv.classList.remove('hidden');
- 
-  //keep properties
-  this.firepower = firepower;
-  this.gold = gold;
- 
-  //show firepower
-  // document.getElementById('attack-description').innerHTML = 'Firepower: ' + firepower;
   
-  //init once
-  // if(!this.attackInitiated) {
-    
-    //fight
-    // document.getElementById('fight').addEventListener('click', this.fight.bind(this));
-    
-    //run away
-    document.getElementById('runaway').addEventListener('click', this.runaway.bind(this));
-    document.getElementById('go').addEventListener('click', this.go.bind(this));
-    // var canvasDiv = document.getElementById('parent');
-    // canvasDiv.innerHTML = '<canvas id="flappy-canvas" width="300" height="512"></canvas>';
+  function landRocket() {
+    var parentDiv = document.getElementById('game-result');
+    var newImg = document.createElement('img');
+    newImg.classList.add('rocket-img-game');
+    newImg.src = 'images/rocket.png';
+    parentDiv.appendChild(newImg);
+    setTimeout(() => {
+      newImg.src = 'images/rocket_land.png';
+    },4500);
+  }
  
-    this.attackInitiated = true;
-  // }
+
+  function launchRocket() {
+    var landedRocket = document.querySelector('.rocket-img-game');
+    landedRocket.src = 'images/rocket.png'
+    landedRocket.classList.remove('rocket-img-game');
+    landedRocket.classList.add('rocket-img-game-launch');
+    setTimeout(() => {
+      landedRocket.style.display = 'none';
+    },4000);
+  }
+
+
+  function checkForClick() {
+    var allBtns = document.querySelectorAll('.mars-game-btns button')
+    allBtns.forEach(btn => btn.addEventListener('click' , buttonClicks));
+  
+    function buttonClicks(e) {
+      console.log(e.target.id);
+  
+      if(e.target.id === 'btn-a') {
+        btnTxt.btnA = 'A) Go to large crater';
+        btnTxt.btnB = 'B) Go to north pole';
+        btnTxt.btnC = 'C) Go to large valley';
+        updateText()
+        console.log("a pressed");
+      } else if (e.target.id === 'btn-b') {
+        console.log("b pressed");
+        OregonH.UI.plantFlag('planets' , 'flag');
+        OregonH.UI.plantFlag('game-result' , 'game-flag');
+      } else if (e.target.id === 'btn-c') {
+        console.log("c pressed");
+    
+      } else if (e.target.id === 'btn-d') {
+        console.log("d pressed");
+        launchRocket();
+        setTimeout(() => {
+          modalDiv.classList.add('hidden');
+          marsImg.classList.remove('mars-game-bg')
+          OregonH.UI.removeChildren('game-result');
+          mainRocket.style.opacity = 1;
+          OregonH.Game.resumeJourney();
+        }, 5400)
+      }
+    }
+  }
+
+  updateText();
+  landRocket();
+  checkForClick();
+}
+
+OregonH.UI.removeChildren = function(parent) {
+  this.parent = parent;
+  var parentEl = document.getElementById(parent);
+  while (parentEl.firstChild) {
+    parentEl.removeChild(parentEl.firstChild)
+  }
+}
+
+OregonH.UI.plantFlag = function(parentClass, divClass, width, x, y){
+  this.parentClass = parentClass;
+  this.divClass = divClass;
+  this.width = width;
+  this.x = x;
+  this.y = y;
+  
+  //Add flag to the landmark
+  // var modalDiv = document.getElementById('modal-fly');
+  var parentDiv = document.getElementById(parentClass);
+  var newImg = document.createElement('img');
+  newImg.classList.add(divClass);
+  newImg.src = 'images/flag2.png';
+  parentDiv.appendChild(newImg);
+  // this.removeBtns();
+  // modalDiv.classList.add('hidden');
+  // OregonH.Game.resumeJourney();
 };
- 
-//fight
-// OregonH.UI.fight = function() {
- 
-//   // var firepower = this.firepower;
-//   // var gold = this.gold;
- 
-//   // var damage = Math.ceil(Math.max(0, firepower * 2 * Math.random() - this.caravan.firepower));
- 
-//   // document.getElementById('attack').classList.add('hidden');
-//   // var canvasDiv = document.getElementById('parent');
-//   // canvasDiv.innerHTML = '<canvas id="flappy-canvas" width="300" height="512"></canvas>';
-//   //check there are survivors
-//   // if(damage < this.caravan.crew) {
-//   //   this.caravan.crew -= damage;
-//   //   this.caravan.money += gold;
-//   //   this.notify(damage + ' people were killed fighting', 'negative');
-//   //   this.notify('Found $' + gold, 'gold');
-//   // }
-//   // else {
-//   //   this.caravan.crew = 0;
-//   //   this.notify('Everybody died in the fight', 'negative');
-//   // }
- 
-//   //resume journey
-//   // document.getElementById('attack').classList.add('hidden');
-//   this.game.resumeJourney();
-// };
- 
-//runing away from enemy
+
+//creates the Asteroid game
 OregonH.UI.go = function(){
+  console.log("CLICK THE GAME START");
+  this.removeBtns();
   var fcanvas = document.getElementById('flappy-canvas');
   var fctx = fcanvas.getContext('2d');
   var parentContainer = document.getElementById("parent").offsetWidth;
@@ -206,30 +340,42 @@ var gravity = 0;
   if(!madeSafely) {
     gameResult.style.color = "red"
     gameResult.innerHTML = "You crashed into an asteroid! You lose 1 Space Ship";
+    setTimeout(() => {
+      document.getElementById('modal-fly').classList.add('hidden');
+ 
+      gameResult.classList.add('hidden')
+      OregonH.Game.resumeJourney();
+       console.log('game over');
+    }, 1850);
     
   } else {
     gameResult.style.color = "green"
     gameResult.innerHTML = "You made it successfully and saved 3 days"
+    setTimeout(() => {
+      document.getElementById('modal-fly').classList.add('hidden');
+
+      gameResult.classList.add('hidden')
+      OregonH.Game.resumeJourney();
+       console.log('game over');
+    }, 1400);
   }
-  setTimeout(() => {
-    document.getElementById('modal-fly').classList.add('hidden');
-    gameResult.classList.add('hidden')
-    OregonH.Game.resumeJourney();
-     console.log('game over');
-  }, 1400);
+
  }
 }
   draw();
 }
 
-OregonH.UI.runaway = function(){
+OregonH.UI.runaway = function(landmark){
+  this.landmark = landmark
+  this.removeBtns();
   //remove event listener
   console.log('close');
   
+  if (marsIsDiscovered) 
   var gameResult = document.getElementById('game-result')
   gameResult.classList.remove('hidden')
   gameResult.style.color = "red"
-  gameResult.innerHTML = "You avoided the asteroid, add 3 days"
+  gameResult.innerHTML = "You avoided the planet"
   
   setTimeout(() => {
     document.getElementById('modal-fly').classList.add('hidden');
@@ -317,6 +463,20 @@ OregonH.UI.buyProduct = function(product) {
  //update visuals
  OregonH.UI.refreshStats();
 };
+
+
+//show attack
+// OregonH.UI.showAttack = function() {
+//   var attackDiv = document.getElementById('modal-fly');
+//   attackDiv.classList.remove('hidden');
+ 
+  
+//     //run away
+//     document.getElementById('runaway').addEventListener('click', this.runaway.bind(this));
+//     document.getElementById('go').addEventListener('click', this.go.bind(this));
+//   // }
+// };
+
 
    //  for(var i=0; i < products.length; i++) { 
    //   product = products[i];

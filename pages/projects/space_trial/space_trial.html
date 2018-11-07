@@ -20,7 +20,7 @@
                     
                 </div>
             </div> -->
-            <div class="planets">
+            <div id="planets" class="planets">
                 <img id="rocket-img" src="images/rocket.png" width="50px"/>
                 <div class="earth">
                     <div class="earth-moon">
@@ -28,11 +28,17 @@
                         <img class="moon-img" src="images/moon.png"/>
                     </div>
                 </div>
+                
+                    <!-- <img class="mars-img flag" src="images/flag2.png" /> -->
+               
                 <div class="mars">
                     <img class="mars-img" src="images/mars.png" width="50px"/>
                 </div>
                 <div class="asteroid-belt">
                     <img class="asteroid-belt-img" src="images/asteroidBelt_small.png" width="70px"/>
+                </div>
+                <div class="space-station">
+                    <img class="space-station-img" src="images/space-station.png" width="30px"/>
                 </div>
                 <div class="jupiter">
                     <img class="jupiter-img" src="images/Jupiter.png" width="120px"/>
@@ -103,38 +109,30 @@
 
         <div id="modal-fly" class="hidden">
             <div class="modal-content">
-                <div class="modal-header">
+                <div class="">
                     <div class="modal-header-title">
-                        <h1>Your are entering a asteroid field</h1>
+                        <h1 id="modal-header">Your are entering a asteroid field</h1>
                     </div>
                 </div>
                 <div class="modal-body">
                     <div id="parent" class="">
                         <div id="attack" class="controls">
                             <div class="fly-desc">
-                                <div class="left-column">
-
-                                    <p>You can go around the asteroid field and add 3 days to your journey, or take
-                                        the risk of crashing and go through. Use your arrow keys to control the spacesh</p>
+                                <div class="">
+                                    <div id="modal-body">You can go around the asteroid field and add 3 days to your journey, or take
+                                        the risk of crashing and go through. Use your arrow keys to control the spacesh</div>
                                     <div class="control-buttons">
-                                        <button id="go">Go Through</button>
-                                        <button id="runaway">Avoid asteroid field | add +3 Days</button>
+                                        <!-- <button id="go">Go Through</button> -->
+                                        <!-- <button id="runaway">Avoid asteroid field | add +3 Days</button> -->
                                     </div>
                                 </div>
-                                <div class="control-examples">
-                                    <h1>Keyboard Controls</h1>
-                                    <div id="up-arrow" class="control-ex-btn">
-                                        <i class="fas fa-arrow-up"></i>
-                                    </div>
-                                    <div id="left-arrow" class="control-ex-btn">
-                                        <i class="fas fa-arrow-left"></i>
-                                    </div>
-                                    <div id="right-arrow" class="control-ex-btn">
-                                        <i class="fas fa-arrow-right"></i>
-                                    </div>
-                                    <div id="down-arrow" class="control-ex-btn">
-                                        <i class="fas fa-arrow-down"></i>
-                                    </div>
+                                <div id="game-result" class="">
+                                    <!-- <div class="mars-game-btns">
+                                        <button id='btn-a'>Button A</button>
+                                        <button id='btn-b'>Button B</button>
+                                        <button id='btn-c'>Button C</button>
+                                        <button id='btn-d'>Button D</button>
+                                    </div> -->
                                 </div>
                             </div>
                         </div>
@@ -165,27 +163,35 @@
 
                 </div>
                 <div class="stats box-style">
-                    <h1>Stats</h1>
-                    <div class="stat-row">
-                        <div class="stat-title">Distance</div>
-                        <div id='stat-distance' class="stat-number"></div>
+                    <div class="stat-column">
+                        <h1>Stats</h1>
+                        <div class="stat-row">
+                            <div class="stat-title">Distance</div>
+                            <div id='stat-distance' class="stat-number"></div>
+                        </div>
+                        <div class="stat-row">
+                            <div class="stat-title">Space Ships</div>
+                            <div id='stat-spaceShip' class="stat-number"></div>
+                        </div>
+                        <div class="stat-row">
+                            <div class="stat-title">Food</div>
+                            <div id='stat-food' class="stat-number"></div>
+                        </div>
+                        <div class="stat-row">
+                            <!-- Formally known as Missle Ammom -->
+                            <div class="stat-title">Oxygen</div>
+                            <div id='stat-firepower' class="stat-number"></div>
+                        </div>
+                        <div class="stat-row">
+                            <div class="stat-title">Inventory</div>
+                            <div id='stat-weight' class="stat-number"></div>
+                        </div>
                     </div>
-                    <div class="stat-row">
-                        <div class="stat-title">Space Ships</div>
-                        <div id='stat-spaceShip' class="stat-number"></div>
-                    </div>
-                    <div class="stat-row">
-                        <div class="stat-title">Food</div>
-                        <div id='stat-food' class="stat-number"></div>
-                    </div>
-                    <div class="stat-row">
-                        <!-- Formally known as Missle Ammom -->
-                        <div class="stat-title">Oxygen</div>
-                        <div id='stat-firepower' class="stat-number"></div>
-                    </div>
-                    <div class="stat-row">
-                        <div class="stat-title">Inventory</div>
-                        <div id='stat-weight' class="stat-number"></div>
+                    <div class="discovery-column">
+                        <h1>Discoveries</h1>
+                        <div id="discovery-items">
+                            <!-- <div class="stat-row">Distance</div> -->
+                        </div>
                     </div>
                 </div>
 
