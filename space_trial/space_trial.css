@@ -109,12 +109,12 @@ h1{
 
 .rocket-img-game {
   position: absolute;
-  bottom: 2%;
+  bottom: 4%;
   right: 3%;
   /* transition: cubic-bezier(0, 0, 0.88, 1.41) all 2s */
   /* transition:  all 2s; */
   z-index: 749;
-  width: 50px;
+  width: 100px;
   transform: rotate(270deg);
   animation: landRocket 5.4s;
   animation-iteration-count: 1;
@@ -122,19 +122,50 @@ h1{
 
 .rocket-img-game-launch {
   position: absolute;
-  bottom: 2%;
+  bottom: 4%;
   right: 3%;
   z-index: 1000;
-  width: 50px;
+  width: 100px;
   transform: rotate(270deg);
   animation: launchRocket 5.4s;
   animation-iteration-count: 1;
 }
 
+.flash {
+  animation: flash;
+  animation-duration: 1.4s;
+  animation-iteration-count: 1;
+}
+
+.camera {
+  color: white;
+  position: absolute;
+  left: 15px;
+  bottom: 15px;
+  width: 50px;
+  height: 50px;
+  background-color: #ffffff4a;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: .24s all;
+}
+
+.camera .fa, .fas {
+  font-weight: 900;
+  opacity: 0.8;
+}
+
+.camera:hover {
+background-color: #ffffff6a;
+transform: scale(1.1)
+}
 
 @keyframes landRocket {
   0% {bottom: 100%;}
-  100% {bottom: 2%;}
+  100% {bottom: 4%;}
 }
 
 @keyframes launchRocket {
@@ -148,8 +179,30 @@ h1{
   14% {right: 2.5%;}
   16% {right: 3.5%;}
   18% {right: 2.5%;}
-  20% {bottom: 2%;}
+  20% {bottom: 4%;}
   100% {bottom: 100%;}
+}
+
+@keyframes newDiscovery {
+  0% {transform: scale(1.8); color: #669966; margin-left: 15px;}
+  50% {transform: scale(2);color: #669966; margin-left: 30px; }
+  100% {transform: scale(1);color: #0f0f0f;}
+}
+
+@keyframes bounceUpDown {
+  from { transform: translate3d(0, 0, 0);     }
+  to   { transform: translate3d(0, 10px, 0); }
+}
+
+@keyframes flash {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.discovery-item {
+  /* transform: rotate(270deg); */
+  animation: newDiscovery 1.2s;
+  animation-iteration-count: 1;
 }
 
 .progress-section {
@@ -211,7 +264,11 @@ position: relative;
 .space-station-img {
   position: absolute;
   right: 58%;
-  top: 11px
+  top: 11px;
+  animation: bounceUpDown 2.2s;
+  animation-direction: alternate;
+  animation-timing-function: cubic-bezier(.5,0.05,1,.5);
+  animation-iteration-count: infinite;
 }
 
 .uranus {
@@ -463,6 +520,7 @@ position: relative;
 .modal-header , #modal-header {
   background: linear-gradient(90deg, #202766ab, #3f1f518f) , linear-gradient(#243097, #9b4343);
   padding: 20px;
+  font-size: 24px;
 }
 
 .modal-header-title {
@@ -477,9 +535,12 @@ position: relative;
   font-family: "Roboto Mono";
 }
 
-.modal-header-body {
-  font-size: 12px;
+.modal-body {
+  font-size: 16px;
   font-family: "Roboto Mono";
+  padding: 20px;
+  margin: 15px 0;
+
 }
 
 .modal-content {
@@ -489,11 +550,11 @@ position: relative;
   max-width: 800px;
 }
 
-.modal-body {
+/* .modal-body {
 padding: 20px;
 margin: 25px 0;
 font-size: 20px;
-}
+} */
 
 .mars-game-bg {
   background: url('images/Mars_bg.jpg');
@@ -711,25 +772,21 @@ text-align: center
   padding: 20px;
   color: white;
 }
-
 .modal-header h1 {
   font-size: 24px;
   text-transform: uppercase;
   font-family: "Roboto Mono";
 }
-
 .modal-header-body {
   font-size: 12px;
   font-family: "Roboto Mono";
 }
-
 .modal-content {
   margin: 5% auto;
   width: 70%;
   background-color: white;
   max-width: 1200px;
 }
-
 .modal-body {
 padding: 20px;
  */

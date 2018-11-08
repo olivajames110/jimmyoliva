@@ -3,6 +3,7 @@ var discoveredItems = [];
 
 OregonH.UI = {};
 // Show notification in the message box
+
 OregonH.UI.notify = function(message , type) {
   
   var modal = document.getElementById("modal");
@@ -10,34 +11,25 @@ OregonH.UI.notify = function(message , type) {
    document.getElementById("purchased-item-list").innerHTML = '<div class="purchased-item">' + message +type + '</div>' ;
   }
  document.getElementById("message-line").innerHTML = '<div class="update-' + type + '">Day '+ Math.ceil(this.caravan.day) + ': ' + message+'</div>' + document.getElementById('message-line').innerHTML;
-  }
+}
 
- // refresh visual caravan stats
- OregonH.UI.refreshStats = function() {
-   var rocketLocation = ((this.caravan.distance / 50))
-   //modify the dom
-   document.getElementById('stat-day').innerHTML = Math.ceil(this.caravan.day);
-   document.getElementById('stat-distance').innerHTML = Math.floor(this.caravan.distance);
-   document.getElementById('stat-crew').innerHTML = this.caravan.crew;
-   document.getElementById('stat-spaceShip').innerHTML = this.caravan.spaceShip;
-   document.getElementById('stat-food').innerHTML = Math.ceil(this.caravan.food);
-   document.getElementById('stat-money').innerHTML = "$" + this.caravan.money;
-   document.getElementById('shop-stat-money').innerHTML = "$" + this.caravan.money;
-   document.getElementById('stat-firepower').innerHTML = this.caravan.firepower;
-   document.getElementById('stat-weight').innerHTML = Math.ceil(this.caravan.weight) + '/' + this.caravan.capacity;
-  //  document.getElementById('rocket-img').style.left = this.caravan.distance / OregonH.finalDistance) + '%';
-   document.getElementById('rocket-img').style.left = rocketLocation + '%';
+// refresh visual caravan stats
+OregonH.UI.refreshStats = function() {
+  var rocketLocation = ((this.caravan.distance / 50))
+  //modify the dom
+  document.getElementById('stat-day').innerHTML = Math.ceil(this.caravan.day);
+  document.getElementById('stat-distance').innerHTML = Math.floor(this.caravan.distance);
+  document.getElementById('stat-crew').innerHTML = this.caravan.crew;
+  document.getElementById('stat-spaceShip').innerHTML = this.caravan.spaceShip;
+  document.getElementById('stat-food').innerHTML = Math.ceil(this.caravan.food);
+  document.getElementById('stat-money').innerHTML = "$" + this.caravan.money;
+  document.getElementById('shop-stat-money').innerHTML = "$" + this.caravan.money;
+  document.getElementById('stat-firepower').innerHTML = this.caravan.firepower;
+  document.getElementById('stat-weight').innerHTML = Math.ceil(this.caravan.weight) + '/' + this.caravan.capacity;
+//  document.getElementById('rocket-img').style.left = this.caravan.distance / OregonH.finalDistance) + '%';
+  document.getElementById('rocket-img').style.left = rocketLocation + '%';
 
- };
-
-// OregonH.UI.createDiscoveryItem = function(landmark) {
-//   var discoveryItemsDiv = document.getElementById('discovery-items')
-//   var newDiv = document.createElement('div');
-//   newDiv.classList.add('stat-row');
-//   newDiv.innerHTML = '' + landmark + '';
-//   discoveryItemsDiv.appendChild(newDiv);
-// }
-
+};
 
 OregonH.UI.createBtns = function() {
   var newGoBtn = document.createElement('button');
@@ -71,15 +63,15 @@ OregonH.UI.showDiscovery = function(landmark) {
   modalDiv.classList.remove('hidden');
 
 
-  if (landmark === 'mars'){
-    modalHeader.innerText = "You made it to the landmark " + landmark;
-    modalBody.innerText = "Choose whether you want to get out and plant a flag or continue going."
-    goBtn.innerHTML = "Stop and land on Planet Mars | Add +2 Days"
+  if (landmark === 'Planet Mars'){
+    modalHeader.innerText = "You made it to the " + landmark;
+    modalBody.innerText = "Choose whether you want to land on the planet Mars or continue traveling."
+    goBtn.innerHTML = "Land on Planet Mars | Add +2 Days"
     avoid.innerHTML = "Avoid Stopping"
     // goBtn.addEventListener('click', this.plantFlag.bind(this)); 
     goBtn.addEventListener('click', this.marsGame.bind(this)); 
     avoid.addEventListener('click', this.runaway.bind(this));
-  } else if (landmark === 'belt') {
+  } else if (landmark === 'Asteroid Belt') {
     modalHeader.innerText = "You made it to the landmark " + landmark;
     modalBody.innerText = "You can go around the asteroid field and add 3 days to your journey or take the risk of crashing and go through. Use your arrow keys to control the spaceship"
     goBtn.innerHTML = "Go Through"
@@ -88,20 +80,15 @@ OregonH.UI.showDiscovery = function(landmark) {
     goBtn.addEventListener('click', this.go.bind(this));
     avoid.addEventListener('click', this.runaway.bind(this));
   }
- 
-  //keep properties
- 
-  //run away
-  // goBtn.addEventListener('click', this.plantFlag.bind(this));
-  // avoid.addEventListener('click', this.runaway.bind(this));
 };
- 
 
 OregonH.UI.marsGame = function() {
   console.log("Mars THE GAME START");
   this.removeBtns();
   var modalDiv = document.getElementById('modal-fly');
   // Set the background
+  var mainRocket = document.getElementById('rocket-img');
+  mainRocket.style.opacity = 0;
   var marsImg = document.getElementById('game-result');
   marsImg.classList.add('mars-game-bg');
 
@@ -109,6 +96,19 @@ OregonH.UI.marsGame = function() {
   var btnDiv = document.createElement('div');
   btnDiv.classList.add('mars-game-btns');
   marsImg.appendChild(btnDiv);
+
+  var cameraDiv = document.createElement('div');
+  cameraDiv.classList.add('camera');
+  var camera = document.createElement('i');
+  camera.classList.add('fas');
+  camera.classList.add('fa-camera-retro');
+  cameraDiv.appendChild(camera);
+  marsImg.appendChild(cameraDiv);
+
+  cameraDiv.addEventListener('click' , function() {
+    OregonH.UI.takePicture();
+  })
+  
 
   var btnA = document.createElement('button');
   btnA.setAttribute('id' , 'btn-a');
@@ -151,53 +151,104 @@ OregonH.UI.marsGame = function() {
     newImg.classList.add('rocket-img-game');
     newImg.src = 'images/rocket.png';
     parentDiv.appendChild(newImg);
+    setTimeout(() => {
+      newImg.src = 'images/rocket_land.png';
+    },4500);
   }
  
 
   function launchRocket() {
     var landedRocket = document.querySelector('.rocket-img-game');
+    landedRocket.src = 'images/rocket.png'
     landedRocket.classList.remove('rocket-img-game');
     landedRocket.classList.add('rocket-img-game-launch');
+    setTimeout(() => {
+      landedRocket.style.display = 'none';
+    },4000);
   }
-
-
-  function checkForClick() {
-    var allBtns = document.querySelectorAll('.mars-game-btns button')
-    allBtns.forEach(btn => btn.addEventListener('click' , buttonClicks));
-  
-    function buttonClicks(e) {
-      console.log(e.target.id);
-  
-      if(e.target.id === 'btn-a') {
-        btnTxt.btnA = 'A) Go to large crater';
-        btnTxt.btnB = 'B) Go to north pole';
-        btnTxt.btnC = 'C) Go to large valley';
-        updateText()
-        console.log("a pressed");
-      } else if (e.target.id === 'btn-b') {
-        console.log("b pressed");
-        OregonH.UI.plantFlag('planets' , 'flag');
-        OregonH.UI.plantFlag('game-result' , 'game-flag');
-      } else if (e.target.id === 'btn-c') {
-        console.log("c pressed");
-    
-      } else if (e.target.id === 'btn-d') {
-        console.log("d pressed");
-        launchRocket();
-        setTimeout(() => {
-          modalDiv.classList.add('hidden');
-          marsImg.classList.remove('mars-game-bg')
-          OregonH.UI.removeChildren('game-result');
-          OregonH.Game.resumeJourney();
-        }, 5400)
-      }
+ 
+  function updateButtons() {
+    if (currentStage === 1) {
+      btnTxt.btnA = 'A) Explore';
+      btnTxt.btnB = 'B) Plant Flag';
+      btnTxt.btnC = 'C) Unknown';
+      btnTxt.btnD = 'D) Go back to space';
+      updateText()
+    } else if (currentStage === 2) {
+      btnTxt.btnA = 'A) Return to ship';
+      btnTxt.btnB = 'B) Go to large crater';
+      btnTxt.btnC = 'C) Go to north pole';
+      btnTxt.btnD = 'D) Go to large valley';
+      updateText()
     }
   }
 
-  updateText();
+  function checkForClick(e) {
+    
+      // console.log(e.target.id);
+  
+      if (e.target.id === 'btn-a') {
+        if(e.target.id === 'btn-a' && currentStage === 1) {
+          currentStage++
+          updateButtons()
+        }  else if (e.target.id === 'btn-a'  && currentStage === 2) {
+          currentStage--
+          updateButtons()
+        } 
+      } else if (e.target.id === 'btn-b') {
+        if(e.target.id === 'btn-b' && currentStage === 1) {
+          OregonH.UI.plantFlag('planets' , 'flag');
+          OregonH.UI.plantFlag('game-result' , 'game-flag');
+          updateButtons()
+        }  else if (e.target.id === 'btn-b'  && currentStage === 2) {
+          currentStage--
+          updateButtons()
+        }
+      } else if(e.target.id === 'btn-c') {
+        var marsBg = document.querySelector('.mars-game-bg')
+        marsBg.style.background = 'url("images/mars_crater.jpg")';
+      }
+    }
+  // }
+  // function checkForClick(e) {
+    
+  //     console.log(e.target.id);
+  
+  //     if(e.target.id === 'btn-a') {
+  //       btnTxt.btnA = 'A) Go to large crater';
+  //       btnTxt.btnB = 'B) Go to north pole';
+  //       btnTxt.btnC = 'C) Go to large valley';
+  //       updateText()
+  //       console.log("a pressed");
+  //     } else if (e.target.id === 'btn-b') {
+  //       console.log("b pressed");
+  //       OregonH.UI.plantFlag('planets' , 'flag');
+  //       OregonH.UI.plantFlag('game-result' , 'game-flag');
+  //     } else if (e.target.id === 'btn-c') {
+  //       console.log("c pressed");
+       
+  //     } else if (e.target.id === 'btn-d') {
+  //       console.log("d pressed");
+  //       launchRocket();
+  //       setTimeout(() => {
+  //         modalDiv.classList.add('hidden');
+  //         marsImg.classList.remove('mars-game-bg')
+  //         OregonH.UI.removeChildren('game-result');
+  //         mainRocket.style.opacity = 1;
+  //         OregonH.Game.resumeJourney();
+  //       }, 5400)
+  //     }
+  // }
+
+  var allBtns = document.querySelectorAll('.mars-game-btns button')
+  allBtns.forEach(btn => btn.addEventListener('click' , checkForClick));
+
+  var currentStage = 1;
+  // updateText();
+  updateButtons();
   landRocket();
   checkForClick();
-}
+};
 
 OregonH.UI.removeChildren = function(parent) {
   this.parent = parent;
@@ -205,7 +256,7 @@ OregonH.UI.removeChildren = function(parent) {
   while (parentEl.firstChild) {
     parentEl.removeChild(parentEl.firstChild)
   }
-}
+};
 
 OregonH.UI.plantFlag = function(parentClass, divClass, width, x, y){
   this.parentClass = parentClass;
@@ -226,17 +277,25 @@ OregonH.UI.plantFlag = function(parentClass, divClass, width, x, y){
   // OregonH.Game.resumeJourney();
 };
 
- 
-//creates the game
+OregonH.UI.takePicture = function() {
+  var marsBg = document.querySelector(".mars-game-bg");
+  var bg = getComputedStyle(marsBg);
+  var duration = bg.animationDuration;
+  marsBg.classList.add('flash');
+  setTimeout(()=>  {
+    marsBg.classList.remove('flash');
+  }, 1400);
+}
+
+//creates the Asteroid game
 OregonH.UI.go = function(){
   console.log("CLICK THE GAME START");
   this.removeBtns();
   var fcanvas = document.getElementById('flappy-canvas');
   var fctx = fcanvas.getContext('2d');
-  var parentContainer = document.getElementById("parent").offsetWidth;
+  var parentContainer = document.getElementById("attack").offsetWidth;
   fcanvas.width = parentContainer;
   fcanvas.classList.remove('hidden');
-  // fcanvas.width = window.innerWidth;
   
   //load images
   var bird = new Image();
@@ -258,141 +317,118 @@ OregonH.UI.go = function(){
   var bX = 10;
   var bY = 150;
   var gap = 85;
-  bird.src = 'images/rocket.png';
+  bird.src = 'images/rocketSmall.png';
   bg.src = 'images/bgBig.png';
   pipeNorth.src = 'images/cometNorth.png';
   pipeSouth.src = 'images/cometSouth.png';
-function draw() {
-  var currentPage = document.getElementById('#modal');
-  
-  window.addEventListener("keydown", function(e) {
-   // space and arrow keys
-   if([32, 37, 38, 39, 40].indexOf(e.keyCode) > -1) {
-       e.preventDefault();
-   }
-  }, false);
-  document.onkeydown = checkKey;
-  
-  function checkKey(e) {
-   console.log(e)
-      e = e || window.event;
-  
-      if (e.keyCode == '38') {
-       bY -= 10;
-      }
-      else if (e.keyCode == '40') {
-          // down arrow
-          bY += 10;
-      }
-      else if (e.keyCode == '37') {
-         // left arrow
-         bX -= 10;
-      }
-      else if (e.keyCode == '39') {
-         // right arrow
-         bX += 10;
-         console.log('down');
-         
-      }
-  
-  }
-var gravity = 0;
+
+  function draw() {
+    window.addEventListener("keydown", function(e) {
+    // space and arrow keys
+    if([32, 37, 38, 39, 40].indexOf(e.keyCode) > -1) {
+        e.preventDefault();
+    }
+    }, false);
+    document.onkeydown = checkKey;
+    
+    function checkKey(e) {
+    console.log(e)
+        e = e || window.event;
+    
+        if (e.keyCode == '38') {
+        bY -= 10;
+        }
+        else if (e.keyCode == '40') {
+            // down arrow
+            bY += 10;
+        }
+        else if (e.keyCode == '37') {
+          // left arrow
+          bX -= 10;
+        }
+        else if (e.keyCode == '39') {
+          // right arrow
+          bX += 10;
+          console.log('down');
+          
+        }
+    
+    }
+  var gravity = 0;
 
 
- var constant = pipeNorth.height + gap;
- fctx.drawImage(bg , 0 , 0);
+  var constant = pipeNorth.height + gap;
+  fctx.drawImage(bg , 0 , 0);
 
- for (var i = 0; i < pipe.length; i++) {
-  fctx.drawImage(pipeNorth, pipe[i].x , pipe[i].y);
-  fctx.drawImage(pipeSouth, pipe[i].x ,  pipe[i].y + constant);
-  pipe[i].x--;
+  for (var i = 0; i < pipe.length; i++) {
+    fctx.drawImage(pipeNorth, pipe[i].x , pipe[i].y);
+    fctx.drawImage(pipeSouth, pipe[i].x ,  pipe[i].y + constant);
+    pipe[i].x--;
 
-  //controls how close each column is from each other. The higher the number the closer
-  if(pipe[i].x == 500){
-   pipe.push({
-    x: fcanvas.width,
-    y: Math.floor(Math.random()*pipeNorth.height) - pipeNorth.height
-   })
-  }
+    //controls how close each column is from each other. The higher the number the closer
+    if(pipe[i].x == 500){
+    pipe.push({
+      x: fcanvas.width,
+      y: Math.floor(Math.random()*pipeNorth.height) - pipeNorth.height
+    })
+    }
 
-  if (pipe.length === 8) {
+    if (pipe.length === 8) {
+      OregonH.Caravan.spaceShip += 1;
+      madeSafely = true;
+      console.log('Made it safely')
+      fctx.clearRect(0,0, fcanvas.width, fcanvas.height);
+      gameOver = true;
+    }
+
+    if(bX + bird.width >= pipe[i].x && bX <= pipe[i].x + pipeNorth.width && (bY <= pipe[i].y + pipeNorth.height || bY + bird.height >= pipe[i].y + constant) ) {
+    // location.reload();
     OregonH.Caravan.spaceShip += 1;
-    madeSafely = true;
-    console.log('Made it safely')
+    madeSafely = false;
+    console.log('Lost a ship')
     fctx.clearRect(0,0, fcanvas.width, fcanvas.height);
     gameOver = true;
-  }
-
-   if(bX + bird.width >= pipe[i].x && bX <= pipe[i].x + pipeNorth.width && (bY <= pipe[i].y + pipeNorth.height || bY + bird.height >= pipe[i].y + constant) ) {
-   // location.reload();
-   OregonH.Caravan.spaceShip += 1;
-   madeSafely = false;
-   console.log('Lost a ship')
-   fctx.clearRect(0,0, fcanvas.width, fcanvas.height);
-   gameOver = true;
-  }
-  
- }
-
- fctx.drawImage(fg , 0 , fcanvas.height - fg.height);
- fctx.drawImage(bird,bX,bY);
- bY += gravity;
- if (!gameOver) {
-   requestAnimationFrame(draw)
- } else {
-   var gameResult = document.getElementById('game-result')
-  fcanvas.classList.add('hidden')
-  gameResult.classList.remove('hidden')
-  if(!madeSafely) {
-    gameResult.style.color = "red"
-    gameResult.innerHTML = "You crashed into an asteroid! You lose 1 Space Ship";
-    setTimeout(() => {
-      document.getElementById('modal-fly').classList.add('hidden');
- 
-      gameResult.classList.add('hidden')
-      OregonH.Game.resumeJourney();
-       console.log('game over');
-    }, 1850);
+    }
     
-  } else {
-    gameResult.style.color = "green"
-    gameResult.innerHTML = "You made it successfully and saved 3 days"
-    setTimeout(() => {
-      document.getElementById('modal-fly').classList.add('hidden');
-
-      gameResult.classList.add('hidden')
-      OregonH.Game.resumeJourney();
-       console.log('game over');
-    }, 1400);
   }
 
- }
-}
+  fctx.drawImage(fg , 0 , fcanvas.height - fg.height);
+  fctx.drawImage(bird,bX,bY);
+  bY += gravity;
+  if (!gameOver) {
+    requestAnimationFrame(draw)
+  } else {
+    var gameResult = document.getElementById('game-result')
+    fcanvas.classList.add('hidden')
+    gameResult.classList.remove('hidden')
+    if(!madeSafely) {
+      gameResult.style.color = "red"
+      gameResult.innerHTML = "You crashed into an asteroid! You lose  Space Ship";
+      setTimeout(() => {
+        document.getElementById('modal-fly').classList.add('hidden');
+  
+        gameResult.classList.add('hidden')
+        OregonH.Game.resumeJourney();
+        console.log('game over');
+      }, 1850);
+      
+    } else {
+      gameResult.style.color = "green"
+      gameResult.innerHTML = "You made it successfully and saved 3 days"
+      setTimeout(() => {
+        document.getElementById('modal-fly').classList.add('hidden');
+
+        gameResult.classList.add('hidden')
+        OregonH.Game.resumeJourney();
+        console.log('game over');
+      }, 1400);
+    }
+
+  }
+  }
+  
   draw();
-}
-
-// OregonH.UI.mars = function(){
-//   console.log("Mars THE GAME START");
-//   this.removeBtns();
-//   var parentContainer = document.getElementById("parent").offsetWidth;
-//   var marsImg = document.getElementById('game-result');
-//   marsImg.width = parentContainer;
-//   marsImg.classList.remove('hidden');
-//   marsImg.style.background = "url('file:///C:/Users/feral%20to%20family/Desktop/jimmyoliva-master/pages/projects/space_trial/images/mars.png)"
-//   // fcanvas.width = window.innerWidth;
-  
-//   var currentPage = document.getElementById('#modal');
-
-// function draw() {
-  
-//   window.addEventListener("keydown", function(e) {
-//    // space and arrow keys
-//    if([32, 37, 38, 39, 40].indexOf(e.keyCode) > -1) {
-//        e.preventDefault();
-//    }
-//   }, false);
-//   }
-// }
+};
 
 OregonH.UI.runaway = function(landmark){
   this.landmark = landmark
@@ -414,7 +450,6 @@ OregonH.UI.runaway = function(landmark){
   }, 1400);
  
 };
-
 
 //show shop
 OregonH.UI.showShop = function(products){
@@ -493,7 +528,6 @@ OregonH.UI.buyProduct = function(product) {
  //update visuals
  OregonH.UI.refreshStats();
 };
-
 
 
 //show attack
