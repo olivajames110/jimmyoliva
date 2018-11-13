@@ -1,8 +1,8 @@
-var OregonH = OregonH || {};
+var SpaceTrail = SpaceTrail || {};
 
-OregonH.Caravan = {};
+SpaceTrail.Caravan = {};
 
-OregonH.Caravan.init = function(stats){
+SpaceTrail.Caravan.init = function(stats){
  this.day = stats.day;
  this.distance = stats.distance;
  this.crew = stats.crew;
@@ -13,20 +13,20 @@ OregonH.Caravan.init = function(stats){
 };
 
 // Update weight and capacity
-OregonH.Caravan.updateWeight = function() { 
+SpaceTrail.Caravan.updateWeight = function() { 
  var droppedFood = 0;
  var droppedGuns = 0;
 
  // How much the caravan can carry
- this.capacity = (this.spaceShip * OregonH.weightPerOx) + (this.crew + OregonH.weightPerPerson);
+ this.capacity = (this.spaceShip * SpaceTrail.weightPerOx) + (this.crew + SpaceTrail.weightPerPerson);
 
  // How much weight we currently have
- this.weight = (this.food * OregonH.foodWeight) + (this.firepower + OregonH.firepowerWeight);
+ this.weight = (this.food * SpaceTrail.foodWeight) + (this.firepower + SpaceTrail.firepowerWeight);
 
  // Drop things if its too much weight (assume guns get dropped before food)
  while(this.firepower && this.capacity <= this.weight) {
   this.firepower--;
-  this.weight -= OregonH.foodWeight;
+  this.weight -= SpaceTrail.foodWeight;
   droppedGuns++;
  }
 
@@ -36,17 +36,17 @@ OregonH.Caravan.updateWeight = function() {
 };
 
 // Update covered distance
-OregonH.Caravan.updateDistance = function() {
+SpaceTrail.Caravan.updateDistance = function() {
  // The closer the capacity, the slower you are
  var diff = this.capacity - this.weight;
- var speed =  OregonH.fullSpeed;
- // var speed = OregonH.slowSpeed + (diff / this.capacity) * OregonH.fullSpeed;
+ var speed =  SpaceTrail.fullSpeed;
+ // var speed = SpaceTrail.slowSpeed + (diff / this.capacity) * SpaceTrail.fullSpeed;
  this.distance += speed*.5;
 };
 
 // Food consumption
-OregonH.Caravan.consumeFood = function() {
- this.food -= (this.crew * OregonH.foodPerPerson) * ratio;
+SpaceTrail.Caravan.consumeFood = function() {
+ this.food -= (this.crew * SpaceTrail.foodPerPerson) * ratio;
 
  if (this.food < 0) {
   this.food = 0;

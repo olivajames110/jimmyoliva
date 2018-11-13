@@ -1,13 +1,13 @@
-var OregonH = OregonH || {};
- var currentFood = OregonH.Caravan.food;
- console.log('OregonH.Caravan.food', OregonH.Caravan.food)
-//  var currentFirepower = OregonH.Caravan.food;
-//  var currentShips = OregonH.Caravan.food;
-//  var currentFood = OregonH.Caravan.food;
+var SpaceTrail = SpaceTrail || {};
+ var currentFood = SpaceTrail.Caravan.food;
+ console.log('SpaceTrail.Caravan.food', SpaceTrail.Caravan.food)
+//  var currentFirepower = SpaceTrail.Caravan.food;
+//  var currentShips = SpaceTrail.Caravan.food;
+//  var currentFood = SpaceTrail.Caravan.food;
 
-OregonH.Event = {};
+SpaceTrail.Event = {};
  
-OregonH.Event.eventTypes = [
+SpaceTrail.Event.eventTypes = [
  {
    type: 'STAT-CHANGE',
    notification: 'negative', 
@@ -116,7 +116,7 @@ OregonH.Event.eventTypes = [
 
 ];
 
-OregonH.Event.generateEvent = function(ranNum) {
+SpaceTrail.Event.generateEvent = function(ranNum) {
   this.ranNum = ranNum;
  //pick random one
  var eventIndex = Math.floor(Math.random() * this.eventTypes.length);
@@ -151,7 +151,7 @@ OregonH.Event.generateEvent = function(ranNum) {
   //  }
 };
 
-OregonH.Event.visitPlanet = function(ranNum) {
+SpaceTrail.Event.visitPlanet = function(ranNum) {
   this.ranNum = ranNum;
   //pick random one
   var eventIndex = Math.floor(Math.random() * this.eventTypes.length);
@@ -165,7 +165,7 @@ OregonH.Event.visitPlanet = function(ranNum) {
   this.shopEvent(eventData);
 }
 
-OregonH.Event.statChangeEvent = function(eventData) {
+SpaceTrail.Event.statChangeEvent = function(eventData) {
  //Cant have negative quantities
   if(eventData.value + this.caravan[eventData.stat] >=  0) {
     this.caravan[eventData.stat] += eventData.value;
@@ -173,13 +173,13 @@ OregonH.Event.statChangeEvent = function(eventData) {
   }
 }
 
-OregonH.Event.shopEvent = function(eventData) {
+SpaceTrail.Event.shopEvent = function(eventData) {
   //number of products for sale
   var numProds = Math.ceil(Math.random() * 4);
-  var currentFood = Math.ceil(OregonH.Caravan.food);
-  var currentSpaceShip = Math.ceil(OregonH.Caravan.spaceShip);
-  var currentFirepower = Math.ceil(OregonH.Caravan.firepower);
-  var currentCrew = Math.ceil(OregonH.Caravan.crew);
+  var currentFood = Math.ceil(SpaceTrail.Caravan.food);
+  var currentSpaceShip = Math.ceil(SpaceTrail.Caravan.spaceShip);
+  var currentFirepower = Math.ceil(SpaceTrail.Caravan.firepower);
+  var currentCrew = Math.ceil(SpaceTrail.Caravan.crew);
   
   function getCurrent(type) {
     if (type === "food") {
@@ -212,20 +212,20 @@ OregonH.Event.shopEvent = function(eventData) {
    });
  }
 
- OregonH.UI.refreshStats();
+ SpaceTrail.UI.refreshStats();
  this.ui.showShop(products);
 };
 
 //prepare an attack event
-OregonH.Event.attackEvent = function(eventData){
-//  var firepower = Math.round((0.7 + 0.6 * Math.random()) * OregonH.enemyFirepowerAverage);
-//  var gold = Math.round((0.7 + 0.6 * Math.random()) * OregonH.enemyGoldAverage);
+SpaceTrail.Event.attackEvent = function(eventData){
+//  var firepower = Math.round((0.7 + 0.6 * Math.random()) * SpaceTrail.enemyFirepowerAverage);
+//  var gold = Math.round((0.7 + 0.6 * Math.random()) * SpaceTrail.enemyGoldAverage);
 
  this.ui.showAttack(firepower, gold);
 };
 
 
-OregonH.Event.addToCart = function() {
+SpaceTrail.Event.addToCart = function() {
 
 }
 

@@ -1,10 +1,10 @@
-var OregonH = OregonH || {};
+var SpaceTrail = SpaceTrail || {};
 var discoveredItems = [];
 
-OregonH.UI = {};
+SpaceTrail.UI = {};
 // Show notification in the message box
 
-OregonH.UI.notify = function(message , type) {
+SpaceTrail.UI.notify = function(message , type) {
   
   var modal = document.getElementById("modal");
   if (modal.className === "") {
@@ -14,7 +14,7 @@ OregonH.UI.notify = function(message , type) {
 }
 
 // refresh visual caravan stats
-OregonH.UI.refreshStats = function() {
+SpaceTrail.UI.refreshStats = function() {
   var rocketLocation = ((this.caravan.distance / 50))
   //modify the dom
   document.getElementById('stat-day').innerHTML = Math.ceil(this.caravan.day);
@@ -26,12 +26,12 @@ OregonH.UI.refreshStats = function() {
   document.getElementById('shop-stat-money').innerHTML = "$" + this.caravan.money;
   document.getElementById('stat-firepower').innerHTML = this.caravan.firepower;
   document.getElementById('stat-weight').innerHTML = Math.ceil(this.caravan.weight) + '/' + this.caravan.capacity;
-//  document.getElementById('rocket-img').style.left = this.caravan.distance / OregonH.finalDistance) + '%';
+//  document.getElementById('rocket-img').style.left = this.caravan.distance / SpaceTrail.finalDistance) + '%';
   document.getElementById('rocket-img').style.left = rocketLocation + '%';
 
 };
 
-OregonH.UI.createBtns = function() {
+SpaceTrail.UI.createBtns = function() {
   var newGoBtn = document.createElement('button');
   var newLeaveBtn = document.createElement('button');
   var parentBtnDiv = document.querySelector('.control-buttons');
@@ -42,14 +42,14 @@ OregonH.UI.createBtns = function() {
   parentBtnDiv.appendChild(newLeaveBtn)
 }
 
-OregonH.UI.removeBtns = function() {
+SpaceTrail.UI.removeBtns = function() {
   var parentBtnDiv = document.querySelector('.control-buttons');
   while(parentBtnDiv.firstChild) {
     parentBtnDiv.removeChild(parentBtnDiv.firstChild);
   }
 }
 
-OregonH.UI.showDiscovery = function(landmark) {
+SpaceTrail.UI.showDiscovery = function(landmark) {
   this.landmark = landmark;
   discoveredItems.push("" + landmark + "");
 
@@ -82,7 +82,7 @@ OregonH.UI.showDiscovery = function(landmark) {
   }
 };
 
-OregonH.UI.marsGame = function() {
+SpaceTrail.UI.marsGame = function() {
   console.log("Mars THE GAME START");
   this.removeBtns();
   var modalDiv = document.getElementById('modal-fly');
@@ -297,8 +297,8 @@ var states = {
        if (e.target.id === 'btn-b') {
         checkChanges();
         if(e.target.id === 'btn-b' && states.currentStage === 1 &&  states.flagPlanted === false ) {
-          OregonH.UI.plantFlag('planets' , 'flag');
-          OregonH.UI.plantFlag('game-result' , 'game-flag');
+          SpaceTrail.UI.plantFlag('planets' , 'flag');
+          SpaceTrail.UI.plantFlag('game-result' , 'game-flag');
           btnB.style.opacity = '.65';
           btnB.style.cursor = 'initial';
           states.flagPlanted = true;
@@ -314,7 +314,7 @@ var states = {
       if(e.target.id === 'btn-c' && states.currentStage === 2) {
         checkChanges();
         if (!states.craterDiscovered) {
-          OregonH.Game.createDiscoveryItem('Hellas Impact Crater');
+          SpaceTrail.Game.createDiscoveryItem('Hellas Impact Crater');
         }
         states.craterDiscovered = true;
         changeBackground('images/mars_crater.jpg' , 'You arrived at the largest crater on mars known as the Hellas Impact Crater. It is over 1,400 miles wide.');
@@ -326,9 +326,9 @@ var states = {
         setTimeout(() => {
           modalDiv.classList.add('hidden');
           marsImg.classList.remove('mars-game-bg')
-          OregonH.UI.removeChildren('game-result');
+          SpaceTrail.UI.removeChildren('game-result');
           mainRocket.style.opacity = 1;
-          OregonH.Game.resumeJourney();
+          SpaceTrail.Game.resumeJourney();
         }, 5400)
       } else if (e.target.id === 'btn-d' && states.currentStage === 2) {
         checkChanges();
@@ -407,7 +407,7 @@ var states = {
   checkForClick();
 };
 
-OregonH.UI.removeChildren = function(parent) {
+SpaceTrail.UI.removeChildren = function(parent) {
   this.parent = parent;
   var parentEl = document.getElementById(parent);
   while (parentEl.firstChild) {
@@ -415,7 +415,7 @@ OregonH.UI.removeChildren = function(parent) {
   }
 };
 
-OregonH.UI.plantFlag = function(parentClass, divClass, width, x, y){
+SpaceTrail.UI.plantFlag = function(parentClass, divClass, width, x, y){
   this.parentClass = parentClass;
   this.divClass = divClass;
   this.width = width;
@@ -431,10 +431,10 @@ OregonH.UI.plantFlag = function(parentClass, divClass, width, x, y){
   parentDiv.appendChild(newImg);
   // this.removeBtns();
   // modalDiv.classList.add('hidden');
-  // OregonH.Game.resumeJourney();
+  // SpaceTrail.Game.resumeJourney();
 };
 
-// OregonH.UI.takePicture = function() {
+// SpaceTrail.UI.takePicture = function() {
 //   var marsBg = document.querySelector(".mars-game-bg");
 //   var bg = getComputedStyle(marsBg);
 //   var duration = bg.animationDuration;
@@ -461,7 +461,7 @@ OregonH.UI.plantFlag = function(parentClass, divClass, width, x, y){
 // }
 
 //creates the Asteroid game
-OregonH.UI.go = function(){
+SpaceTrail.UI.go = function(){
   console.log("CLICK THE GAME START");
   this.removeBtns();
   var fcanvas = document.getElementById('flappy-canvas');
@@ -547,7 +547,7 @@ OregonH.UI.go = function(){
     }
 
     if (pipe.length === 8) {
-      OregonH.Caravan.spaceShip += 1;
+      SpaceTrail.Caravan.spaceShip += 1;
       madeSafely = true;
       console.log('Made it safely')
       fctx.clearRect(0,0, fcanvas.width, fcanvas.height);
@@ -556,7 +556,7 @@ OregonH.UI.go = function(){
 
     if(bX + bird.width >= pipe[i].x && bX <= pipe[i].x + pipeNorth.width && (bY <= pipe[i].y + pipeNorth.height || bY + bird.height >= pipe[i].y + constant) ) {
     // location.reload();
-    OregonH.Caravan.spaceShip += 1;
+    SpaceTrail.Caravan.spaceShip += 1;
     madeSafely = false;
     console.log('Lost a ship')
     fctx.clearRect(0,0, fcanvas.width, fcanvas.height);
@@ -581,7 +581,7 @@ OregonH.UI.go = function(){
         document.getElementById('modal-fly').classList.add('hidden');
   
         gameResult.classList.add('hidden')
-        OregonH.Game.resumeJourney();
+        SpaceTrail.Game.resumeJourney();
         console.log('game over');
       }, 1850);
       
@@ -592,7 +592,7 @@ OregonH.UI.go = function(){
         document.getElementById('modal-fly').classList.add('hidden');
 
         gameResult.classList.add('hidden')
-        OregonH.Game.resumeJourney();
+        SpaceTrail.Game.resumeJourney();
         console.log('game over');
       }, 1400);
     }
@@ -603,7 +603,7 @@ OregonH.UI.go = function(){
   draw();
 };
 
-OregonH.UI.runaway = function(landmark){
+SpaceTrail.UI.runaway = function(landmark){
   this.landmark = landmark
   this.removeBtns();
   //remove event listener
@@ -618,14 +618,14 @@ OregonH.UI.runaway = function(landmark){
   setTimeout(() => {
     document.getElementById('modal-fly').classList.add('hidden');
     gameResult.classList.add('hidden')
-    OregonH.Game.resumeJourney();
+    SpaceTrail.Game.resumeJourney();
      console.log('game over');
   }, 1400);
  
 };
 
 //show shop
-OregonH.UI.showShop = function(products){
+SpaceTrail.UI.showShop = function(products){
  
  //get shop area
 
@@ -644,11 +644,11 @@ OregonH.UI.showShop = function(products){
      if(target.tagName == 'BUTTON') {
        //resume journey
        shopDiv.classList.add('hidden');
-       OregonH.UI.game.resumeJourney();
+       SpaceTrail.UI.game.resumeJourney();
      }
      else if(target.tagName == 'DIV' && target.className.match(/product/)) {
 
-       OregonH.UI.buyProduct({
+       SpaceTrail.UI.buyProduct({
          item: target.getAttribute('data-item'),
          qty: target.getAttribute('data-qty'),
          price: target.getAttribute('data-price'),
@@ -680,31 +680,31 @@ OregonH.UI.showShop = function(products){
 };
 
 //buy product
-OregonH.UI.buyProduct = function(product) {
+SpaceTrail.UI.buyProduct = function(product) {
   //check we can afford it
-  if(product.price > OregonH.UI.caravan.money) {
-    OregonH.UI.notify('Not enough money', 'negative');
+  if(product.price > SpaceTrail.UI.caravan.money) {
+    SpaceTrail.UI.notify('Not enough money', 'negative');
    return false;
  }
  
- OregonH.UI.caravan.money -= product.price;
+ SpaceTrail.UI.caravan.money -= product.price;
  
- OregonH.UI.caravan[product.item] += +product.qty;
+ SpaceTrail.UI.caravan[product.item] += +product.qty;
 
- OregonH.UI.notify('Bought ' + product.qty + ' x ' + product.item, 'positive');
+ SpaceTrail.UI.notify('Bought ' + product.qty + ' x ' + product.item, 'positive');
  
- OregonH.UI.prodsDiv.classList.add("hidden");
+ SpaceTrail.UI.prodsDiv.classList.add("hidden");
  
  //update weight
- OregonH.UI.caravan.updateWeight();
+ SpaceTrail.UI.caravan.updateWeight();
  
  //update visuals
- OregonH.UI.refreshStats();
+ SpaceTrail.UI.refreshStats();
 };
 
 
 //show attack
-// OregonH.UI.showAttack = function() {
+// SpaceTrail.UI.showAttack = function() {
 //   var attackDiv = document.getElementById('modal-fly');
 //   attackDiv.classList.remove('hidden');
  

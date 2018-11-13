@@ -1,4 +1,4 @@
-var OregonH = OregonH || {};
+var SpaceTrail = SpaceTrail || {};
 var numOfEvents = 0;
 var ratio = 0.015;
 var marsIsDiscovered = false;
@@ -8,33 +8,33 @@ var stationIsDiscovered = false;
 
 
 // Constants
-OregonH.weightPerOx = 20;
-OregonH.weightPerPerson = 2;
-OregonH.foodWeight = 0.6;
-OregonH.firepowerWeight = 5;
-OregonH.gameSpeed = 1;
-OregonH.dayPerStep = ratio;
-OregonH.foodPerPerson = 0.02;
-OregonH.fullSpeed = 1;
-// OregonH.slowSpeed = 3;
-OregonH.finalDistance = 100;
-OregonH.eventProbability = 0.15;
-OregonH.enemyFirepowerAverage = 5;
-OregonH.enemyGoldAverage = 50;
+SpaceTrail.weightPerOx = 20;
+SpaceTrail.weightPerPerson = 2;
+SpaceTrail.foodWeight = 0.6;
+SpaceTrail.firepowerWeight = 5;
+SpaceTrail.gameSpeed = 1;
+SpaceTrail.dayPerStep = ratio;
+SpaceTrail.foodPerPerson = 0.02;
+SpaceTrail.fullSpeed = 1;
+// SpaceTrail.slowSpeed = 3;
+SpaceTrail.finalDistance = 100;
+SpaceTrail.eventProbability = 0.15;
+SpaceTrail.enemyFirepowerAverage = 5;
+SpaceTrail.enemyGoldAverage = 50;
 
-OregonH.Game = {};
+SpaceTrail.Game = {};
 
 // Initiate the game
-OregonH.Game.init = function() {
+SpaceTrail.Game.init = function() {
 
  // Reference the UI
- this.ui = OregonH.UI;
+ this.ui = SpaceTrail.UI;
 
  // Reference the event manager
- this.eventManager = OregonH.Event;
+ this.eventManager = SpaceTrail.Event;
 
  // Setup the caravan
- this.caravan = OregonH.Caravan;
+ this.caravan = SpaceTrail.Caravan;
  this.caravan.init({
   day: 0,
   distance: 0,
@@ -62,7 +62,7 @@ OregonH.Game.init = function() {
 };
 
 //start the journey and time starts running
-OregonH.Game.startJourney = function() {
+SpaceTrail.Game.startJourney = function() {
  this.gameActive = true;
  this.previousTime = null;
  this.ui.notify('Your journey to the end of the solar system begins...', 'positive');
@@ -70,7 +70,7 @@ OregonH.Game.startJourney = function() {
  this.step();
 };
 
-OregonH.Game.createDiscoveryItem = function(landmark) {
+SpaceTrail.Game.createDiscoveryItem = function(landmark) {
   var discoveryItemsDiv = document.getElementById('discovery-items')
   var newDiv = document.createElement('div');
   newDiv.classList.add('stat-row');
@@ -80,7 +80,7 @@ OregonH.Game.createDiscoveryItem = function(landmark) {
 }
 
 // Game Loop
-OregonH.Game.step = function(timestamp) {
+SpaceTrail.Game.step = function(timestamp) {
 
  // Starting, setup the previous time for the first time
  if (!this.previousTime) {
@@ -92,7 +92,7 @@ OregonH.Game.step = function(timestamp) {
   var progress = timestamp - this.previousTime;
  
   //game update
-  if(progress >= OregonH.gameSpeed) {
+  if(progress >= SpaceTrail.gameSpeed) {
     this.previousTime = timestamp;
     this.caravan.updateDistance();
     this.updateGame();
@@ -105,9 +105,9 @@ OregonH.Game.step = function(timestamp) {
 };
  
 //update game stats
-OregonH.Game.updateGame = function() {
+SpaceTrail.Game.updateGame = function() {
   //day update
-  this.caravan.day += OregonH.dayPerStep;
+  this.caravan.day += SpaceTrail.dayPerStep;
  
   //food consumption
   this.caravan.consumeFood();
@@ -167,7 +167,7 @@ OregonH.Game.updateGame = function() {
   //---SHOW Asteroid Field DISCOVERY---
 
   if(Math.floor(this.caravan.distance) >= 1400 && Math.floor((this.caravan.distance) <= 1422) && !asteriodIsDiscovered) {
-    // OregonH.UI.showAttack('belt')
+    // SpaceTrail.UI.showAttack('belt')
     asteriodIsDiscovered = true;
     this.createDiscoveryItem("Asteroid Belt")
     this.ui.showDiscovery('Asteroid Belt');
@@ -178,7 +178,7 @@ OregonH.Game.updateGame = function() {
 
   //Puts Jupiter on the discovered area
   if(Math.floor(this.caravan.distance) >= 2500 && Math.floor((this.caravan.distance) <= 2502)  && !jupiterIsDiscovered) {
-    // OregonH.UI.showAttack('belt')
+    // SpaceTrail.UI.showAttack('belt')
     jupiterIsDiscovered = true;
     this.createDiscoveryItem("Jupiter")
     return;
@@ -198,7 +198,7 @@ OregonH.Game.updateGame = function() {
   }
 
 //   var ranNum = Math.random() * 25;
-//   if (ranNum <= OregonH.eventProbability) {
+//   if (ranNum <= SpaceTrail.eventProbability) {
 //     numOfEvents++;
 //     // console.log("Event Triggered: " + ranNum)
 //   this.eventManager.generateEvent(ranNum);
@@ -206,12 +206,12 @@ OregonH.Game.updateGame = function() {
 //       // console.log("No Trigger: " + ranNum)
 //     }
 //pause the journey
-OregonH.Game.pauseJourney = function() {
+SpaceTrail.Game.pauseJourney = function() {
   this.gameActive = false;
 };
 
 //resume the journey
-OregonH.Game.resumeJourney = function() {
+SpaceTrail.Game.resumeJourney = function() {
   this.gameActive = true;
   this.step();
 };
@@ -222,12 +222,12 @@ var pause = document.getElementById('pause');
 document.addEventListener('keypress' , function(e) {
   console.log(e)
   if(e.keyCode === 97) {
-    OregonH.Game.gameActive = false;
+    SpaceTrail.Game.gameActive = false;
   }
 } );
 
-// if (OregonH.caravan.distance === 250) {
+// if (SpaceTrail.caravan.distance === 250) {
 //   console.log('test');
 //  }
 //init game
-OregonH.Game.init();
+SpaceTrail.Game.init();
