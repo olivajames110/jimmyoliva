@@ -4,6 +4,7 @@ var ratio = 0.015;
 var marsIsDiscovered = false;
 var asteriodIsDiscovered = false;
 var jupiterIsDiscovered = false;
+var stationIsDiscovered = false;
 
 
 // Constants
@@ -73,6 +74,7 @@ OregonH.Game.createDiscoveryItem = function(landmark) {
   var discoveryItemsDiv = document.getElementById('discovery-items')
   var newDiv = document.createElement('div');
   newDiv.classList.add('stat-row');
+  newDiv.classList.add('discovery-item');
   newDiv.innerHTML = '' + landmark + '';
   discoveryItemsDiv.appendChild(newDiv);
 }
@@ -158,7 +160,7 @@ OregonH.Game.updateGame = function() {
     marsIsDiscovered = true;
     this.createDiscoveryItem("Mars")
     this.gameActive = false;
-    this.ui.showDiscovery('mars');
+    this.ui.showDiscovery('Planet Mars');
   }
   
   
@@ -168,8 +170,8 @@ OregonH.Game.updateGame = function() {
     // OregonH.UI.showAttack('belt')
     asteriodIsDiscovered = true;
     this.createDiscoveryItem("Asteroid Belt")
-    this.ui.showDiscovery('belt');
-    this.ui.notify('Enterign', 'positive');
+    this.ui.showDiscovery('Asteroid Belt');
+    this.ui.notify('Carl', 'positive');
     this.gameActive = false;
     return;
   }
@@ -182,19 +184,27 @@ OregonH.Game.updateGame = function() {
     return;
   }
 
-
+// Shows the space station
    //------------random events------------
-  var ranNum = Math.random() * 25;
-  if (ranNum <= OregonH.eventProbability) {
+   
+   if(Math.floor(this.caravan.distance) >= 1900 && Math.floor((this.caravan.distance) <= 1910)  && !stationIsDiscovered) {
+    stationIsDiscovered = true;
+    var ranNum = Math.random() * 25;
     numOfEvents++;
     // console.log("Event Triggered: " + ranNum)
-  this.eventManager.generateEvent(ranNum);
-} else {
-      // console.log("No Trigger: " + ranNum)
-    }
-    
+    this.eventManager.generateEvent(ranNum);
+
   };
-  
+  }
+
+//   var ranNum = Math.random() * 25;
+//   if (ranNum <= OregonH.eventProbability) {
+//     numOfEvents++;
+//     // console.log("Event Triggered: " + ranNum)
+//   this.eventManager.generateEvent(ranNum);
+// } else {
+//       // console.log("No Trigger: " + ranNum)
+//     }
 //pause the journey
 OregonH.Game.pauseJourney = function() {
   this.gameActive = false;
