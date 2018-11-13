@@ -131,12 +131,31 @@ h1{
   animation-iteration-count: 1;
 }
 
+
+.mars-game-back-btns {
+  color: white;
+  text-align: center;
+  padding: 30px 0 10px 0;
+  border-bottom: 4px solid #ffffff6b;
+  width: 190px;
+  margin: 0 auto;
+}
+
+#btn-title {
+  color: white;
+  text-align: center;
+  padding: 30px 20px 50px 20px;
+  margin: 0 auto;
+}
+
+
+/* -------------------- CAMERA GALLERY -------------------- */
+
 .flash {
   animation: flash;
   animation-duration: 1.4s;
   animation-iteration-count: 1;
 }
-
 .camera {
   color: white;
   position: absolute;
@@ -161,6 +180,41 @@ h1{
 .camera:hover {
 background-color: #ffffff6a;
 transform: scale(1.1)
+}
+
+.gallery-container {
+  color: black;
+  background-color: white;
+  position: absolute;
+  top: 30%;
+  left: 8%;
+  width: 350px;
+  padding: 30px 20px;
+}
+
+img.gallery-image {
+  width: 100%;
+}
+
+.img-buttons {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 0;
+}
+
+button.img-btn {
+  background: none;
+  border: none;
+  font-size: 16px;
+  font-family: "Roboto Mono";
+}
+
+.delete {
+  color: red;
+}
+
+.add {
+  color: green;
 }
 
 @keyframes landRocket {
@@ -293,8 +347,8 @@ position: relative;
 
 .game-flag {
   position: absolute;
-  left: 220px;
-  top: 120px;
+  left: 60px;
+  top: 60px;
   width: 71px;
   z-index: 10000;
   animation: plantFlag 1.5s ;
@@ -305,7 +359,7 @@ position: relative;
 
 @keyframes plantFlag {
   0% {top: 0%;}
-  100% {top: 120px;}
+  100% {top: 60px;}
 }
 
 /* .progress-bar svg {
@@ -453,7 +507,6 @@ position: relative;
   width: 130px;
   height: 100px;
   background-size: cover;
-  
 }
 
 .product {
@@ -557,26 +610,35 @@ font-size: 20px;
 } */
 
 .mars-game-bg {
-  background: url('images/Mars_bg.jpg');
+  background: url('images/mars_space_station.jpg');
   width: 100%;
   height: 450px;
-    padding: 30px 0;
-}
-
-.mars-game-bg {
+  padding: 30px 0;
+  transition-duration: 2s;
+  background-size: cover !important;
   display: flex;
   justify-content: center; 
+}
+
+
+.mars-game-btn-container {
+  display: flex;
+  justify-content: center;
 }
 
 .mars-game-btns button {
   padding: 15px;
   border: 1px solid rgba(255, 255, 255, 0.125);
-  background-color: rgba(255, 255, 255, 0.275);
+  background-color: rgba(255, 255, 255, 0.775);
   border-radius: 30px;
-  margin: 0 15px;
+  margin: 15px;
   box-shadow: 0px 1px 4px 1px #ffffff73;
   transition: all .82s cubic-bezier(0.075, 0.82, 0.165, 1);
   cursor: pointer;
+  color: black;
+  /* font-family: "Roboto Mono"; */
+  font-size: 16px;
+  font-weight: 500;
 }
 
 .mars-game-btns button:hover {
@@ -586,7 +648,6 @@ font-size: 20px;
 
 .mars-game-btns button:focus {
   outline:0;
-  
 }
 
 .header-and-money {
