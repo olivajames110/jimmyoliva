@@ -74,6 +74,7 @@ OregonH.Game.createDiscoveryItem = function(landmark) {
   var discoveryItemsDiv = document.getElementById('discovery-items')
   var newDiv = document.createElement('div');
   newDiv.classList.add('stat-row');
+  newDiv.classList.add('discovery-item');
   newDiv.innerHTML = '' + landmark + '';
   discoveryItemsDiv.appendChild(newDiv);
 }
@@ -159,7 +160,7 @@ OregonH.Game.updateGame = function() {
     marsIsDiscovered = true;
     this.createDiscoveryItem("Mars")
     this.gameActive = false;
-    this.ui.showDiscovery('mars');
+    this.ui.showDiscovery('Planet Mars');
   }
   
   
@@ -169,8 +170,8 @@ OregonH.Game.updateGame = function() {
     // OregonH.UI.showAttack('belt')
     asteriodIsDiscovered = true;
     this.createDiscoveryItem("Asteroid Belt")
-    this.ui.showDiscovery('belt');
-    this.ui.notify('Enterign', 'positive');
+    this.ui.showDiscovery('Asteroid Belt');
+    this.ui.notify('Carl', 'positive');
     this.gameActive = false;
     return;
   }
