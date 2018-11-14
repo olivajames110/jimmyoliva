@@ -26,6 +26,12 @@ h1{
   font-weight: bold;
 }
 
+.stats {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  grid-gap: 25px;
+}
+
 .stats-messages {
   display: grid;
   grid-template-columns: 4.5fr 7fr;
@@ -43,6 +49,7 @@ h1{
 }
 
 
+
 .message-box {
   overflow-y: auto;
   background-color: white;
@@ -52,7 +59,7 @@ h1{
   overflow-y: scroll;
   position: relative;
   height: calc(100% - 100px);
-  max-height: var(--boxHeight);
+  max-height: 250px;
 }
 
 .stat-row {
@@ -88,29 +95,190 @@ h1{
   margin: 30px;
 }
 
-.progress-bar svg {
-  color: rgb(118, 13, 13);
-  stroke: white;
-  position: absolute;
-  top: 60px;
-}
+
+/************************ PLANETS ************************/
 
 #rocket-img {
   position: absolute;
   left: 0.2%;
   top: 50px;
-  transition: cubic-bezier(0, 0, 0.88, 1.41) all 2s
-
+  /* transition: cubic-bezier(0, 0, 0.88, 1.41) all 2s */
+  /* transition:  all 2s; */
+  z-index: 1000;
 }
 
-.moon-earth {
-  position: relative;
-}
-
-.mars-img {
+.rocket-img-game {
   position: absolute;
-  left: 500px;
-  top: 40px;
+  bottom: 4%;
+  right: 3%;
+  /* transition: cubic-bezier(0, 0, 0.88, 1.41) all 2s */
+  /* transition:  all 2s; */
+  z-index: 749;
+  width: 100px;
+  transform: rotate(270deg);
+  animation: landRocket 5.4s;
+  animation-iteration-count: 1;
+}
+
+.rocket-img-game-launch {
+  position: absolute;
+  bottom: 4%;
+  right: 3%;
+  z-index: 1000;
+  width: 100px;
+  transform: rotate(270deg);
+  animation: launchRocket 5.4s;
+  animation-iteration-count: 1;
+}
+
+
+.mars-game-back-btns {
+  color: white;
+  text-align: center;
+  padding: 30px 0 10px 0;
+  border-bottom: 4px solid #ffffff6b;
+  width: 190px;
+  margin: 0 auto;
+}
+
+#btn-title {
+  color: white;
+  text-align: center;
+  padding: 30px 20px 50px 20px;
+  margin: 0 auto;
+}
+
+
+/* -------------------- CAMERA GALLERY -------------------- */
+
+@media only screen and (max-width: 1600px) {
+  .gallery-container {
+    left: 0 !important;
+    transform: scale(.72) ;
+  }
+}
+
+.flash {
+  animation: flash;
+  animation-duration: 1.4s;
+  animation-iteration-count: 1;
+}
+.camera {
+  color: white;
+  position: absolute;
+  left: 15px;
+  bottom: 15px;
+  width: 50px;
+  height: 50px;
+  background-color: #ffffff4a;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: .24s all;
+}
+
+.camera .fa, .fas {
+  font-weight: 900;
+  opacity: 0.8;
+}
+
+.camera:hover {
+background-color: #ffffff6a;
+transform: scale(1.1)
+}
+
+.gallery-container {
+  color: black;
+  background-color: white;
+  position: absolute;
+  top: 30%;
+  left: 8%;
+  width: 350px;
+  padding: 30px 20px;
+}
+
+img.gallery-image {
+  width: 100%;
+}
+
+.img-buttons {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 0;
+}
+
+button.img-btn {
+  background: none;
+  border: none;
+  font-size: 16px;
+  font-family: "Roboto Mono";
+}
+
+.delete {
+  color: red;
+}
+
+.add {
+  color: green;
+}
+
+@keyframes landRocket {
+  0% {bottom: 100%;}
+  100% {bottom: 4%;}
+}
+
+@keyframes launchRocket {
+  0% {right: 3.5%;}
+  2% {right: 2.5%;}
+  4% {right: 3.5%;}
+  6% {right: 2.5%;}
+  8% {right: 3.5%;}
+  10% {right: 2.5%;}
+  12% {right: 3.5%;}
+  14% {right: 2.5%;}
+  16% {right: 3.5%;}
+  18% {right: 2.5%;}
+  20% {bottom: 4%;}
+  100% {bottom: 100%;}
+}
+
+@keyframes newDiscovery {
+  0% {transform: scale(1.8); color: #669966; margin-left: 15px;}
+  50% {transform: scale(2);color: #669966; margin-left: 30px; }
+  100% {transform: scale(1);color: #0f0f0f;}
+}
+
+@keyframes bounceUpDown {
+  from { transform: translate3d(0, 0, 0);     }
+  to   { transform: translate3d(0, 10px, 0); }
+}
+
+@keyframes flash {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.discovery-item {
+  /* transform: rotate(270deg); */
+  animation: newDiscovery 1.2s;
+  animation-iteration-count: 1;
+}
+
+.progress-section {
+  position: relative;
+  padding: 20px 0;
+}
+.planets {
+  position: relative;
+  padding: 50px 0;
+}
+
+.earth {
+  position: absolute;
+  left: 0;
+  top: 0;
 }
 
 .earth-img {
@@ -119,18 +287,109 @@ h1{
   top: 40px;
 }
 
-.jupiter-img {
-  position: absolute;
-  right: 100px;
-  top: 0px;
+.earth-moon {
+position: relative;
 }
 
 .moon-img {
   position: absolute;
-  top: 61px;
-  left: 120px;
-  width: 30px;
+  top: 25px;
+  left: 55px;
+  width: 20px;
 }
+
+.mars-img {
+  position: absolute;
+  left: 17%;
+  top: 40px;
+}
+
+.asteroid-belt {
+  position: absolute;
+  left: 29%;
+  top: 25px;
+}
+
+.jupiter {
+  position: absolute;
+  right: 45%;
+  top: 0;
+}
+
+.saturn {
+  position: absolute;
+  right: 30%;
+  top: 25px;
+}
+
+.space-station-img {
+  position: absolute;
+  right: 58%;
+  top: 11px;
+  animation: bounceUpDown 2.2s;
+  animation-direction: alternate;
+  animation-timing-function: cubic-bezier(.5,0.05,1,.5);
+  animation-iteration-count: infinite;
+}
+
+.uranus {
+  position: absolute;
+  right: 15%;
+  top: 30px;
+}
+
+.pluto {
+  position: absolute;
+  right: 5%;
+  top: 50px;
+}
+
+.flag {
+  position: absolute;
+  left: 17%;
+  top: 15%;
+  width: 38px;
+  z-index: 10000;
+}
+
+.game-flag {
+  position: absolute;
+  left: 60px;
+  top: 60px;
+  width: 71px;
+  z-index: 10000;
+  animation: plantFlag 1.5s ;
+  animation-timing-function: cubic-bezier(0.8,-0.21, 0.17, 1);
+  animation-iteration-count: 1;
+  
+}
+
+@keyframes plantFlag {
+  0% {top: 0%;}
+  100% {top: 60px;}
+}
+
+/* .progress-bar svg {
+  color: rgb(118, 13, 13);
+  stroke: white;
+  position: absolute;
+  top: 60px;
+} */
+
+
+
+
+
+/* .jupiter-img {
+  position: absolute;
+  right: 100px;
+  top: 0px;
+} */
+.control-buttons {
+  margin-top: 20px;
+  font-family: "Roboto Mono";
+}
+
 
 .control-buttons button{
   background-color: rgb(77, 157, 61);
@@ -255,7 +514,6 @@ h1{
   width: 130px;
   height: 100px;
   background-size: cover;
-  
 }
 
 .product {
@@ -306,32 +564,43 @@ h1{
   background-color: rgba(0, 0, 0, 0.405);
 }
 
-.fly-desc{
+/* Makes the modal descripton into a grid so you can have text on the left and img or right */
+/* .fly-desc{
   display: grid;
-  grid-template-columns: 4fr 2fr;
-}
+  grid-template-columns: 4fr 2fr; 
+} */
 
 #game-result {
   font-size: 18px;
-  padding: 30px 0;
   font-family: "Roboto Mono";
+  position: relative;
+  z-index: 750;
 }
 
-.modal-header {
+.modal-header , #modal-header {
   background: linear-gradient(90deg, #202766ab, #3f1f518f) , linear-gradient(#243097, #9b4343);
   padding: 20px;
-  color: white;
+  font-size: 24px;
 }
 
-.modal-header h1 {
+.modal-header-title {
+  color: white;
+  font-family: "Roboto Mono";
+  font-size: 24px;
+}
+
+.modal-header h1 , #modal-header h1 {
   font-size: 24px;
   text-transform: uppercase;
   font-family: "Roboto Mono";
 }
 
-.modal-header-body {
-  font-size: 12px;
+.modal-body {
+  font-size: 16px;
   font-family: "Roboto Mono";
+  padding: 20px;
+  margin: 15px 0;
+
 }
 
 .modal-content {
@@ -341,15 +610,56 @@ h1{
   max-width: 800px;
 }
 
-.modal-body {
+/* .modal-body {
 padding: 20px;
+margin: 25px 0;
+font-size: 20px;
+} */
 
+.mars-game-bg {
+  background: url('images/mars_space_station.jpg');
+  width: 100%;
+  height: 450px;
+  padding: 30px 0;
+  transition-duration: 2s;
+  background-size: cover !important;
+  display: flex;
+  justify-content: center; 
 }
 
-/* .header-and-money {
+
+.mars-game-btn-container {
   display: flex;
-  justify-content: space-around;
-  width: 100%; */
+  justify-content: center;
+}
+
+.mars-game-btns button {
+  padding: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.125);
+  background-color: rgba(255, 255, 255, 0.775);
+  border-radius: 30px;
+  margin: 15px;
+  box-shadow: 0px 1px 4px 1px #ffffff73;
+  transition: all .82s cubic-bezier(0.075, 0.82, 0.165, 1);
+  cursor: pointer;
+  color: black;
+  /* font-family: "Roboto Mono"; */
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.mars-game-btns button:hover {
+  box-shadow: 0px 2px 10px 3px #ffffff73;
+  transform: perspective(1px) scale(1.1);
+}
+
+.mars-game-btns button:focus {
+  outline:0;
+}
+
+.header-and-money {
+text-align: center
+}
  
 
 .control-examples {
@@ -452,11 +762,11 @@ padding: 20px;
   color: #183152;
 }
 
-#shop {
+/* #shop {
   display: grid;
   grid-template-columns: 6fr 3fr;
   flex-wrap: wrap;
-}
+} */
 
 .purchase-column , .shop-shop-column {
   padding: 0 20px;
@@ -524,31 +834,27 @@ padding: 20px;
   overflow: auto;
   background-color: rgba(0, 0, 0, 0.405);
 }
-
+/* 
 .modal-header {
   background: linear-gradient(90deg, #202766ab, #3f1f518f) , linear-gradient(#243097, #9b4343);
   padding: 20px;
   color: white;
 }
-
 .modal-header h1 {
   font-size: 24px;
   text-transform: uppercase;
   font-family: "Roboto Mono";
 }
-
 .modal-header-body {
   font-size: 12px;
   font-family: "Roboto Mono";
 }
-
 .modal-content {
   margin: 5% auto;
   width: 70%;
   background-color: white;
   max-width: 1200px;
 }
-
 .modal-body {
 padding: 20px;
-
+ */

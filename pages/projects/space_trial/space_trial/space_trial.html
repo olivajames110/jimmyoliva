@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" type="text/css" href="space_trial.css"/>
+        <link rel="stylesheet" type="text/css" href="../flappy_bird/flappy.css"/>
+        <link
+            rel="stylesheet"
+            href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+            integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+            crossorigin="anonymous">
+        <title>Space Trail</title>
+    </head>
+    <body>
+        <div class="progress-section">
+            <!-- <div class="controls-progress-bar">
+                <div class="progress-bar">
+                    
+                </div>
+            </div> -->
+            <div id="planets" class="planets">
+                <img id="rocket-img" src="images/rocket.png" width="50px"/>
+                <div class="earth">
+                    <div class="earth-moon">
+                        <img class="earth-img" src="images/earth.png" width="50px"/>
+                        <img class="moon-img" src="images/moon.png"/>
+                    </div>
+                </div>
+                
+                    <!-- <img class="mars-img flag" src="images/flag2.png" /> -->
+               
+                <div class="mars">
+                    <img class="mars-img" src="images/mars.png" width="50px"/>
+                </div>
+                <div class="asteroid-belt">
+                    <img class="asteroid-belt-img" src="images/asteroidBelt_small.png" width="70px"/>
+                </div>
+                <div class="space-station">
+                    <img class="space-station-img" src="images/space-station.png" width="30px"/>
+                </div>
+                <div class="jupiter">
+                    <img class="jupiter-img" src="images/Jupiter.png" width="120px"/>
+                </div>
+                <div class="saturn">
+                    <img class="saturn-img" src="images/saturn.png" width="120px"/>
+                </div>
+                <div class="uranus">
+                    <img class="uranus-img" src="images/urnaus.png" width="120px"/>
+                </div>
+                <div class="pluto">
+                    <img class="pluto-img" src="images/urnaus.png" width="50px"/>
+                </div>
+            </div>
+        </div>
+        <canvas id="orb"></canvas>
+        <div id="modal" class="hidden">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="modal-header-title">
+                        <h1>You have discovered: Space Station Andromeda</h1>
+                        <div class="modal-header-body">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas faucibus
+                            pharetra lorem, pretium facilisis metus luctus ac. Quisque et mauris sagittis,
+                            porta ligula ac, sodales turpis. Nullam a leo fringilla, luctus dolor a,
+                            convallis purus. Phasellus sed placerat leo, ac lacinia nunc. Sed augue nunc,
+                            rhoncus id eleifend a, eleifend sed eros. Praesent at nisi metus.
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <div id="shop" class="">
+                        <div class="shop-shop-column">
+                            <div class="header-and-money">
+                                <h1>Items For Sale:</h1>
+                                <div class="stat-title">Money:
+                                    <span id="shop-stat-money" class="shop-stat-number"></span>
+                                </div>
+                            </div>
+                            <div id="prods" class="prods">
+                                <div class="product">
+                                    <img src="https://i.imgur.com/ahNLxWS.jpg" width="100"/>
+                                    <div class="product-item" data-qry="" data-item="" data-price="">Item 1</div>
+                                </div>
+                                <div class="product">
+                                    <img src="https://i.imgur.com/ahNLxWS.jpg" width="100"/>
+                                    <div class="product-item" data-qry="" data-item="" data-price="">Item 1</div>
+                                </div>
+                                <div class="product" data-qty="" data-item="" data-price="">Item 1</div>
+                            </div>
+                            <div class="shop-buttons">
+                                <button id="leave-shop" class="border-padding">
+                                    <i class="fas fa-arrow-left"></i>Leave Shop</button>
+                                <!-- <button id="purchase-item" class="border-padding">Purchase Items<i class="fas fa-dollar-sign"></i></button> -->
+                            </div>
+                        </div>
+                        <!-- <div class="purchase-column">
+                            <h1>Puchased Items:</h1>
+                            <div class="purchased-item">3 x Firepower</div>
+                            <div class="purchased-item">3 x Firepower</div>
+                            <div class="purchased-item">3 x Firepower</div>
+                            <div class="purchased-item">3 x Firepower</div>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="modal-fly" class="hidden">
+            <div class="modal-content">
+                <div class="">
+                    <div class="modal-header-title">
+                        <h1 id="modal-header">Your are entering a asteroid field</h1>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <div id="parent" class="">
+                        <div id="attack" class="controls">
+                            <div class="fly-desc">
+                                <div class="">
+                                    <div id="modal-body">You can go around the asteroid field and add 3 days to your journey, or take
+                                        the risk of crashing and go through. Use your arrow keys to control the spacesh</div>
+                                    <div class="control-buttons">
+                                        <!-- <button id="go">Go Through</button> -->
+                                        <!-- <button id="runaway">Avoid asteroid field | add +3 Days</button> -->
+                                    </div>
+                                </div>
+                                <div id="game-result" class="">
+                                    <!-- <div class="mars-game-btns">
+                                        <button id='btn-a'>Button A</button>
+                                        <button id='btn-b'>Button B</button>
+                                        <button id='btn-c'>Button C</button>
+                                        <button id='btn-d'>Button D</button>
+                                    </div> -->
+                                </div>
+                            </div>
+                        </div>
+                        <div id="game-result" class="hidden"></div>
+                        <canvas id="flappy-canvas" class="hidden" width="300" height="512"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="stats-messages">
+            <div class="left-row">
+                <div class="imporant-stats box-style">
+                    <h1>Vitals</h1>
+                    <div class="imporant-stat-row">
+                        <div class="imporant-stat-column">
+                            <div class="stat-title">Money:
+                                <span id="stat-money" class="stat-number"></span>
+                            </div>
+                            <div class="stat-title">Crew:
+                                <span id='stat-crew' class="stat-number"></span>
+                            </div>
+                            <div class="stat-title">Day:
+                                <span id="stat-day" class="stat-number"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="stats box-style">
+                    <div class="stat-column">
+                        <h1>Stats</h1>
+                        <div class="stat-row">
+                            <div class="stat-title">Distance</div>
+                            <div id='stat-distance' class="stat-number"></div>
+                        </div>
+                        <div class="stat-row">
+                            <div class="stat-title">Space Ships</div>
+                            <div id='stat-spaceShip' class="stat-number"></div>
+                        </div>
+                        <div class="stat-row">
+                            <div class="stat-title">Food</div>
+                            <div id='stat-food' class="stat-number"></div>
+                        </div>
+                        <div class="stat-row">
+                            <!-- Formally known as Missle Ammom -->
+                            <div class="stat-title">Oxygen</div>
+                            <div id='stat-firepower' class="stat-number"></div>
+                        </div>
+                        <div class="stat-row">
+                            <div class="stat-title">Inventory</div>
+                            <div id='stat-weight' class="stat-number"></div>
+                        </div>
+                    </div>
+                    <div class="discovery-column">
+                        <h1>Discoveries</h1>
+                        <div id="discovery-items">
+                            <!-- <div class="stat-row">Distance</div> -->
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div id="messages" class="messages box-style">
+                <h1>Progress:</h1>
+                <div class="message-box">
+                    <div id="message-line"></div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+</body>
+<script src="js/Caravan.js"></script>
+<script src="js/Event.js"></script>
+<script src="js/UI.js"></script>
+<script src="js/Game.js"></script>
+<script src="../../../canvas.js"></script>
+<script src="../flappy_bird/flappy.js"></script>
+</html>
