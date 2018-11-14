@@ -511,10 +511,14 @@ SpaceTrail.UI.go = function() {
   pipeSouth.src = "images/cometSouth.png";
 
   document.body.addEventListener("keydown", function(e) {
-    console.log(e);
+    var keycodes = [37, 38, 39, 40];
+    if (keycodes.includes(e.keyCode)) {
+      e.preventDefault();
+    }
     keys[e.keyCode] = true;
   });
   document.body.addEventListener("keyup", function(e) {
+    e.preventDefault();
     keys[e.keyCode] = false;
   });
 
@@ -572,6 +576,7 @@ SpaceTrail.UI.go = function() {
 
     for (var i = 0; i < pipe.length; i++) {
       fctx.drawImage(pipeNorth, pipe[i].x, pipe[i].y);
+
       fctx.drawImage(pipeSouth, pipe[i].x, pipe[i].y + constant);
       pipe[i].x--;
 
@@ -583,6 +588,7 @@ SpaceTrail.UI.go = function() {
         });
       }
 
+      //check for game win
       if (pipe.length === 8) {
         SpaceTrail.Caravan.spaceShip += 1;
         madeSafely = true;
@@ -591,16 +597,23 @@ SpaceTrail.UI.go = function() {
         gameOver = true;
       }
 
+      var collisionCheck = {
+        one: bX + bird.width >= pipe[i].x,
+        two: bX <= pipe[i].x + pipeNorth.width,
+        northCollide: bY <= pipe[i].y + pipeNorth.height,
+        southCollide: bY + bird.height >= pipe[i].y + constant
+      };
+      //check for collision
       if (
-        bX + bird.width >= pipe[i].x &&
-        bX <= pipe[i].x + pipeNorth.width &&
-        (bY <= pipe[i].y + pipeNorth.height ||
-          bY + bird.height >= pipe[i].y + constant)
+        collisionCheck.one &&
+        collisionCheck.two &&
+        (collisionCheck.northCollide || collisionCheck.southCollide)
       ) {
         // location.reload();
         SpaceTrail.Caravan.spaceShip += 1;
         madeSafely = false;
         console.log("Lost a ship");
+        console.log(collisionCheck);
         fctx.clearRect(0, 0, fcanvas.width, fcanvas.height);
         gameOver = true;
       }
