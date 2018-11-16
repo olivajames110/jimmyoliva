@@ -170,8 +170,8 @@ SpaceTrail.Game.updateGame = function() {
   //---SHOW Asteroid Field DISCOVERY---
 
   if (
-    Math.floor(this.caravan.distance) >= 50 &&
-    Math.floor(this.caravan.distance <= 55) &&
+    Math.floor(this.caravan.distance) >= 1400 &&
+    Math.floor(this.caravan.distance <= 1422) &&
     !asteriodIsDiscovered
   ) {
     // SpaceTrail.UI.showAttack('belt')

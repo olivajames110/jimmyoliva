@@ -497,8 +497,15 @@ SpaceTrail.UI.go = function() {
   //pipe coordinates
   var pipe = [];
   pipe[0] = {
-    x: fcanvas.width,
-    y: 0
+    pipeTop: {
+      x: fcanvas.width,
+      y: 0
+    },
+    pipeBottom: {
+      x: fcanvas.width,
+      y: 0
+    },
+    x: fcanvas.width
   };
 
   //draww images
@@ -575,16 +582,30 @@ SpaceTrail.UI.go = function() {
     fctx.drawImage(bg, 0, 0);
 
     for (var i = 0; i < pipe.length; i++) {
-      fctx.drawImage(pipeNorth, pipe[i].x, pipe[i].y);
-
-      fctx.drawImage(pipeSouth, pipe[i].x, pipe[i].y + constant);
+      fctx.drawImage(pipeNorth, pipe[i].pipeTop.x, pipe[i].pipeTop.y);
+      fctx.drawImage(
+        pipeSouth,
+        pipe[i].pipeBottom.x,
+        pipe[i].pipeBottom.y + constant
+      );
       pipe[i].x--;
+      pipe[i].pipeTop.x--;
+      pipe[i].pipeBottom.x--;
 
       //controls how close each column is from each other. The higher the number the closer
       if (pipe[i].x == 500) {
+        var random =
+          Math.floor(Math.random() * pipeNorth.height) - pipeNorth.height;
         pipe.push({
-          x: fcanvas.width,
-          y: Math.floor(Math.random() * pipeNorth.height) - pipeNorth.height
+          pipeBottom: {
+            x: fcanvas.width,
+            y: random
+          },
+          pipeTop: {
+            x: fcanvas.width,
+            y: random
+          },
+          x: fcanvas.width
         });
       }
 
@@ -598,10 +619,17 @@ SpaceTrail.UI.go = function() {
       }
 
       var collisionCheck = {
+        // check one and two ensure ship is inside the asteriod fields X axis
         one: bX + bird.width >= pipe[i].x,
         two: bX <= pipe[i].x + pipeNorth.width,
-        northCollide: bY <= pipe[i].y + pipeNorth.height,
-        southCollide: bY + bird.height >= pipe[i].y + constant
+
+        // check if the ship collided with the topmost pipe
+        northCollide: bY <= pipe[i].pipeTop.y + pipeNorth.height,
+
+        // check if the ship collided with the bottommost pipe
+        southCollide:
+          bY + bird.height >= pipe[i].pipeBottom.y + constant &&
+          bY <= pipe[i].pipeBottom.y + pipeSouth.height + constant
       };
       //check for collision
       if (
